@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCartShopping,faBars,faXmark} from '@fortawesome/free-solid-svg-icons'
+import {faCartShopping,faBars,faXmark, faSearch} from '@fortawesome/free-solid-svg-icons'
 import {faHeart,faUser} from '@fortawesome/free-regular-svg-icons'
 
 const Navbar = () => {                             //Arrow function
@@ -15,17 +15,21 @@ const Navbar = () => {                             //Arrow function
     <div className='text-white flex justify-between  max-w-[1500px] h-20 px-5 mx-auto items-center' >     
       <div> <a href='www.google.com'> <h1 className='text-4xl font-praise '> Wijeratne</h1></a> </div>
       <ul className='hidden md:flex'>
-        <li className='p-4'>Hot Deals !</li>
-        <li className='p-4'>Products</li>
-        <li className='p-4'>My Orders</li>
-        <li className='p-4'>Customized Orders</li>
-        <li className='p-4'>Track My Order</li>
-
-        <li className='p-4'><FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></li>
-        <li className='p-4'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></li>
-        <li className='p-4'><FontAwesomeIcon icon={faUser} className='fill-white' > </FontAwesomeIcon> </li>
+          <li className='p-5'>Hot Deals !</li>
+          <li className='p-5'>Products</li>
+          <li className='p-5'>My Orders</li>
+          <li className='p-5'>Customized Orders</li>
+          <li className='p-5'>Track My Order</li>
         </ul>
-        
+
+      <div>
+        <ul className='hidden md:flex'>
+          <li className='p-4'><FontAwesomeIcon icon={faSearch} className='fill-white' > </FontAwesomeIcon> </li>
+          <li className='p-4'><FontAwesomeIcon icon={faUser} className='fill-white' > </FontAwesomeIcon> </li>
+          <li className='p-4'><FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></li>
+          <li className='p-4'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></li>
+        </ul>
+      </div>
       
 
         <div onClick = {handleNav} className='block md:hidden'>
