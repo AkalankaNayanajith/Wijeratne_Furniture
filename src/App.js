@@ -12,6 +12,11 @@ import CustomizedOrders from './Components/CustomizedOrders';
 import TrackMyOrder from './Components/TrackMyOrder';
 import HotDeals from './Components/HotDeals';
 import Cart from './Components/Cart';
+import PrivacyPolicy from './Components/PrivacyPolicy';
+import RefundPolicy from './Components/RefundPolicy';
+import FAQ from './Components/FAQ';
+import TermsOfUse from './Components/TermsOfUse';
+import Products from './Components/Products';
 
 function App() {
   return (
@@ -65,12 +70,35 @@ function App() {
               </div>
             </Route>
 
-            <Route exact path="/Cart"> 
+            <Route exact path="/faq"> 
               <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
-                  <Cart/>
+                  <FAQ/>
               </div>
             </Route>
-            
+
+            <Route exact path="/TermsOfUse"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <TermsOfUse/>
+              </div>
+            </Route>
+
+            <Route exact path="/RefundPolicy"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <RefundPolicy/>
+              </div>
+            </Route>
+
+            <Route exact path="/PrivacyPolicy"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <PrivacyPolicy/>
+              </div>
+            </Route>
+
+            <Route exact path="/Products"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <Products/>
+              </div>
+            </Route>
                      
           </Switch>
      

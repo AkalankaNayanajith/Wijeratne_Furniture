@@ -11,16 +11,21 @@ const Cart = () => {
 
   return (
 <>
+
+<div>
     <div onClick = {handleCart} className=''>
           {!cartt ? <FontAwesomeIcon icon={faXmark} />  : <FontAwesomeIcon icon={faBars} /> }  
-          {/* if the nav value is true then show x mark if not show menu mark */}
+          {/* if the cart value is true then show x mark if not show menu mark */}
     </div>
 
-<div className= {! cartt ? 'fixed left-0 top-16 w-[60%] h-full border-r z-50 border-r-gray-900  bg-[#000300] ease-in duration-500 : 'fixed ease-out duration-1000 left-[-135%]'}
-</div>
+    <div className= {! cartt ? 'fixed left-0 top-16 w-[60%] h-full border-r z-50 border-r-gray-900  bg-[#000300] ease-in duration-500' : 'fixed ease-out duration-1000 left-[-135%]'}>
+    </div>
 
 
     <div>Cart</div>
+
+</div>
+   
 </>
   )
 }

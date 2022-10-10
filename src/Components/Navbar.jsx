@@ -28,8 +28,8 @@ const Navbar = () => {                             //Arrow function
           <li className='p-4 cursor-pointer'><FontAwesomeIcon icon={faSearch} className='fill-white' > </FontAwesomeIcon> </li>
           <li className='p-4 cursor-pointer'><FontAwesomeIcon icon={faUser} className='fill-white' > </FontAwesomeIcon> </li>
           <li className='p-4 cursor-pointer'><FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></li>
-          <li className='p-4 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></li>
-          <Link to='/Cart' className='p-4 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></Link>
+          {/* <li className='p-4 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></li> */}
+          <button className='p-4 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></button>
         </ul>
       </div>
       

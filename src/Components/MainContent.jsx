@@ -8,7 +8,7 @@ const MainContent = () => {
        
         <div className='flex-1 relative h-1/2'>
         <div className='absolute left-1/2 transform transition duration-500 -translate-x-1/2 w-full h-full flex items-center justify-center group-hover:scale-125 group-hover:-translate-y-9'> 
-            <img className='w-4/5 h-auto' src= {item.thumb} />
+            <img className='w-4/5 h-auto' src= {item.thumb}/>
         </div>
         </div>
 
@@ -22,7 +22,7 @@ const MainContent = () => {
 );
 
 return(
-    <div className = "main_content m-0 p-0 relative grid grid-cols-1 lg:grid-cols-3 gap-6 w-[75%] mx-auto py-8">
+    <div className = "main_content m-0 pt-16 relative grid grid-cols-1 lg:grid-cols-3 gap-6 w-[75%] mx-auto py-8">
         <h3 className='absolute left-1/2 top-12 transform -translate-x-1/2 text-slate-800 text-[6rem] lg:text-[10rem]'> Chairs </h3>
         {listItems}
     </div>
