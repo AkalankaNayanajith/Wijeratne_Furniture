@@ -1,18 +1,90 @@
 import './App.css';
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Hero from './Components/Hero';
 import ProductCardHomePage from './Components/ProductCardHomePage';
 import MainContent from './Components/MainContent';
+import Footer from './Components/Footer';
+import AboutUs from './Components/AboutUs';
+import ContactUs from './Components/ContactUs';
+import MyOrders from './Components/MyOrders';
+import CustomizedOrders from './Components/CustomizedOrders';
+import TrackMyOrder from './Components/TrackMyOrder';
+import HotDeals from './Components/HotDeals';
+import Cart from './Components/Cart';
 
 function App() {
   return (
     <>
-     <Navbar/>
-     <Hero/>
-     <MainContent/>
-     {/* <ProductCardHomePage/> */}
-    </>
+    <BrowserRouter>
+      <div className='Navigation'>
+        <Navbar/>
+        <div className='Home'>
+          <Switch>
+
+            <Route exact path="/"> 
+              <Hero/>
+              <div className=' flex w-[100%] h-[100%] p-0 bg-slate-900 justify-between flex-wrap m-0 relative'>
+                  <MainContent/>
+              </div>
+            </Route>
+
+            <Route exact path="/aboutus"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <AboutUs/>
+              </div>
+            </Route>
+
+            <Route exact path="/contactus"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <ContactUs/>
+              </div>
+            </Route>
+
+            <Route exact path="/myorders"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <MyOrders/>
+              </div>
+            </Route>
+
+            <Route exact path="/customizedorders"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <CustomizedOrders/>
+              </div>
+            </Route>
+
+            <Route exact path="/hotdeals"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <HotDeals/>
+              </div>
+            </Route>
+
+            <Route exact path="/TrackMyOrder"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <TrackMyOrder/>
+              </div>
+            </Route>
+
+            <Route exact path="/Cart"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <Cart/>
+              </div>
+            </Route>
+            
+                     
+          </Switch>
      
+        </div>
+     <Footer/>
+     {/* <ProductCardHomePage/> */}
+
+     </div>
+
+
+     </BrowserRouter> 
+
+    </>
+    
   );
 }
 

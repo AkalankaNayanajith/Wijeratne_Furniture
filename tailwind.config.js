@@ -14,7 +14,7 @@ module.exports = {
     fontFamily :{
       'jsouls-font': [''],
       'praise': ['Praise'],
-
+      'Manrope': ['Manrope','sans-serif'],
     }
   },
   plugins: [],
