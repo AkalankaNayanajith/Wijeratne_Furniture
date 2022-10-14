@@ -1,21 +1,21 @@
 import './App.css';
-import { BrowserRouter, Route, Router, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Hero from './Components/Hero';
 import ProductCardHomePage from './Components/ProductCardHomePage';
 import MainContent from './Components/MainContent';
 import Footer from './Components/Footer';
-import AboutUs from './Components/AboutUs';
-import ContactUs from './Components/ContactUs';
+import AboutUs from './Components/Pages/AboutUs';
+import ContactUs from './Components/Pages/ContactUs';
 import MyOrders from './Components/MyOrders';
 import CustomizedOrders from './Components/CustomizedOrders';
 import TrackMyOrder from './Components/TrackMyOrder';
 import HotDeals from './Components/HotDeals';
 import Cart from './Components/Cart';
-import PrivacyPolicy from './Components/PrivacyPolicy';
-import RefundPolicy from './Components/RefundPolicy';
-import FAQ from './Components/FAQ';
-import TermsOfUse from './Components/TermsOfUse';
+import PrivacyPolicy from './Components/Pages/PrivacyPolicy';
+import RefundPolicy from './Components/Pages/RefundPolicy';
+import FAQ from './Components/Pages/FAQ';
+import TermsOfUse from './Components/Pages/TermsOfUse';
 import Products from './Components/Products';
 
 function App() {

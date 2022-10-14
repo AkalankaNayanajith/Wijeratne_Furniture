@@ -1,8 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faSearch} from '@fortawesome/free-solid-svg-icons'
-import {faHeart,faUser} from '@fortawesome/free-regular-svg-icons'
 
 
 export default function Footer() {
@@ -12,7 +9,7 @@ export default function Footer() {
     <div className='Footer justify-between w-[100%] h-[500px] flex  bg-[#DFDFDF]'>
 
       <div className='px-[40px]'>
-        <a href='/'> <h1 className='text-4xl w-[35%] font-praise pt-[35px]'> Wijeratne</h1></a>
+        <a href='/'> <h1 className='text-4xl w-[35%] font-praise pt-[35px] hover:text-[#B05C0D]'> Wijeratne</h1></a>
         <p className='font-Manuale '> “We furnish the dreams !” </p>
         <div className='flex pt-16'><img className='object-scale-down pr-[10px]' src="../Images/Email.svg" alt="" />wijeratnefurniture@gmail.com</div>
         <div className='flex pt-2'><img className='object-scale-down pr-4 ' src="../Images/PhoneIcon.svg" alt="" />  077 919 3612</div>
@@ -66,7 +63,7 @@ Moratuwa </div>
         </div>
 
         <div className='px-4 pt-6 pb-5'>
-          <p className='text-[10px]'> *  For more information on how we use your personal <br/> details please refer to our <a href="/Privacy"         className='underline text-[#3734A9]'>Privacy Policy. </a> </p>
+          <p className='text-[10px]'> *  For more information on how we use your personal <br/> details please refer to our <a href="/PrivacyPolicy"  className='underline text-[#3734A9]'>Privacy Policy. </a> </p>
         </div>
 
         <div>
@@ -86,7 +83,6 @@ Moratuwa </div>
     </div>
 
       <div className='h-0.5  w-full bg-[#dfdfdf]'><div className='w-[90%] h-full mx-auto bg-black'> </div>
-
       </div>
 
       <div>
