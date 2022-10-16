@@ -25,13 +25,13 @@ export default function FAQ() {
 
           <p className='font-[650] w-full text-[16px] mt-6'> What Is Your Return Policy? </p>
           <p className='w-full mt-6 text-[16px] text-justify'> If there’s something wrong with your order (defective product, incorrect order, damaged order etc.), please contact us within 7 days from receiving your order and we’ll be happy to assist you reviewing the case and if it is approved we will be sending a replacement. Please do not return anything before we review the case, our customer service team will review the request and will send further instructions. Beauty Reina™ reserves the right to deny any return request.
-
+          <br/><br/>
           You will be responsible for paying for your own shipping costs for returning your item. Original shipping charges and 10% restocking fee          are not refundable.</p>
 
           <p className='font-[650] w-full text-[16px] mt-6'> What Methods of Payment Do You Accept?</p>
             <p className='w-full mt-6 text-[16px] text-justify'> We accept PayPal, Credit Card (Visa, MasterCard, Discover, and American Express) and Debit Card </p>
 
-          <p className='font-[650] w-full text-[16px] mt-6'> Need additional help? <a href="/Contactus"  className='underline underline-offset-8 text-[#B05C0D]'>Contact Us </a></p>
+          <p className='font-[650] w-full text-[16px] mt-6'> Need additional help? <a href="/Contactus"  className='underline underline-offset-4 text-[#B05C0D]'>Contact Us </a></p>
         </div>
     </div>
     </>
