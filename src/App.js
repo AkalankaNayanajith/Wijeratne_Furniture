@@ -17,19 +17,21 @@ import RefundPolicy from './Components/Pages/RefundPolicy';
 import FAQ from './Components/Pages/FAQ';
 import TermsOfUse from './Components/Pages/TermsOfUse';
 import Products from './Components/Products';
+import Dashboard from './Components/Pages/Dashboard';
+import ClippedDrawer  from './Components/Pages/DashClippedDrawer';
 
 function App() {
   return (
     <>
     <BrowserRouter>
       <div className='Navigation'>
-        <Navbar/>
-        <div className='Home'>
+        {/* <Navbar/> */}
+        <div className='Content'>
           <Switch>
 
             <Route exact path="/"> 
               <Hero/>
-              <div className=' flex w-[100%] h-[100%] p-0 bg-slate-900 justify-between flex-wrap m-0 relative'>
+              <div className='HomePage flex w-[100%] h-[100%] p-0 bg-slate-900 justify-between flex-wrap m-0 relative'>
                   <MainContent/>
               </div>
             </Route>
@@ -98,18 +100,31 @@ function App() {
               <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
                   <Products/>
               </div>
-            </Route>
+            </Route>           
                      
           </Switch>
      
         </div>
-     <Footer/>
+     {/* <Footer/> */}
      {/* <ProductCardHomePage/> */}
 
      </div>
 
+     <Route exact path="/Dashboard"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <Dashboard/>
+              </div>
+            </Route>
+
+            <Route exact path="/Dashboard"> 
+              <div className=' flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative'>
+                  <ClippedDrawer/>
+              </div>
+            </Route>
+
 
      </BrowserRouter> 
+     
 
     </>
     
