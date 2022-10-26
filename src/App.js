@@ -28,7 +28,7 @@ function App() {
       <BrowserRouter>
        
           <Navbar/>
-          <Slider/>
+          {/* <Slider/> */}
           <div className=" flex w-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
             {/* <AdminBar /> */}
             {/* <ClippedDrawer /> */}
