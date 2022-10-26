@@ -12,12 +12,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { blueGrey } from '@mui/material/colors';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const AdminBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -40,11 +39,11 @@ const ResponsiveAppBar = () => {
     <AppBar  position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Container maxWidth="3xl">
         <Toolbar disableGutters>          
-          <Typography
+          <Typography className='ml-2'
             variant="h4"
             noWrap
             component="a"
-            href="/"
+            href="/Admin"
             sx={{
               mr: 0,
               display: { xs: 'none', md: 'flex' },
@@ -99,7 +98,7 @@ const ResponsiveAppBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/Admin"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -159,4 +158,4 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+export default AdminBar;

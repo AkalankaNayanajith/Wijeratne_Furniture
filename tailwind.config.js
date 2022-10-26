@@ -19,7 +19,7 @@ module.exports = {
       'Pragati-Narrow':[ 'Pragati Narrow', 'sans-serif'],
     }
   },
-  plugins: [],
+  plugins: [require('tw-elements/dist/plugin')],
 }
 }
 //customize tailwindcss
