@@ -62,7 +62,7 @@ export default function ClippedDrawer() {
   const theme = useTheme();
 
   return (
-    <Drawer className='h-full'
+    <Drawer className='h-full '
         variant="permanent"
         sx={{
           // height:"100%",
