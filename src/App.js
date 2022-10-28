@@ -27,11 +27,11 @@ function App() {
     <>
       <BrowserRouter>
        
-          {/* <Navbar/> */}
-          {/* <Slider/> */}
+          <Navbar/>
+          <Slider/>
           <div className=" flex w-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-            <AdminBar />
-            <ClippedDrawer />
+            {/* <AdminBar /> */}
+            {/* <ClippedDrawer /> */}
           </div>
             <Switch>
               <Route exact path="/">
@@ -118,7 +118,7 @@ function App() {
                 </Route> */}
               </Route>
             </Switch>
-          {/* <Footer/> */}
+          <Footer/>
           {/* <ProductCardHomePage/> */}
       
       </BrowserRouter>

@@ -18,12 +18,11 @@ const MainContent = () => {
         <h2 className="text-white text-3xl"> {item.productName} </h2>
         <p className="text-white text-[14px]"> {item.description} </p>
         <p className="price text-[#fe8033] text-[25px] inline-block align-bottom relative">
-          {" "}
-          {item.price}{" "}
           <span className="absolute -left-4 bottom-[0.37rem] text-xs">
             {" "}
             {item.Currency}
-          </span>
+          </span>{" "}
+          {item.price}{" "}
         </p>
         <div className="btn text-white">
           {" "}
