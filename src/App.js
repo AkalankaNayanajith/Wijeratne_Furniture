@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Hero from "./Components/Hero";
 import ProductCardHomePage from "./Components/ProductCardHomePage";
 import MainContent from "./Components/MainContent";
 import Footer from "./Components/Footer";
@@ -27,15 +26,14 @@ function App() {
     <>
       <BrowserRouter>
        
-          <Navbar/>
-          <Slider/>
+          {/* <Navbar/> */}
+          {/* <Slider/> */}
           <div className=" flex w-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-            {/* <AdminBar /> */}
-            {/* <ClippedDrawer /> */}
+            <AdminBar />
+            <ClippedDrawer />
           </div>
             <Switch>
               <Route exact path="/">
-                <Hero />
                 <div className="HomePage flex w-[100%] h-[100%] p-0 bg-slate-900 justify-between flex-wrap m-0 relative">
                   <MainContent />
                 </div>
@@ -118,7 +116,7 @@ function App() {
                 </Route> */}
               </Route>
             </Switch>
-          <Footer/>
+          {/* <Footer/> */}
           {/* <ProductCardHomePage/> */}
       
       </BrowserRouter>
