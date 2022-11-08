@@ -88,7 +88,7 @@ export default function ClippedDrawer() {
                   <ListItemIcon className='text-white'>
                    {text.icon}
                   </ListItemIcon>
-                  <ListItemText primary={text.Link} />
+                  <ListItemText sx={{    fontSize:'3rem' }}  primary={text.Link} />
                
                 </ListItemButton>
               </ListItem>

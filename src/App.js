@@ -21,6 +21,7 @@ import AdminBar from "./Components/Pages/AdminBar";
 import AddProduct from "./Components/Pages/AddProduct";
 import Slider from "./Components/Slider";
 
+
 function App() {
   return (
     <>
@@ -30,7 +31,7 @@ function App() {
           {/* <Slider/> */}
           <div className=" flex w-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
             <AdminBar />
-            <ClippedDrawer />
+            {/* <ClippedDrawer /> */}
           </div>
             <Switch>
               <Route exact path="/">
@@ -104,6 +105,7 @@ function App() {
                   <Products />
                 </div>
               </Route>
+
 
               <Route exact path="/AddProduct">
                 <Route index={true}>

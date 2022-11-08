@@ -5,6 +5,7 @@ import ClippedDrawer from "./DashClippedDrawer";
 import InputButton from "../InputButton";
 import { Box, CssBaseline } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import CustomTextField from "../CustomTextField/CustomTextField";
 
 export default function AddProduct() {
   const initialValues = { productName: "", productID: "" };
@@ -14,11 +15,13 @@ export default function AddProduct() {
     <>
       <Box
         sx={{
+          width:500,
+          pl: 30,
           display: "flex",
         }}
       >
-        <CssBaseline />
-        <ClippedDrawer />
+        {/* <CssBaseline /> */}
+        {/* <ClippedDrawer /> */}
         <Box
           component="main"
           sx={{
@@ -101,23 +104,30 @@ export default function AddProduct() {
                   Warranty Period
                 </span>
               </label>
+              <CustomTextField name={"fwefw"} />
             </div>
 
             <div className="h-60 w-auto justify-between mx-60 bg-white flex items-center">
+            <label className="relative p-2">
               <textarea
-                className="border-2 border-black rounded-lg border-opacity-50 h-40 w-full px-6 text-xl bg-white focus:border-purple-600  
+                className="border-2 border-black rounded-lg border-opacity-50 resize-none h-52 w-full px-6 text-xl bg-white focus:border-purple-600  
                 transition duration-200 peer"
                 placeholder="Product Description"
                 name="ProductDescription"
                 id=""
                 cols="30"
                 rows="8"
-              >
-              </textarea>
-              
+              ></textarea>
+              <span className="text-xl text-black text-opacity-80 absolute left-0 top-6 mx-4 px-2 transition-all duration-200 input-text cursor-text peer-focus:text-sm peer-focus:text-purple-600 peer-focus:-top-1 peer-focus:bg-white peer-focus:left-3">
+                Warranty Period
+              </span>
+              </label>
             </div>
             {/* <InputButton/> */}
           </div>
+
+          <TextField sx={{ml:30}} id="outlined-basic" label="Outlined" variant="outlined" />
+
 
           <div className="imageupload mt-12 mx-60 mb-24 flex items-center gap-5 ">
             <div className="box-border border-black border-opacity-50 h-60 w-[28rem] p-4 border-2"></div>
