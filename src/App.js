@@ -20,6 +20,7 @@ import ClippedDrawer from "./Components/Pages/DashClippedDrawer";
 import AdminBar from "./Components/Pages/AdminBar";
 import AddProduct from "./Components/Pages/AddProduct";
 import Slider from "./Components/Slider";
+import OneProductView from "./Components/OneProductView";
 
 
 function App() {
@@ -106,6 +107,11 @@ function App() {
                 </div>
               </Route>
 
+              <Route exact path="/singleproduct">
+                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                  <OneProductView/>
+                </div>
+              </Route>
 
               <Route exact path="/AddProduct">
                 <Route index={true}>
