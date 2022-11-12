@@ -21,6 +21,8 @@ import AdminBar from "./Components/Pages/AdminBar";
 import AddProduct from "./Components/Pages/AddProduct";
 import Slider from "./Components/Slider";
 import OneProductView from "./Components/OneProductView";
+import MyShoppingCart from "./Components/MyShoppingCart";
+import PaymentInformation from "./Components/PaymentInformation";
 
 
 function App() {
@@ -29,7 +31,6 @@ function App() {
       <BrowserRouter>
        
           <Navbar/>
-          <Slider/>
           <div className=" flex w-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
             {/* <AdminBar /> */}
             {/* <ClippedDrawer /> */}
@@ -37,6 +38,7 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <div className="HomePage flex w-[100%] h-[100%] p-0 bg-slate-900 justify-between flex-wrap m-0 relative">
+                  <Slider/>
                   <MainContent />
                 </div>
               </Route>
@@ -110,6 +112,18 @@ function App() {
               <Route exact path="/singleproduct">
                 <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
                   <OneProductView/>
+                </div>
+              </Route>
+
+              <Route exact path="/myshoppingcart">
+                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                  <MyShoppingCart/>
+                </div>
+              </Route>
+
+              <Route exact path="/paymentinformation">
+                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                  <PaymentInformation/>
                 </div>
               </Route>
 
