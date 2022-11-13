@@ -39,7 +39,7 @@ const MyShoppingCart = () => {
                   <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
                     luxury Bed {" "}
                   </h3>
-                  <p className="font-thin mt-[0.1rem] text-[#585d61]  text-sm italic">
+                  <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
                     {" "}
                     Black, Metal & Leather
                   </p>
@@ -94,9 +94,12 @@ const MyShoppingCart = () => {
               {" "}
               Total{" "}
             </li>
-          </ul>
+          </ul> 
         </div>
         <div className="h-0.5 mt-6 mb-6 w-full bg-[#DBD9D9]"></div>
+
+        
+        {/* take image and botton border as component */}
         <div className="h-28 flex items-center">
           <div className="h-24 w-24 ml-[13.5rem] rounded-lg border-2 border-[#A6A6A6]">
             <img
@@ -109,7 +112,7 @@ const MyShoppingCart = () => {
             <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
               Zoltro Gaming Chair{" "}
             </h3>
-            <p className="font-thin mt-[0.1rem] text-[#585d61]  text-sm italic">
+            <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
               {" "}
               Black, Metal & Leather
             </p>
@@ -130,6 +133,9 @@ const MyShoppingCart = () => {
           />
         </div>
         <div className="h-0.5 mt-6 mb-6 w-full bg-[#DBD9D9]"></div>
+{/* first component to here   */}
+
+
 
         {/* take image and bottom line as a component */}
         <div className="h-28 flex items-center">
@@ -144,7 +150,7 @@ const MyShoppingCart = () => {
             <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
               luxury Bed{" "}
             </h3>
-            <p className="font-thin mt-[0.1rem] text-[#585d61]  text-sm italic">
+            <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
               {" "}
               Black, Metal & Leather
             </p>

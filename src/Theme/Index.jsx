@@ -76,7 +76,7 @@ export default function ThemeProvider({ children }) {
         },
       },
       shape: {
-        borderRadius: 2,
+        borderRadius: 10,
       },
     }),
     [],
