@@ -59,7 +59,7 @@ function App() {
           <Route
             exact
             path="/contactus"
-            element={
+            element={ 
               <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
                 <ContactUs />
               </div>
