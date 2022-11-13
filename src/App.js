@@ -23,124 +23,179 @@ import Slider from "./Components/Slider";
 import OneProductView from "./Components/OneProductView";
 import MyShoppingCart from "./Components/MyShoppingCart";
 import PaymentInformation from "./Components/PaymentInformation";
-
+import { Routes } from "react-router-dom";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-       
-          <Navbar/>
-          <div className=" flex w-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-            {/* <AdminBar /> */}
-            {/* <ClippedDrawer /> */}
-          </div>
-            <Switch>
-              <Route exact path="/">
-                <div className="HomePage flex w-[100%] h-[100%] p-0 bg-slate-900 justify-between flex-wrap m-0 relative">
-                  <Slider/>
-                  <MainContent />
-                </div>
-              </Route>
+        {/* <Navbar/> */}
+        {/* <div className=" flex w-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"> */}
+        {/* <AdminBar /> */}
+        {/* <ClippedDrawer /> */}
+        {/* </div> */}
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <div className="HomePage flex w-[100%] h-[100%] p-0 bg-slate-900 justify-between flex-wrap m-0 relative">
+                <Slider />
+                <MainContent />
+              </div>
+            }
+          />
 
-              <Route exact path="/aboutus">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <AboutUs />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/aboutus"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <AboutUs />
+              </div>
+            }
+          />
 
-              <Route exact path="/contactus">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <ContactUs />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/contactus"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <ContactUs />
+              </div>
+            }
+          />
 
-              <Route exact path="/myorders">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <MyOrders />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/myorders"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <MyOrders />
+              </div>
+            }
+          />
 
-              <Route exact path="/customizedorders">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <CustomizedOrders />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/customizedorders"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <CustomizedOrders />
+              </div>
+            }
+          />
 
-              <Route exact path="/hotdeals">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <HotDeals />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/hotdeals"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <HotDeals />
+              </div>
+            }
+          />
 
-              <Route exact path="/TrackMyOrder">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <TrackMyOrder />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/TrackMyOrder"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <TrackMyOrder />
+              </div>
+            }
+          />
 
-              <Route exact path="/faq">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <FAQ />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/faq"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <FAQ />
+              </div>
+            }
+          />
 
-              <Route exact path="/TermsOfUse">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <TermsOfUse />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/TermsOfUse"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <TermsOfUse />
+              </div>
+            }
+          />
 
-              <Route exact path="/RefundPolicy">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <RefundPolicy />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/RefundPolicy"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <RefundPolicy />
+              </div>
+            }
+          />
 
-              <Route exact path="/PrivacyPolicy">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <PrivacyPolicy />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/PrivacyPolicy"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <PrivacyPolicy />
+              </div>
+            }
+          />
 
-              <Route exact path="/Products">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <Products />
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/Products"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <Products />
+              </div>
+            }
+          />
 
-              <Route exact path="/singleproduct">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <OneProductView/>
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/singleproduct"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <OneProductView />
+              </div>
+            }
+          />
 
-              <Route exact path="/myshoppingcart">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <MyShoppingCart/>
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/myshoppingcart"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <MyShoppingCart />
+              </div>
+            }
+          />
 
-              <Route exact path="/paymentinformation">
-                <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  <PaymentInformation/>
-                </div>
-              </Route>
+          <Route
+            exact
+            path="/paymentinformation"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <PaymentInformation />
+              </div>
+            }
+          />
 
-              <Route exact path="/AddProduct">
-                <Route index={true}>
-                  <AddProduct />
-                  {/* <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
-                  </div> */}
-                </Route>
-                {/* <Route path="products">
+          <Route exact path="/AddProduct">
+            <Route index={true} element={<AddProduct/>}/>
+              
+            {/* <Route path="products">
                   <Route path="New"></Route>
                 </Route> */}
-              </Route>
-            </Switch>
-          <Footer/>
-          {/* <ProductCardHomePage/> */}
-      
+          </Route>
+        </Routes>
+        {/* <Footer/> */}
+        {/* <ProductCardHomePage/> */}
       </BrowserRouter>
     </>
   );
