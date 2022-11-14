@@ -1,12 +1,13 @@
+import React from 'react'
 import { CheckBox } from "@mui/icons-material";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
-import React from "react";
 import { Link } from "react-router-dom";
 import CheckBoxTick from "./CheckBoxTick";
 import CustomSeparator from "./CustomSeparator";
 import ProvinceDropdown from "./ProvinceDropdown";
 import TextInput from "./TextInput";
+
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -16,15 +17,18 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     padding: "0 4px",
   },
 }));
-const PaymentInformation = () => {
-  return (
+const Shipping = () => {
+    return (
+     
+  
+  
     <div className="flex container w-full">
       <div className="bg-white w-[55%] h-full pl-28 pr-16">
         <div className="">
           <a href="/">
-           
-            <h1 className="text-4xl text-[#B05C0D] font-praise pt-6 hover:text-black ">
-            
+            {" "}
+            <h1 className="text-4xl  text-[#B05C0D] font-praise pt-6 hover:text-black ">
+              {" "}
               Wijeratne
             </h1>
           </a>
@@ -44,37 +48,38 @@ const PaymentInformation = () => {
         <h2 className="text-base font-sans font-semibold pt-6">
           Shipping Address
         </h2>
-        <div className="flex justify-between gap-4 ">
-          <TextInput className="" name="First Name" sx={{ color: "secondary", mt: 2 }} />
-          <TextInput name="Last Name" sx={{ color: "secondary", mt: 2 }} />
+        <div className="flex justify-between">
+          <TextInput name="First Name" sx={{ color: "secondary" }} />
+          <TextInput name="Last Name" sx={{ color: "secondary" }} />
         </div>
-        <TextInput name="Address" sx={{ color: "secondary", mt: 2 }} />
+        <TextInput name="Address" sx={{ color: "secondary" }} />
         <TextInput
           name="Apartment, suite, etc (optional)"
-          sx={{ color: "secondary", mt: 2 }}
+          sx={{ color: "secondary" }}
         />
-        <TextInput name="City" sx={{ color: "secondary" , mt: 2}} />
-        <div className="flex justify-between gap-4">
+        <TextInput name="City" sx={{ color: "secondary" }} />
+        <div className="flex justify-between">
           <ProvinceDropdown />
-          <TextInput name="Postal Code" sx={{ color: "secondary", mt: 2 }} />
+          <TextInput name="Postal Code" sx={{ color: "secondary" }} />
         </div>
-        <TextInput name="Phone" sx={{ color: "secondary", mt: 2 }} />
+        <TextInput name="Phone" sx={{ color: "secondary" }} />
         <div className="mt-8 mb-28 flex justify-between ">
           <Link
-            to="/myshoppingcart"
+            to="/shipping"
             className=" rounded-none bg-white text-blue-600 pr-16 py-[1.5rem] font-sans font-normal text-lg hover:text-blue-800 "
           >
             <p>
               {" "}
-              <span>&#60;</span> Return to cart{" "}
+              <span>&#60;</span> Return to Information
             </p>
           </Link>
 
           <Link
-            to="/shipping"
+            to="/payment
+            "
             className="border-2 border-blue-600 bg-blue-600 text-white rounded-lg  px-16 py-[1.5rem] font-sans font-normal text-lg hover:border-blue-800 hover:bg-blue-800"
           >
-            <p> Continue to Shipping</p>
+            <p> Continue to Payment</p>
           </Link>
         </div>
 
@@ -114,7 +119,7 @@ const PaymentInformation = () => {
 
 
 
-      <div className="bg-[#F0F0F0] border-l-2 border-[#BBBBBB] flex-1 pl-16 pr-28 pt-6">
+      <div className="bg-[#F0F0F0] border-l-2 border-[#BBBBBB] flex-1  pl-16 pr-28 pt-6">
         {/* make a component including image and bottom line from here to */}
         <div className="h-28 flex items-center justify-between">
           <div className="h-24 w-24 rounded-lg border-2 border-[#A6A6A6]">
@@ -171,7 +176,7 @@ const PaymentInformation = () => {
         <div className="flex justify-between">
           <h1 className="text-[#555454] font-sans text-xl mt-2 "> Total</h1>
           <h3 className="text-[#555454] font-sans text-2xl mt-2 font-bold">
-            <span className="font-normal text-base">Rs</span> &nbsp;
+            <span className="font-normal text-base">Rs &nbsp;</span>
            
              134,999
           </h3>
@@ -182,4 +187,4 @@ const PaymentInformation = () => {
   );
 };
 
-export default PaymentInformation;
+export default Shipping

@@ -53,7 +53,7 @@ export default function ProvinceDropdown() {
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { mt: 2 },
+        '& .MuiTextField-root': { width:"100%" ,mt: 2 },
       }}
       noValidate
       autoComplete="off"

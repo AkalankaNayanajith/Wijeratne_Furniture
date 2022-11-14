@@ -41,7 +41,7 @@ export default function CustomSeparator() {
     >
       Cart
     </Link>,
-    <Typography key="3" color="text.primary">
+    <Typography key="3" color="text.primary" fontWeight= "600">
     Information
   </Typography>,
     <Link

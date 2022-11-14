@@ -24,12 +24,14 @@ import OneProductView from "./Components/OneProductView";
 import MyShoppingCart from "./Components/MyShoppingCart";
 import PaymentInformation from "./Components/PaymentInformation";
 import { Routes } from "react-router-dom";
+import Shipping from "./Components/Shipping";
+import { Payment } from "@mui/icons-material";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <Navbar/> */}
+        <Navbar />
         {/* <div className=" flex w-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"> */}
         {/* <AdminBar /> */}
         {/* <ClippedDrawer /> */}
@@ -59,7 +61,7 @@ function App() {
           <Route
             exact
             path="/contactus"
-            element={ 
+            element={
               <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
                 <ContactUs />
               </div>
@@ -186,15 +188,35 @@ function App() {
             }
           />
 
+          <Route
+            exact
+            path="/shipping"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <Shipping />
+              </div>
+            }
+          />
+
+          <Route
+            exact
+            path="/payment"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <Payment />
+              </div>
+            }
+          />
+
           <Route exact path="/AddProduct">
-            <Route index={true} element={<AddProduct/>}/>
-              
+            <Route index={true} element={<AddProduct />} />
+
             {/* <Route path="products">
                   <Route path="New"></Route>
                 </Route> */}
           </Route>
         </Routes>
-        {/* <Footer/> */}
+        <Footer />
         {/* <ProductCardHomePage/> */}
       </BrowserRouter>
     </>
