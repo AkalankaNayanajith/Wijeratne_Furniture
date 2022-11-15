@@ -33,6 +33,7 @@ const PaymentInformation = () => {
         <div className=" ">
           <CustomSeparator />
         </div>
+        
 
         <h2 className="text-base font-sans font-semibold  mt-11">
           {" "}

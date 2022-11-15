@@ -44,7 +44,7 @@ export default function HotDeals({ ProductName }) {
 
           <HotDealsProdCard //component called, but not shoing in the browser
             ProductName={"bed sofa bed"}
-            ImageSRC={'"../Images/Hotdealschairs.jpg"'}
+            ImageSRC={"../Images/Hotdealschairs.jpg"}
             NormalPrice={"7788"}
             DiscountedPrice={"4444"}
           />

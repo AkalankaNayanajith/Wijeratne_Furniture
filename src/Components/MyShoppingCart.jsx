@@ -67,7 +67,7 @@ const MyShoppingCart = () => {
             <td className="items-end text-right">
               <input
                 className="h-12 text-xl  border-[#A6A6A6] w-16 text-center border-2 rounded-md mr-20 "
-                type="number"
+                type="number" min="1"
               />
             </td>
             <td> <p className="text-[#34383b] font-sans text-right text-xl pr-52">
@@ -114,7 +114,7 @@ const MyShoppingCart = () => {
             <td className="items-end text-right">
               <input
                 className="h-12 text-xl  border-[#A6A6A6] w-16 text-center border-2 rounded-md mr-20 "
-                type="number"
+                type="number" min="1"
               />
             </td>
             <td> <p className="text-[#34383b] font-sans text-right text-xl pr-52">
@@ -160,7 +160,7 @@ const MyShoppingCart = () => {
             <td className="items-end text-right">
               <input
                 className="h-12 text-xl  border-[#A6A6A6] w-16 text-center border-2 rounded-md mr-20 "
-                type="number"
+                type="number" min="1"
               />
             </td>
             <td> <p className="text-[#34383b] font-sans text-right text-xl pr-52">
