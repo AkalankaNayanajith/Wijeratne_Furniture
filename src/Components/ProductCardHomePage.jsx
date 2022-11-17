@@ -57,11 +57,11 @@ const product_card =[
     thumb:'../Images/3.png'
 },
 {   id:9,
-    productName:"Double sofa",
-    description:'Luxury sofa set 2 seats ',
+    productName:"Dining Table",
+    description:'6 Seat dining table ',
     price:87232,
     Currency:'Rs',
-    thumb:'../Images/1.png'
+    thumb:'../Images/prod5.png'
 },
 {   id:10,
     productName:"Vintage chair",
