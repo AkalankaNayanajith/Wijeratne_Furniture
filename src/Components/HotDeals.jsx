@@ -42,7 +42,7 @@ export default function HotDeals({ ProductName }) {
             </div>
           </div>
 
-          <HotDealsProdCard //component called, but not shoing in the browser
+          <HotDealsProdCard //component called, but not showing in the browser
             ProductName={"bed sofa bed"}
             ImageSRC={"../Images/Hotdealschairs.jpg"}
             NormalPrice={"7788"}
