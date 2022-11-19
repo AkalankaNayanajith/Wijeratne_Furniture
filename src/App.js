@@ -1,31 +1,28 @@
+import { Payment } from "@mui/icons-material";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Navbar from "./Components/Navbar";
-import ProductCardHomePage from "./Components/ProductCardHomePage";
-import MainContent from "./Components/MainContent";
-import Footer from "./Components/Footer";
-import AboutUs from "./Components/Pages/AboutUs";
-import ContactUs from "./Components/Pages/ContactUs";
-import MyOrders from "./Components/MyOrders";
 import CustomizedOrders from "./Components/CustomizedOrders";
-import TrackMyOrder from "./Components/TrackMyOrder";
+import Footer from "./Components/Footer";
 import HotDeals from "./Components/HotDeals";
-import Cart from "./Components/Cart";
+import Login from "./Components/Login";
+import MainContent from "./Components/MainContent";
+import MyOrders from "./Components/MyOrders";
+import MyOrdersModal from "./Components/MyOrdersModal";
+import MyShoppingCart from "./Components/MyShoppingCart";
+import Navbar from "./Components/Navbar";
+import OneProductView from "./Components/OneProductView";
+import AboutUs from "./Components/Pages/AboutUs";
+import AddProduct from "./Components/Pages/AddProduct";
+import ContactUs from "./Components/Pages/ContactUs";
+import FAQ from "./Components/Pages/FAQ";
 import PrivacyPolicy from "./Components/Pages/PrivacyPolicy";
 import RefundPolicy from "./Components/Pages/RefundPolicy";
-import FAQ from "./Components/Pages/FAQ";
 import TermsOfUse from "./Components/Pages/TermsOfUse";
-import Products from "./Components/Products";
-import ClippedDrawer from "./Components/Pages/DashClippedDrawer";
-import AdminBar from "./Components/Pages/AdminBar";
-import AddProduct from "./Components/Pages/AddProduct";
-import Slider from "./Components/Slider";
-import OneProductView from "./Components/OneProductView";
-import MyShoppingCart from "./Components/MyShoppingCart";
 import PaymentInformation from "./Components/PaymentInformation";
-import { Routes } from "react-router-dom";
+import Products from "./Components/Products";
 import Shipping from "./Components/Shipping";
-import { Payment } from "@mui/icons-material";
+import Slider from "./Components/Slider";
+import TrackMyOrder from "./Components/TrackMyOrder";
 
 function App() {
   return (
@@ -204,6 +201,26 @@ function App() {
             element={
               <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
                 <Payment />
+              </div>
+            }
+          />
+
+<Route
+            exact
+            path="/modal"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <MyOrdersModal />
+              </div>
+            }
+          />
+
+<Route
+            exact
+            path="/login"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <Login />
               </div>
             }
           />
