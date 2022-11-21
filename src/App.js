@@ -158,7 +158,7 @@ function App() {
 
           <Route
             exact
-            path="/singleproduct"
+            path="/oneproductview"
             element={
               <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
                 <OneProductView />
