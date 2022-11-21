@@ -5,6 +5,7 @@ import CustomizedOrders from "./Components/CustomizedOrders";
 import Footer from "./Components/Footer";
 import HotDeals from "./Components/HotDeals";
 import Login from "./Components/Login";
+import Logintest from "./Components/Logintest";
 import MainContent from "./Components/MainContent";
 import MyOrders from "./Components/MyOrders";
 import MyOrdersModal from "./Components/MyOrdersModal";
@@ -221,6 +222,16 @@ function App() {
             element={
               <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
                 <Login />
+              </div>
+            }
+          />
+
+<Route
+            exact
+            path="/logintest"
+            element={
+              <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">
+                <Logintest />
               </div>
             }
           />
