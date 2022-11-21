@@ -69,10 +69,10 @@ const OneProductView = () => {
         </div>
 
         <div className="AddtoCartButton mt-8 ">
-          <button className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:bg-black">
+         <a href="/myshoppingcart"><button className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:bg-black">
             {" "}
             <p> ADD TO CART</p>{" "}
-          </button>
+          </button></a> 
         </div>
         <div className="FavBtn mt-4 ">
           <button className="border-2 border-black rounded-none  w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:border-[#f63f3f] hover:bg-[#f63f3f]">
