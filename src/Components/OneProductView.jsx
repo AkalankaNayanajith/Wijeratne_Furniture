@@ -8,24 +8,24 @@ const OneProductView = () => {
         <div className="LargeImage items-center h-[600px] ">
           <img
             className="bg-center bg-cover mt-20 mx-auto"
-            src="../Images/prod1.png"
+            src="../Images/prod5.png"
             alt=""
           />
         </div>
         <div className="smallImagesSLider mx-auto w-[50%] flex">
           <img
             className="bg-center bg-contain border-2 border-black"
-            src="../Images/prod3.png"
+            // src="../Images/prod3.png"
             alt=""
           />
           <img
             className="bg-center bg-contain border-2 border-black"
-            src="../Images/prod3.png"
+            // src="../Images/prod3.png"
             alt=""
           />
           <img
             className="bg-center bg-contain border-2 border-black "
-            src="../Images/prod3.png"
+            // src="../Images/prod3.png"
             alt=""
           />
         </div>
@@ -33,7 +33,7 @@ const OneProductView = () => {
 
       <div className="information h-full w-[50%]">
         <div className="text-black text-left  text-4xl font-poppins font-semibold  mt-20">
-          Zoltro Gaming Chair
+          Mahogani Dining Table
         </div>
 
         <div className="ratings flex text-left mt-2 ">
