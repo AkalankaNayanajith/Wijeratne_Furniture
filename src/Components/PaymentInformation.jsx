@@ -35,33 +35,36 @@ const PaymentInformation = () => {
         </div>
          
 
-         
 
         <h2 className="text-base font-sans font-semibold  mt-11">
           {" "}
           Contact Information
         </h2>
-        <TextInput name="Email" sx={{ color: "secondary" }} />
+        
+       
+      <input type="text" name="" id="" placeholder="Email" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+  
         <CheckBoxTick Labelinput="Email me with news and exclusive offers" />
 
         <h2 className="text-base font-sans font-semibold pt-6">
           Shipping Address
         </h2>
         <div className="flex justify-between gap-4 ">
-          <TextInput className="" name="First Name" sx={{ color: "secondary", mt: 2 }} />
-          <TextInput name="Last Name" sx={{ color: "secondary", mt: 2 }} />
+        <input type="text" name="" id="" placeholder="First Name" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        <input type="text" name="" id="" placeholder="Last Name" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+         
         </div>
-        <TextInput name="Address" sx={{ color: "secondary", mt: 2 }} />
-        <TextInput
-          name="Apartment, suite, etc (optional)"
-          sx={{ color: "secondary", mt: 2 }}
-        />
-        <TextInput name="City" sx={{ color: "secondary" , mt: 2}} />
+        <input type="text" name="" id="" placeholder="Address" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        <input type="text" name="" id="" placeholder="Apartment, suite, etc (optional)" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        <input type="text" name="" id="" placeholder="City" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        
+        
         <div className="flex justify-between gap-4">
           <ProvinceDropdown />
-          <TextInput name="Postal Code" sx={{ color: "secondary", mt: 2 }} />
+        <input type="text" name="" id="" placeholder="Postal Code" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        
         </div>
-        <TextInput name="Phone" sx={{ color: "secondary", mt: 2 }} />
+        <input type="text" name="" id="" placeholder="Phone" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
         <div className="mt-8 mb-28 flex justify-between ">
           <Link
             to="/myshoppingcart"
@@ -148,7 +151,7 @@ const PaymentInformation = () => {
         {/* here   */}
         <div className="pt-4 flex justify-between">
           <input
-            className="border-2 border-[#BBBBBB] rounded-lg px-4 text-base  h-12 w-96"
+            className="border-2 border-[#BBBBBB] outline-none  rounded-lg px-4 text-base  h-12 w-96 focus:border-2 focus:border-[#9D9D9D] focus:ring-2 focus:ring-[#9D9D9D]"
             type="text"
             label="Discount Code"
             placeholder="Discount Code"

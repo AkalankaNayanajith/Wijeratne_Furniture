@@ -69,7 +69,7 @@ const OneProductView = () => {
         </div>
 
         <div className="AddtoCartButton mt-8 ">
-          <button className="border-2 border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:bg-black">
+          <button className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:bg-black">
             {" "}
             <p> ADD TO CART</p>{" "}
           </button>
