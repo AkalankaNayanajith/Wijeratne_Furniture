@@ -29,11 +29,12 @@ export default function AddProduct() {
   const [color, setColor] = useState('')
   const [material, setMaterial] = useState('')
   const [country, setCountry] = useState('')
+  const [imgpath, setImgpath] = useState('')
 
 
   const handleClick = (ev) =>  {
     ev.preventDefault()
-    const newProduct = {newprodname, prodid ,category, description, quantity, dicount, price, color, material, country}
+    const newProduct = {newprodname, prodid ,category, description, quantity, dicount, price, color, material, country, imgpath}
     console.log(newProduct)
     fetch("http://localhost:8080/product",{
     
@@ -210,6 +211,10 @@ export default function AddProduct() {
                   className="h-14 w-[52rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Image path"
+                  onChange={(ev) => {
+                    setImgpath(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
                 />     
              
             </div>
