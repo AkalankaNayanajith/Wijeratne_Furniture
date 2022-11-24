@@ -8,24 +8,24 @@ const OneProductView = () => {
         <div className="LargeImage items-center h-[600px] ">
           <img
             className="bg-center bg-cover mt-20 mx-auto"
-            src="../Images/prod1.png"
+            src="../Images/prod5.png"
             alt=""
           />
         </div>
         <div className="smallImagesSLider mx-auto w-[50%] flex">
           <img
             className="bg-center bg-contain border-2 border-black"
-            src="../Images/prod3.png"
+            // src="../Images/prod3.png"
             alt=""
           />
           <img
             className="bg-center bg-contain border-2 border-black"
-            src="../Images/prod3.png"
+            // src="../Images/prod3.png"
             alt=""
           />
           <img
             className="bg-center bg-contain border-2 border-black "
-            src="../Images/prod3.png"
+            // src="../Images/prod3.png"
             alt=""
           />
         </div>
@@ -33,7 +33,7 @@ const OneProductView = () => {
 
       <div className="information h-full w-[50%]">
         <div className="text-black text-left  text-4xl font-poppins font-semibold  mt-20">
-          Zoltro Gaming Chair
+          Mahogani Dining Table
         </div>
 
         <div className="ratings flex text-left mt-2 ">
@@ -69,10 +69,10 @@ const OneProductView = () => {
         </div>
 
         <div className="AddtoCartButton mt-8 ">
-          <button className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:bg-black">
+         <a href="/myshoppingcart"><button className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:bg-black">
             {" "}
             <p> ADD TO CART</p>{" "}
-          </button>
+          </button></a> 
         </div>
         <div className="FavBtn mt-4 ">
           <button className="border-2 border-black rounded-none  w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:border-[#f63f3f] hover:bg-[#f63f3f]">

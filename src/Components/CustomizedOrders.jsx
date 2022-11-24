@@ -1,20 +1,68 @@
-import React from 'react'
+import React from "react";
+import ProductCard from "./ProductCard";
+// import { userSchema } from './Validation/CustomerValidation'
 
 export default function CustomizedOrders() {
   return (
-   <>
-    <div className='text-4xl text-center bold w-full mt-[4rem]'> Custom Orders </div>
+    <>
+      <div className="text-4xl text-center bold w-full mt-[4rem]">
+        {" "}
+        Custom Orders{" "}
+      </div>
 
-    <div className='h-full w-full text-center mt-9'>
-      <input type="text" name="" id="" placeholder="Email@email.com" className="text-xl p-4 h-16 w-[50%] rounded-lg outline-none border-black border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
-    </div>
+      <div className="h-full w-full text-center mt-9">
+        <input
+          type="text"
+          name=""
+          id=""
+          placeholder="Email@email.com"
+          className="text-xl p-4 h-16 w-[50%] rounded-lg outline-none border-black border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
 
-    <div className='h-full w-full text-center mt-9'>
-      <input type="text" name="" id="" placeholder="Email@email.com" className="text-xl p-4 h-16 w-[50%] rounded-lg outline-none border-black border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
-    </div>
+      <div className="h-full w-full text-center mt-9">
+        <input
+          type="text"
+          name=""
+          id=""
+          placeholder="Email@email.com"
+          className="text-xl p-4 h-16 w-[50%] rounded-lg outline-none border-black border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
 
-    
-    <section className="pb-20 relative block bg-gray-900">
+
+      <ProductCard
+        name="
+
+Mahogani Dining Table"
+        price="77,500"
+        review=""
+      />
+      <ProductCard
+        name="
+
+Mahogani Dining Table"
+        price="77,500"
+        review=""
+      />
+      <ProductCard
+        name="
+
+Mahogani Dining Table"
+        price="77,500"
+        review=""
+      />
+<ProductCard
+        name="
+
+Mahogani Dining Table"
+        price="77,500"
+        review=""
+      />
+
+      <input type="submit"  className="border-2 border-black"/>
+
+      {/* <section className="pb-20 relative block bg-gray-900">
     <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
             style={{ height: "80px" }}
@@ -47,7 +95,7 @@ export default function CustomizedOrders() {
               </div>
               </div>
               </div>
-</section>
+</section> */}
     </>
-  )
+  );
 }

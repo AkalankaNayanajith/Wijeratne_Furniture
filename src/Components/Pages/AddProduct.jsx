@@ -6,9 +6,44 @@ import InputButton from "../InputButton";
 import { Box, CssBaseline } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import CustomTextField from "../CustomTextField/CustomTextField";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from 'yup';
+
+
+const ProductSchema = Yup.object().shape({
+
+})
 
 export default function AddProduct() {
   const initialValues = { productName: "", productID: "" };
+
+
+
+  const [newprodname, setNewprodname] = useState('')
+  const [prodid, setProdid] = useState('')
+  const [category, setCategory] = useState('')
+  const [description, setDescription] = useState('')
+  const [quantity, setQuantity] = useState('')
+  const [dicount, setDiscount] = useState('')
+  const [price, setPrice] = useState('')
+  const [color, setColor] = useState('')
+  const [material, setMaterial] = useState('')
+  const [country, setCountry] = useState('')
+
+
+  const handleClick = (ev) =>  {
+    ev.preventDefault()
+    const newProduct = {newprodname, prodid ,category, description, quantity, dicount, price, color, material, country}
+    console.log(newProduct)
+    fetch("http://localhost:8080/product",{
+    
+    method:"POST",
+    headers:{"Content-Type" : "application/json"},
+    body:JSON.stringify(newProduct) 
+  }).then(() => {
+    console.log("New Product Added")
+  })
+  }
 
   return (
     // <div className="grid grid-cols-12 w-full">
@@ -35,98 +70,153 @@ export default function AddProduct() {
 
           <div className="">
             <div className="h-20 mt-10  mx-60 bg-white justify-between gap-7 flex  items-center">
-              <label className="relative p-2">
+             
                 <input
                   type="text"
-                  className="h-14 w-96 px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-purple-600  transition duration-200 peer"
+                  className="newprodname h-14 w-[52rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
-                />
-                <span className="text-xl text-black text-opacity-80 absolute left-0 top-6 mx-4 px-2 transition-all duration-200 input-text cursor-text peer-focus:text-sm peer-focus:text-purple-600 peer-focus:-top-1 peer-focus:bg-white peer-focus:left-3">
-                  Product Name
-                </span>
-              </label>
+                  placeholder="Product Name"
+                  onChange={(ev) => {
+            setNewprodname(ev.target.value);
+            console.log(ev.target.value);
+          }}
+                />        
+            
 
-              <label className="relative p-2">
-                <input
-                  type="text"
-                  className="h-14 w-96 px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-purple-600  transition duration-200 peer"
-                  autocomplete="off"
-                />
-                <span className="text-xl text-black text-opacity-80 absolute left-0 top-6 mx-4 px-2 transition-all duration-200 input-text cursor-text peer-focus:text-sm peer-focus:text-purple-600 peer-focus:-top-1 peer-focus:bg-white peer-focus:left-3">
-                  Product ID
-                </span>
-              </label>
-            </div>
-
-            <div className="h-28  mx-60 bg-white justify-between gap-7 flex  items-center">
-              <label className="relative p-2">
-                <input
-                  type="text"
-                  className="h-14 w-96 px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-purple-600  transition duration-200 peer"
-                  autocomplete="off"
-                />
-                <span className="text-xl text-black text-opacity-80 absolute left-0 top-6 mx-4 px-2 transition-all duration-200 input-text cursor-text peer-focus:text-sm peer-focus:text-purple-600 peer-focus:-top-1 peer-focus:bg-white peer-focus:left-3">
-                  Quantity
-                </span>
-              </label>
-
-              <label className="relative p-2">
-                <input
-                  type="text"
-                  className="h-14 w-96 px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-purple-600  transition duration-200 peer"
-                  autocomplete="off"
-                />
-                <span className="text-xl text-black text-opacity-80 absolute left-0 top-6 mx-4 px-2 transition-all duration-200 input-text cursor-text peer-focus:text-sm peer-focus:text-purple-600 peer-focus:-top-1 peer-focus:bg-white peer-focus:left-3">
-                  Unit Price
-                </span>
-              </label>
+               
             </div>
 
             <div className="h-20  mx-60 bg-white justify-between gap-7 flex  items-center">
-              <label className="relative p-2">
-                <input
+            <input
                   type="text"
-                  className="h-14 w-96 px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-purple-600  transition duration-200 peer"
+                  className="prodid h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
-                />
-                <span className="text-xl text-black text-opacity-80 absolute left-0 top-6 mx-4 px-2 transition-all duration-200 input-text cursor-text peer-focus:text-sm peer-focus:text-purple-600 peer-focus:-top-1 peer-focus:bg-white peer-focus:left-3">
-                  Material
-                </span>
-              </label>
+                  placeholder="Product ID"
+                  onChange={(ev) => {
+                    setProdid(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
+                />     
 
-              <label className="relative p-2">
-                <input
+<input
                   type="text"
-                  className="h-14 w-96 px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-purple-600  transition duration-200 peer"
+                  className="country h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
-                />
-                <span className="text-xl text-black text-opacity-80 absolute left-0 top-6 mx-4 px-2 transition-all duration-200 input-text cursor-text peer-focus:text-sm peer-focus:text-purple-600 peer-focus:-top-1 peer-focus:bg-white peer-focus:left-3">
-                  Warranty Period
-                </span>
-              </label>
-              <CustomTextField name={"fwefw"} />
+                  placeholder="Country"
+                  onChange={(ev) => {
+                    setCountry(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
+                />     
+             
             </div>
 
+
+            <div className="h-20  mx-60 bg-white justify-between gap-7 flex  items-center">
+            <input
+                  type="text"
+                  className="price h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  autocomplete="off"
+                  placeholder="Unit Price"
+                  onChange={(ev) => {
+                    setPrice(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
+                />   
+            <input
+                  type="text"
+                  className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  autocomplete="off"
+                  placeholder="Quantity"
+                  onChange={(ev) => {
+                    setQuantity(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
+                />     
+
+<input
+                  type="text"
+                  className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  autocomplete="off"
+                  placeholder="Dicsount"
+                  onChange={(ev) => {
+                    setDiscount(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
+                />     
+            </div>
+
+            <div className="h-20  mx-60 bg-white justify-between gap-7 flex  items-center">
+            <input
+                  type="text"
+                  className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  autocomplete="off"
+                  placeholder="Material"
+                  onChange={(ev) => {
+                    setMaterial(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
+                />     
+                <input
+                  type="text"
+                  className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  autocomplete="off"
+                  placeholder="Color"
+                  onChange={(ev) => {
+                    setColor(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
+                />     
+             
+
+<input
+                  type="text"
+                  className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  autocomplete="off"
+                  placeholder="Warranty Period"
+                  onChange={(ev) => {
+                    setCategory(ev.target.value); //change later for category slash category
+                    console.log(ev.target.value);
+                  }}
+                />     
+             
+            </div>
+
+          
+
             <div className="h-60 w-auto justify-between mx-60 bg-white flex items-center">
-            <label className="relative p-2">
+           
               <textarea
-                className="border-2 border-black rounded-lg border-opacity-50 resize-none h-52 w-full px-6 text-xl bg-white focus:border-purple-600  
-                transition duration-200 peer"
+                className="border-2 border-black rounded-lg border-opacity-50 resize-none h-52 w-full px-6 text-xl bg-white 
+                peer  outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                 placeholder="Product Description"
                 name="ProductDescription"
                 id=""
                 cols="30"
                 rows="8"
+                onChange={(ev) => {
+                  setDescription(ev.target.value);
+                  console.log(ev.target.value);
+                }}
               ></textarea>
-              <span className="text-xl text-black text-opacity-80 absolute left-0 top-6 mx-4 px-2 transition-all duration-200 input-text cursor-text peer-focus:text-sm peer-focus:text-purple-600 peer-focus:-top-1 peer-focus:bg-white peer-focus:left-3">
-                Warranty Period
-              </span>
-              </label>
+             
+            </div>
+
+
+
+            <div className="h-20  mx-60 bg-white justify-between gap-7 flex  items-center">
+            <input
+                  type="text"
+                  className="h-14 w-[52rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  autocomplete="off"
+                  placeholder="Image path"
+                />     
+             
             </div>
             {/* <InputButton/> */}
           </div>
 
-          <TextField sx={{ml:30}} id="outlined-basic" label="Outlined" variant="outlined" />
+        
 
 
           <div className="imageupload mt-12 mx-60 mb-24 flex items-center gap-5 ">
@@ -154,6 +244,22 @@ export default function AddProduct() {
               </label>
             </form>
           </div>
+
+          <div className="m-10  w-auto justify-between px-56 items-center flex">
+        <button
+          type="submit"
+          className="px-24 py-3 rounded-lg text-lg bg-red-500 hover:bg-red-600 text-white shadow-lg  hover:shadow-2xl "         
+        > Cancel  </button>
+
+        <button
+          type="submit"
+          className="px-24 py-3 rounded-lg text-lg  bg-green-500 hover:bg-green-600 text-white shadow-lg  hover:shadow-2xl"
+          onClick={handleClick}
+        >
+          Save
+        </button>
+       
+      </div>
 
           {/* <div className="h-20  mx-60 bg-white justify-between gap-7 flex  items-center">
             <a href="localhost:3000">
