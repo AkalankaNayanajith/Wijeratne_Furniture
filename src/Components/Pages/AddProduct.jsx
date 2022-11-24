@@ -17,6 +17,34 @@ const ProductSchema = Yup.object().shape({
 export default function AddProduct() {
   const initialValues = { productName: "", productID: "" };
 
+
+
+  const [newprodname, setNewprodname] = useState('')
+  const [prodid, setProdid] = useState('')
+  const [category, setCategory] = useState('')
+  const [description, setDescription] = useState('')
+  const [quantity, setQuantity] = useState('')
+  const [dicount, setDiscount] = useState('')
+  const [price, setPrice] = useState('')
+  const [color, setColor] = useState('')
+  const [material, setMaterial] = useState('')
+  const [country, setCountry] = useState('')
+
+
+  const handleClick = (ev) =>  {
+    ev.preventDefault()
+    const newProduct = {newprodname, prodid ,category, description, quantity, dicount, price, color, material, country}
+    console.log(newProduct)
+    fetch("http://localhost:8080/product",{
+    
+    method:"POST",
+    headers:{"Content-Type" : "application/json"},
+    body:JSON.stringify(newProduct) 
+  }).then(() => {
+    console.log("New Product Added")
+  })
+  }
+
   return (
     // <div className="grid grid-cols-12 w-full">
     <>
@@ -45,9 +73,13 @@ export default function AddProduct() {
              
                 <input
                   type="text"
-                  className="h-14 w-[52rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  className="newprodname h-14 w-[52rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Product Name"
+                  onChange={(ev) => {
+            setNewprodname(ev.target.value);
+            console.log(ev.target.value);
+          }}
                 />        
             
 
@@ -57,16 +89,24 @@ export default function AddProduct() {
             <div className="h-20  mx-60 bg-white justify-between gap-7 flex  items-center">
             <input
                   type="text"
-                  className="h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  className="prodid h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Product ID"
+                  onChange={(ev) => {
+                    setProdid(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
                 />     
 
 <input
                   type="text"
-                  className="h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  className="country h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Country"
+                  onChange={(ev) => {
+                    setCountry(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
                 />     
              
             </div>
@@ -74,23 +114,35 @@ export default function AddProduct() {
 
             <div className="h-20  mx-60 bg-white justify-between gap-7 flex  items-center">
             <input
-                  type="number"
-                  className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  type="text"
+                  className="price h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Unit Price"
+                  onChange={(ev) => {
+                    setPrice(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
                 />   
             <input
                   type="text"
                   className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Quantity"
+                  onChange={(ev) => {
+                    setQuantity(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
                 />     
 
 <input
-                  type="number"
+                  type="text"
                   className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Dicsount"
+                  onChange={(ev) => {
+                    setDiscount(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
                 />     
             </div>
 
@@ -100,12 +152,20 @@ export default function AddProduct() {
                   className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Material"
+                  onChange={(ev) => {
+                    setMaterial(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
                 />     
                 <input
                   type="text"
                   className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
-                  placeholder="Colour"
+                  placeholder="Color"
+                  onChange={(ev) => {
+                    setColor(ev.target.value);
+                    console.log(ev.target.value);
+                  }}
                 />     
              
 
@@ -114,6 +174,10 @@ export default function AddProduct() {
                   className="h-14 w-[16rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Warranty Period"
+                  onChange={(ev) => {
+                    setCategory(ev.target.value); //change later for category slash category
+                    console.log(ev.target.value);
+                  }}
                 />     
              
             </div>
@@ -130,6 +194,10 @@ export default function AddProduct() {
                 id=""
                 cols="30"
                 rows="8"
+                onChange={(ev) => {
+                  setDescription(ev.target.value);
+                  console.log(ev.target.value);
+                }}
               ></textarea>
              
             </div>
@@ -186,7 +254,7 @@ export default function AddProduct() {
         <button
           type="submit"
           className="px-24 py-3 rounded-lg text-lg  bg-green-500 hover:bg-green-600 text-white shadow-lg  hover:shadow-2xl"
-          
+          onClick={handleClick}
         >
           Save
         </button>
