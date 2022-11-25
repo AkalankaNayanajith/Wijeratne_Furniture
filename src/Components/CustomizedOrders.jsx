@@ -1,8 +1,19 @@
-import React from "react";
-import ProductCard from "./ProductCard";
-// import { userSchema } from './Validation/CustomerValidation'
+import React, { useState } from "react";
 
 export default function CustomizedOrders() {
+  const username = "aka";
+  const password = "123";
+
+  const [usernameState, setUsernameState] = useState("");
+  const [passwordState, setPasswordState] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  function login() {
+    if (usernameState === username && passwordState === password) {
+      setLoggedIn(true);
+    }
+  }
+
   return (
     <>
       <div className="text-4xl text-center bold w-full mt-[4rem]">
@@ -17,50 +28,40 @@ export default function CustomizedOrders() {
           id=""
           placeholder="Email@email.com"
           className="text-xl p-4 h-16 w-[50%] rounded-lg outline-none border-black border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+          onChange={(event) => {
+            setUsernameState(event.target.value);
+            console.log(event.target.value);
+          }}
         />
       </div>
 
       <div className="h-full w-full text-center mt-9">
         <input
-          type="text"
+          type="password"
           name=""
           id=""
-          placeholder="Email@email.com"
+          placeholder="Password"
           className="text-xl p-4 h-16 w-[50%] rounded-lg outline-none border-black border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+          onChange={(event) => {
+            setPasswordState(event.target.value);
+            console.log(event.target.value);
+          }}
         />
       </div>
 
+      <div className="m-10  w-full justify-center items-center flex">
+        <button
+          type="submit"
+          className="px-12 py-3 rounded-lg text-lg border-2 border-white bg-cyan-500 text-white"
+          onClick={login}
+        >
+          SUBMIT
+        </button>
+       
+      </div>
 
-      <ProductCard
-        name="
+      {loggedIn && <alert> logged In</alert>}
 
-Mahogani Dining Table"
-        price="77,500"
-        review=""
-      />
-      <ProductCard
-        name="
-
-Mahogani Dining Table"
-        price="77,500"
-        review=""
-      />
-      <ProductCard
-        name="
-
-Mahogani Dining Table"
-        price="77,500"
-        review=""
-      />
-<ProductCard
-        name="
-
-Mahogani Dining Table"
-        price="77,500"
-        review=""
-      />
-
-      <input type="submit"  className="border-2 border-black"/>
 
       {/* <section className="pb-20 relative block bg-gray-900">
     <div

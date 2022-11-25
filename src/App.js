@@ -14,7 +14,9 @@ import Navbar from "./Components/Navbar";
 import OneProductView from "./Components/OneProductView";
 import AboutUs from "./Components/Pages/AboutUs";
 import AddProduct from "./Components/Pages/AddProduct";
+import AdminBar from "./Components/Pages/AdminBar";
 import ContactUs from "./Components/Pages/ContactUs";
+import ClippedDrawer from "./Components/Pages/DashClippedDrawer";
 import FAQ from "./Components/Pages/FAQ";
 import PrivacyPolicy from "./Components/Pages/PrivacyPolicy";
 import RefundPolicy from "./Components/Pages/RefundPolicy";
@@ -244,7 +246,7 @@ function App() {
                 </Route> */}
           </Route>
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
         {/* <ProductCardHomePage/> */}
       </BrowserRouter>
     </>
