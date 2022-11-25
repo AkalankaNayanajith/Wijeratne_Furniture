@@ -1,7 +1,7 @@
 import React from "react";
 import Ratings from "./Ratings";
 
-const OneProductView = () => {
+const OneProductView = ({  review,  newprodname, prodid ,category, description, quantity, dicount, price, color, material, country, imgpath }) => {
   return (
     <>
       <div className="Imagessection w-[50%]">
@@ -31,13 +31,13 @@ const OneProductView = () => {
         </div>
       </div>
 
-      <div className="information h-full w-[50%]">
+      <div className="information h-full w-[50%] " key={prodid}>
         <div className="text-black text-left  text-4xl font-poppins font-semibold  mt-20">
-          Mahogani Dining Table
+        Mahogani Dining Table
         </div>
 
         <div className="ratings flex text-left mt-2 ">
-          <Ratings />
+          <Ratings review={4}/>
 
           <p className="font-Manrope font-semibold text-[#2F2D3A] items-center ml-5 mt-[0.1rem]">
             (15 Reviews)
@@ -48,23 +48,7 @@ const OneProductView = () => {
 
         <div className="mr-14">
           <p className="text-justify font-Manrope font-normal text-base ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna
-            fermentum iaculis eu non. In pellentesque massa placerat duis. Augue
-            neque gravida in fermentum et. Viverra ipsum nunc aliquet bibendum
-            enim. Lorem ipsum dolor sit amet. Metus vulputate eu scelerisque
-            felis imperdiet. Faucibus nisl tincidunt eget nullam non nisi.
-            Facilisis volutpat est velit egestas dui id ornare arcu. Amet risus
-            nullam eget felis eget. Euismod elementum nisi quis.im.
-            <br />
-            Lorem ipsum dolor sit amet. Metus vulputate eu scelerisque felis
-            imperdiet. Faucibus nisl tincidunt eget nullam non nisi. Facilisis
-            volutpat est velit egestas dui id ornare arcu. Amet risus nullam
-            eget felis eget. Euismod elementum nisi quis.im. Lorem ipsum dolor
-            sit amet. Metus vulputate eu scelerisque felis imperdiet. Faucibus
-            nisl tincidunt eget nullam non nisi. Facilisis volutpat est velit
-            egestas dui id ornare arcu. Amet risus nullam eget felis eget.
-            Euismod elementum nisi quis.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna fermentum iaculis eu non. In pellentesque massa placerat duis. Augue neque gravida in fermentum et. Viverra  psum nunc aliquet bibendum enim. Lorem ipsum dolor sit amet. Metus vulputate eu scelerisque felis imperdiet. Faucibus nisl tincidunt eget nullam non nisi. Facilisis volutpat est velit egestas dui id ornare arcu. Amet risus nullam eget felis eget. Euismod elementum nisi quis.im.
           </p>
         </div>
 

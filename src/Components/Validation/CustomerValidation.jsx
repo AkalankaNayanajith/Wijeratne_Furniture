@@ -1,10 +1,12 @@
-import * as yup from "yup";
+import * as Yup from "Yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
-export const userSchema = yup.object().shape({
+export const userSchema = Yup.object().shape({
 
 
- name: yup.string().required,
- email: yup.email().required,
+
+ name: Yup.string().required("Name is required"),
+ email: Yup.email().required,
 
 
 

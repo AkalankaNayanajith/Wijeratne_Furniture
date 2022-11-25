@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import ClippedDrawer from "./DashClippedDrawer";
@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import CustomTextField from "../CustomTextField/CustomTextField";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
+import { Result } from "postcss";
 
 
 const ProductSchema = Yup.object().shape({
@@ -30,14 +31,15 @@ export default function AddProduct() {
   const [material, setMaterial] = useState('')
   const [country, setCountry] = useState('')
   const [imgpath, setImgpath] = useState('')
+  const [productcardss, setProductcardss] = useState([])
+ 
 
 
   const handleClick = (ev) =>  {
     ev.preventDefault()
     const newProduct = {newprodname, prodid ,category, description, quantity, dicount, price, color, material, country, imgpath}
     console.log(newProduct)
-    fetch("http://localhost:8080/product",{
-    
+    fetch("http://localhost:8080/product/add",{
     method:"POST",
     headers:{"Content-Type" : "application/json"},
     body:JSON.stringify(newProduct) 
@@ -45,6 +47,16 @@ export default function AddProduct() {
     console.log("New Product Added")
   })
   }
+
+useEffect(() =>{
+  fetch("http://localhost:8080/product/getAll")
+  .then(response=>response.json())
+  .then((result)=>{
+    setProductcardss(result);
+  }
+  )
+},[] )
+
 
   return (
     // <div className="grid grid-cols-12 w-full">
@@ -218,6 +230,8 @@ export default function AddProduct() {
                 />     
              
             </div>
+
+          
             {/* <InputButton/> */}
           </div>
 
@@ -238,6 +252,10 @@ export default function AddProduct() {
                 <span class="sr-only">Choose profile photo</span>
                 <input
                   type="file"
+                  // onChange={(ev) => {
+                  //   setImgpath(ev.target.value);
+                  //   console.log(ev.target.value);
+                  // }}
                   class="block w-full text-sm text-slate-500
       file:mr-4 file:py-2 file:px-4
       file:rounded-full file:border-0

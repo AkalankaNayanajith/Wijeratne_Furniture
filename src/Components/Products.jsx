@@ -6,8 +6,21 @@ import CheckBoxLarge from './CheckBoxLarge';
 import CheckBoxTick from './CheckBoxTick';
 import ProductCard from './ProductCard';
 import SortListDropdown from "./SortListDropdown";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Ratings from "./Ratings";
+import { useState, useEffect } from "react";
 
-export default function Products() {
+export default function Products({review,newprodname,prodid, category,description, quantity,dicount,price,color,material,country,imgpath,}) {
+  const [productcardss, setProductcardss] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/product/getAll")
+      .then((response) => response.json())
+      .then((result) => {
+        setProductcardss(result);
+      });
+  }, []);
+
   return (
     <div className="h-full w-full ">
       <div className="text-5xl text-center font-normal w-full mt-[3rem] font-Pragati-Narrow tracking-widest">
@@ -64,7 +77,7 @@ export default function Products() {
 
       <div className="flex">
         <p className="pt-8 pl-8 text-xl font-semibold">Material <FontAwesomeIcon icon={faAngleDown} className='pl-[10rem] fill-white items-center text-base px-1 group-hover:rotate-180' ></FontAwesomeIcon> </p>
-        </div>
+      </div>
 
       
       <div className="RoomFilters pl-8 pt-4 flex ">
@@ -140,38 +153,22 @@ export default function Products() {
      </div>
 
 
-
+ 
 
      <div className='productDisplay container flex'>
 
-        <ProductCard
-        name="
+     <div className=" container flex flex-wrap">
+        {productcardss.map((product) => (
+          
+          <ProductCard
+            newprodname={product.newprodname}
+            price={product.price}
+            imgpath={product.imgpath}
+            key={product.prodid}
+            review={review}/>
 
-Mahogani Dining Table with 6 chairs"
-        price="77,500"
-        prodImage="../Images/prod5.png"
-        review=""
-      /> 
-      
-      
-      <ProductCard
-      name="
-
-      Teak Double Bed"
-      price="197,500"
-      prodImage="../Images/prod4.jpg"
-      review=""
-    />
-    <ProductCard
-        name="
-
-       SIngle Sofa Blue Fabric"
-        price="17,500"
-        prodImage="../Images/prod3.png"
-        review=""
-      />
-
-    
+        ))}
+      </div>
      
 
      </div>
