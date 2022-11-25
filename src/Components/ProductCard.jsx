@@ -1,7 +1,7 @@
 import React from "react";
 import Ratings from "./Ratings";
 
-function ProductCard({ name, price, review, prodImage }) {
+function ProductCard({  review,  newprodname, prodid ,category, description, quantity, dicount, price, color, material, country, imgpath }) {
   return (
     <div className="m-8">
       <div className="max-w-xs bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl">
@@ -9,18 +9,19 @@ function ProductCard({ name, price, review, prodImage }) {
           <img
             className="w-full h-72 p-8 rounded-t-lg"
             // src="../Images/prod5.png"
-              src={prodImage}
+            key={prodid}
+            src={imgpath}
             alt="prod"
           />
         </a>
         <div className="px-5 pb-5">
           <a href="oneproductview"> 
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              {name}
+              {newprodname}
             </h5>
-            <Ratings />
+            <Ratings review = {review} />
             <p className="text-red-500 font-semibold text-xl"> Rs {price} </p>
-            <p>{review} </p>
+           
           </a>
 
           <div className="flex justify-between items-center mt-3">
