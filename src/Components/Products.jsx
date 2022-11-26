@@ -21,6 +21,15 @@ export default function Products({review,newprodname,prodid, category,descriptio
       });
   }, []);
 
+function Kumesayya (newprodname,price,imgpath,prodid,review,description ){
+    localStorage.setItem('Name', newprodname);
+    localStorage.setItem('Price', price);
+    localStorage.setItem('Image', imgpath);
+    localStorage.setItem('ID', prodid);
+    localStorage.setItem('Review', review);
+    localStorage.setItem('Description', description);  
+}
+
   return (
     <div className="h-full w-full ">
       <div className="text-5xl text-center font-normal w-full mt-[3rem] font-Pragati-Narrow tracking-widest">
@@ -44,7 +53,7 @@ export default function Products({review,newprodname,prodid, category,descriptio
       <div className='w-[100%] h-full mx-auto bg-[#DFDFDF]'> </div> 
     </div> */}
 <div className='flex '>
-      <div className="h-full w-[25%] border-r-[3px] border-[#DFDFDF] ">
+      <div className="h-full w-[25%]  ">
 
         <div className="flex">
         <p className="pt-14 pl-8 text-xl font-semibold ">Room <FontAwesomeIcon icon={faAngleDown} className='pl-44 fill-white items-center text-base px-1  group-hover:rotate-180 ' ></FontAwesomeIcon> </p>
@@ -158,18 +167,20 @@ export default function Products({review,newprodname,prodid, category,descriptio
 
  
 
-     <div className='productDisplay container flex'>
+     <div className='productDisplay container flex border-l-[3px] border-[#DFDFDF]'>
      <div className=" container flex flex-wrap">
-        {productcardss.map((product) => (
-          
-          <ProductCard
-            newprodname={product.newprodname}
-            price={product.price}
-            imgpath={product.imgpath}
-            key={product.prodid}
-            review={review}/>
-
-        ))}
+        {
+          productcardss.map((product) => {
+            return <ProductCard
+                      newprodname={product.newprodname}
+                      price={product.price}
+                      imgpath={product.imgpath}
+                      key={product.prodid}
+                      review={review}
+                      onClickHandle={() => {Kumesayya(product.newprodname,product.price,product.imgpath,product.prodid,review,product.description)}}
+                    />
+          })
+        }
       </div>
      </div>
 
