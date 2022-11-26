@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Ratings from "./Ratings";
 
-const OneProductView = ({  review,  newprodname, prodid ,category, description, quantity, dicount, price, color, material, country, imgpath }) => {
-  return (
+
+const OneProductView = () => {
+  
+  const [newprodname, setNewprodname] = useState("");
+  const [price, setPrice] = useState("");
+  const [imagepath, setImagepath] = useState("");
+  const [prodid, setProdId] = useState("");
+  const [review, setReview] = useState("");
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+
+    setNewprodname(localStorage.getItem('Name'));
+    setPrice(localStorage.getItem('Price'));
+    setImagepath(localStorage.getItem('Image'));
+    setProdId(localStorage.getItem('ID'));
+    setReview(localStorage.getItem('Review'));
+    setDescription(localStorage.getItem('Description'));  }, []);
+  
+    return (
     <>
       <div className="Imagessection w-[50%]">
         <div className="LargeImage items-center h-[600px] ">
           <img
             className="bg-center bg-cover mt-20 mx-auto"
-            src="../Images/prod5.png"
+            src={imagepath}
             alt=""
           />
         </div>
@@ -33,9 +51,10 @@ const OneProductView = ({  review,  newprodname, prodid ,category, description, 
 
       <div className="information h-full w-[50%] " key={prodid}>
         <div className="text-black text-left  text-4xl font-poppins font-semibold  mt-20">
-        Mahogani Dining Table
-        </div>
-
+       
+     
+       {newprodname}
+       </div>
         <div className="ratings flex text-left mt-2 ">
           <Ratings review={4}/>
 
@@ -44,15 +63,15 @@ const OneProductView = ({  review,  newprodname, prodid ,category, description, 
           </p>
         </div>
 
-        <div className="price text-xl font-medium text-[#ff0000]">Rs 67999</div>
+        <div className="price text-xl font-medium text-[#ff0000]">Rs {price} </div>
 
-        <div className="mr-14">
+      <div className="mr-14">
           <p className="text-justify font-Manrope font-normal text-base ">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna fermentum iaculis eu non. In pellentesque massa placerat duis. Augue neque gravida in fermentum et. Viverra  psum nunc aliquet bibendum enim. Lorem ipsum dolor sit amet. Metus vulputate eu scelerisque felis imperdiet. Faucibus nisl tincidunt eget nullam non nisi. Facilisis volutpat est velit egestas dui id ornare arcu. Amet risus nullam eget felis eget. Euismod elementum nisi quis.im.
+          {description}
           </p>
-        </div>
+                  </div>
 
-        <div className="AddtoCartButton mt-8 ">
+                  <div className="AddtoCartButton mt-8 ">
          <a href="/myshoppingcart"><button className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:bg-black">
             {" "}
             <p> ADD TO CART</p>{" "}
