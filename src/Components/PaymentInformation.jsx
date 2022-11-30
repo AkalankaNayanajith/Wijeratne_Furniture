@@ -1,7 +1,7 @@
 import { CheckBox } from "@mui/icons-material";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CheckBoxTick from "./CheckBoxTick";
 import CustomSeparator from "./CustomSeparator";
@@ -16,7 +16,30 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     padding: "0 4px",
   },
 }));
+
+
+
+
+
+
 const PaymentInformation = () => {
+
+  const [newprodname, setNewprodname] = useState("");
+  const [price, setPrice] = useState("");
+  const [imgpath, setImgpath] = useState("");
+  const [prodid, setProdId] = useState("");
+  const [review, setReview] = useState("");
+  const [description, setDescription] = useState("");
+
+  useEffect(() => {
+
+    setNewprodname(localStorage.getItem('Name'));
+    setPrice(localStorage.getItem('Price'));
+    setImgpath(localStorage.getItem('Image'));
+    setProdId(localStorage.getItem('ID'));
+    setReview(localStorage.getItem('Review'));
+    setDescription(localStorage.getItem('Description'));  }, []); 
+
   return (
     <div className="flex container w-full">
       <div className="bg-white w-[55%] h-full pl-28 pr-16">
@@ -118,7 +141,7 @@ const PaymentInformation = () => {
         </div>
       </div>
 
-
+     
 
       <div className="bg-[#F0F0F0] border-l-2 border-[#BBBBBB] flex-1 pl-16 pr-28 pt-6">
         {/* make a component including image and bottom line from here to */}
@@ -127,22 +150,22 @@ const PaymentInformation = () => {
             <StyledBadge className="cart" color="primary" badgeContent={1}>
               <img
                 className="h-[90%] w-[90%] m-auto mt-1"
-                src="../Images/prod4.jpg"
+                src={imgpath}
                 alt=""
               />
             </StyledBadge>
           </div>
           <div className="pl-[2rem] ">
             <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
-              luxury Bed
+            {newprodname} 
             </h3>
             <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
-              Black, Metal & Leather
+          {/* {selectedcolor}  {selectedmaterial} */} fgherghehg
             </p>
           </div>
           <div className="pl-[9rem] ">
             <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-lg  ">
-              Rs 134,999
+            Rs  {price}
             </h3>
           </div>
         </div>
