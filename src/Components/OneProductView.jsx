@@ -6,7 +6,7 @@ const OneProductView = () => {
   
   const [newprodname, setNewprodname] = useState("");
   const [price, setPrice] = useState("");
-  const [imagepath, setImagepath] = useState("");
+  const [imgpath, setImgpath] = useState("");
   const [prodid, setProdId] = useState("");
   const [review, setReview] = useState("");
   const [description, setDescription] = useState("");
@@ -15,10 +15,12 @@ const OneProductView = () => {
 
     setNewprodname(localStorage.getItem('Name'));
     setPrice(localStorage.getItem('Price'));
-    setImagepath(localStorage.getItem('Image'));
+    setImgpath(localStorage.getItem('Image'));
     setProdId(localStorage.getItem('ID'));
     setReview(localStorage.getItem('Review'));
     setDescription(localStorage.getItem('Description'));  }, []);
+  
+      
   
     return (
     <>
@@ -26,7 +28,7 @@ const OneProductView = () => {
         <div className="LargeImage items-center h-[600px] ">
           <img
             className="bg-center bg-cover mt-20 mx-auto"
-            src={imagepath}
+            src={imgpath}
             alt=""
           />
         </div>
@@ -71,11 +73,17 @@ const OneProductView = () => {
           </p>
                   </div>
 
-                  <div className="AddtoCartButton mt-8 ">
-         <a href="/myshoppingcart"><button className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:bg-black">
+      <div className="AddtoCartButton mt-8 ">
+        <a href="/myshoppingcart">
+          <button  className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base text-white bg-black hover:text-white  hover:border-[#2c2c2c] hover:bg-[#2c2c2c]">
             {" "}
             <p> ADD TO CART</p>{" "}
-          </button></a> 
+          </button>
+        </a> 
+
+        
+
+
         </div>
         <div className="FavBtn mt-4 ">
           <button className="border-2 border-black rounded-none  w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:border-[#f63f3f] hover:bg-[#f63f3f]">
@@ -87,5 +95,6 @@ const OneProductView = () => {
     </>
   );
 };
+
 
 export default OneProductView;

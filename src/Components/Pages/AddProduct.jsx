@@ -16,9 +16,8 @@ const ProductSchema = Yup.object().shape({
 })
 
 export default function AddProduct() {
+
   const initialValues = { productName: "", productID: "" };
-
-
 
   const [newprodname, setNewprodname] = useState('')
   const [prodid, setProdid] = useState('')
@@ -47,15 +46,6 @@ export default function AddProduct() {
     console.log("New Product Added")
   })
   }
-
-useEffect(() =>{
-  fetch("http://localhost:8080/product/getAll")
-  .then(response=>response.json())
-  .then((result)=>{
-    setProductcardss(result);
-  }
-  )
-},[] )
 
 
   return (

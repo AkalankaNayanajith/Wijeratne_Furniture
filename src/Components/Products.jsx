@@ -21,7 +21,7 @@ export default function Products({review,newprodname,prodid, category,descriptio
       });
   }, []);
 
-function Kumesayya (newprodname,price,imgpath,prodid,review,description ){
+function OneViewData (newprodname,price,imgpath,prodid,review,description ){
     localStorage.setItem('Name', newprodname);
     localStorage.setItem('Price', price);
     localStorage.setItem('Image', imgpath);
@@ -33,15 +33,15 @@ function Kumesayya (newprodname,price,imgpath,prodid,review,description ){
   return (
     <div className="h-full w-full ">
       <div className="text-5xl text-center font-normal w-full mt-[3rem] font-Pragati-Narrow tracking-widest">
-        {" "}
+     
         PRODUCTS
       </div>
 
       <div className="h-0.5 mt-[2rem]  w-[100%]  mx-auto bg-[#DFDFDF]"> </div>
       <div className="flex justify-between items-center">
         <h3 className="text-xl font-Pragati-Narrow tracking-normal font-[550] pl-8">
-          {" "}
-          PRODUCT FILTERS{" "}
+        
+          PRODUCT FILTERS
         </h3>
         <div className="text-right items-left">
           <SortListDropdown />
@@ -177,7 +177,7 @@ function Kumesayya (newprodname,price,imgpath,prodid,review,description ){
                       imgpath={product.imgpath}
                       key={product.prodid}
                       review={review}
-                      onClickHandle={() => {Kumesayya(product.newprodname,product.price,product.imgpath,product.prodid,review,product.description)}}
+                      onClickHandle={() => {OneViewData(product.newprodname,product.price,product.imgpath,product.prodid,review,product.description)}}
                     />
           })
         }

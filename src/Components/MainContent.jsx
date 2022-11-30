@@ -26,7 +26,7 @@ const MainContent = () => {
         </p>
         <div className="btn text-white">
           {" "}
-          <button className="w-[175px] h-[35px] bg-slate-800 overflow-hidden transition duration-300 group-hover:bg-[#fe8033] rounded-full relative cursor-pointer ">
+          <button className="w-[175px] h-[35px] bg-slate-800 overflow-hidden transition duration-300 group-hover:bg-[#fe8033]  rounded-full relative cursor-pointer ">
             {" "}
             Add to cart{" "}
           </button>{" "}

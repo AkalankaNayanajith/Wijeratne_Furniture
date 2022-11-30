@@ -27,7 +27,7 @@ const Navbar = () => {                             //Arrow function
     <div className='text-white flex justify-between  bg-[#000300] max-w-full h-18 px-5 mx-0 items-center' >     
       <div> <Link to='/'> <h1 className='text-4xl font-praise hover:text-[#B05C0D] '> Wijeratne</h1></Link> </div>
       <ul className='hidden md:flex '>
-          <Link to='/hotdeals' className='p-5 cursor-pointer  text-base hover:text-cyan-500'> Hot Deals ! </Link> 
+          <Link to='/hotdeals' className='p-5 cursor-pointer  text-base hover:text-cyan-500'> Hot Deals 🔥 </Link> 
           <Link to='/Products' className='p-5 cursor-pointer text-base group hover:text-cyan-500'> Products <FontAwesomeIcon icon={faAngleDown} className='fill-white items-center text-base px-1 group-hover:rotate-180' ></FontAwesomeIcon> </Link>
           <Link to='/myorders' className='p-5 cursor-pointer text-base hover:text-cyan-500'> My Orders</Link>
           <Link to='/customizedorders' className='p-5 cursor-pointer text-base text-center hover:text-cyan-500'> Customized Orders </Link>
