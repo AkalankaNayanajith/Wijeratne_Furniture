@@ -4,15 +4,13 @@ function HotDealsProdCard({
   ProductName,
   ImageSRC,
   NormalPrice,
-  DiscountedPrice,
+  DiscountedPrice, 
 }) {
   return (
     <>
-      <div className="WholeArea w-[100%] h-[800px]  bg-[#1A181B]">
+      <div className="mx-5 mt-5">
        
-
-        <div className=" twoDealSections  w-[100%] h-[600px] flex justify-between">
-          <div className=" OneComponent w-[43%] h-[500px] bg-white border-4 border-red-600 rounded-3xl mt-16  m-auto drop-shadow-xl">
+          <div className=" OneComponent max-w-2xl h-[460px] bg-white border-4 border-red-600 rounded-3xl mt-12 shadow-lg hover:shadow-2xl ease-in-out hover:scale-105 duration-300">
             <div className="Productname w-[75%] m-auto text-blue-600 text-center font-poppins tracking-wide font-medium text-2xl mt-10">
               {ProductName}
             </div>
@@ -27,21 +25,23 @@ function HotDealsProdCard({
               </div>
             </div>
 
-            <div className="prices w-[100%] h-[15%] ml-7 mt-7 flex ">
+            <div className="prices w-[100%] h-[25%] pl-7 pt-14 flex ">
               <div className="MarketPrice ml-6 mt-4 font-poppins text-lg tracking-wide font-medium text-black line-through">
                Rs {NormalPrice}
               </div>
-              <div className="dicountedPrice mt-4 text-lg ml-24 text-red-500 font-poppins tracking-wide font-semibold">
+              <div className="dicountedPrice mt-4 text-xl ml-24 text-red-500 font-poppins tracking-wide font-semibold">
                Rs {DiscountedPrice}
               </div>
 
-              <button className="button border-2 text-white text-lg border-[#ff0000] bg-gradient-to-b from-red-400 to-[#ff0000]  rounded-full w-[25%] h-[50px] mt-0 ml-[5rem] drop-shadow-lg shadow-black transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
-                {" "}
+
+              <div className=" mt-0 ml-[8rem] w-[25%] h-full">
+              <button className="button w-full h-[50px] border-2 text-white text-xl border-[#ff0000] bg-gradient-to-b from-red-400 to-[#ff0000]  rounded-full  drop-shadow-lg shadow-black transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
                 Buy Now
               </button>
+              </div>
             </div>
           </div>
-        </div>
+   
       </div>
     </>
   );
