@@ -246,7 +246,7 @@ function App() {
                 </Route> */}
           </Route>
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
         {/* <ProductCardHomePage/> */}
       </BrowserRouter>
     </>
