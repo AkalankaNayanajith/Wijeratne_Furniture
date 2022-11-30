@@ -4,7 +4,7 @@ import Ratings from "./Ratings";
 function ProductCard({  review,  newprodname, prodid ,category, description, quantity, dicount, price, color, material, country, imgpath, onClickHandle }) {
   return (
     <div className="m-8">
-      <div className="max-w-xs min-h-[36rem] max-h-[36rem] bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl" onClick={onClickHandle}>
+      <div className="max-w-xs  bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl ease-in-out hover:scale-105 duration-300" onClick={onClickHandle}>
         <a href="oneproductview">  
           <img
             className="w-full h-72 p-8 rounded-t-lg"
