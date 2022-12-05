@@ -83,8 +83,21 @@ const PaymentInformation = () => {
         
         
         <div className="flex justify-between gap-4">
-          <ProvinceDropdown />
+        
+        <select id="Province" name="Province" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500  ">
+                    <option value="Western">Western</option>
+                    <option value="Northern">Northern</option>
+                    <option value="North Western">North Western</option>
+                    <option value="North Central">North Central</option>
+                    <option value="Eastern">Eastern</option>
+                    <option value="Central">Central</option>
+                    <option value="Uva">Uva</option>
+                    <option value="Sabaragamuwa">Sabaragamuwa</option>
+                    <option value="Southern">Southern</option>
+        </select>
+          
         <input type="text" name="" id="" placeholder="Postal Code" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        
         
         </div>
         <input type="text" name="" id="" placeholder="Phone" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
