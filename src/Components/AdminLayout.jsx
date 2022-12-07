@@ -2,13 +2,15 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import AdminBar from './Pages/AdminBar'
 import ClippedDrawer from './Pages/DashClippedDrawer'
+import UserAction from './Pages/UserAction'
 
 const AdminLayout = ({children}) => {
   return (
     <>
     <AdminBar/>
     <Outlet/>
-    <ClippedDrawer/>
+    {/* <UserAction/> */}
+    {/* <ClippedDrawer/> */}
     </>
   )
 }

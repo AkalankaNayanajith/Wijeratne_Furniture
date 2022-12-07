@@ -18,7 +18,7 @@ const ProductSchema = Yup.object().shape({
 
 
 
-export default function AddProduct() {
+export default function AddHotDealsProduct() {
 
   const initialValues = { productName: "", productID: "" };
 

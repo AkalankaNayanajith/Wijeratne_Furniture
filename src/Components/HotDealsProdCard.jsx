@@ -35,9 +35,11 @@ function HotDealsProdCard({
 
 
               <div className=" mt-0 ml-[8rem] w-[25%] h-full">
+              <a href="/myshoppingcart">
               <button className="button w-full h-[50px] border-2 text-white text-xl border-[#ff0000] bg-gradient-to-b from-red-400 to-[#ff0000]  rounded-full  drop-shadow-lg shadow-black transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 ">
                 Buy Now
               </button>
+              </a> 
               </div>
             </div>
           </div>

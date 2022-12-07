@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 const Provinces = [
   {
-    value: 'Northern',
+    value: '',
     label: 'Northern',
   },
   {
@@ -13,31 +13,31 @@ const Provinces = [
     label: 'North Western',
   },
   {
-    value: 'North Central',
+    value: '',
     label: 'North Central',
   },
   {
-    value: 'Eastern',
+    value: '',
     label: 'Eastern',
   },
   {
-    value: 'Western',
+    value: '',
     label: 'Western',
   },
   {
-    value: 'Central',
+    value: '',
     label: 'Central',
   },
   {
-    value: 'Uva',
+    value: '',
     label: 'Uva',
   },
   {
-    value: 'Sabaragamuwa',
+    value: '',
     label: 'Sabaragamuwa',
   },
   {
-    value: 'Southern',
+    value: '',
     label: 'Southern',
   },
 ];

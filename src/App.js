@@ -2,7 +2,6 @@ import { Payment } from "@mui/icons-material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import CustomizedOrders from "./Components/CustomizedOrders";
-import Footer from "./Components/Footer";
 import HotDeals from "./Components/HotDeals";
 import Login from "./Components/Login";
 import Logintest from "./Components/Logintest";
@@ -10,13 +9,10 @@ import MainContent from "./Components/MainContent";
 import MyOrders from "./Components/MyOrders";
 import MyOrdersModal from "./Components/MyOrdersModal";
 import MyShoppingCart from "./Components/MyShoppingCart";
-import Navbar from "./Components/Navbar";
 import OneProductView from "./Components/OneProductView";
 import AboutUs from "./Components/Pages/AboutUs";
 import AddProduct from "./Components/Pages/AddProduct";
-import AdminBar from "./Components/Pages/AdminBar";
 import ContactUs from "./Components/Pages/ContactUs";
-import ClippedDrawer from "./Components/Pages/DashClippedDrawer";
 import FAQ from "./Components/Pages/FAQ";
 import PrivacyPolicy from "./Components/Pages/PrivacyPolicy";
 import RefundPolicy from "./Components/Pages/RefundPolicy";
@@ -29,6 +25,13 @@ import TrackMyOrder from "./Components/TrackMyOrder";
 import AdminLogin from "./Components/Pages/AdminLogin";
 import CustomerLayout from "./Components/CustomerLayout";
 import AdminLayout from "./Components/AdminLayout";
+import Dashboard from "./Components/Pages/Dashboard";
+import AddUser from "./Components/Pages/AddUser";
+import UserAction from "./Components/Pages/UserAction";
+import ProductAction from "./Components/Pages/ProductAction";
+import UserActionAddUser from "./Components/Pages/AddUser";
+import AdminProductPage from "./Components/Pages/AdminProductPage";
+import AdminUserPage from "./Components/Pages/AdminUserPage";
 
 function App() {
   return (
@@ -100,10 +103,19 @@ function App() {
           </Route>
 
 
+         
+            <Route exact path="/adminlogin" element={ <AdminLogin /> }/>
+         
+            <Route exact path="productaction" element={  <ProductAction /> }/>
 
-          <Route exact path="/adminlogin" element={<AdminLayout/>}>
-            <Route index={true} element={ <AdminLogin /> }/>
+          <Route exact path="/adminpanel" element={<AdminLayout/>}>
+            <Route index={true} element={ <Dashboard />  }/>
+            <Route exact path="useraction" element={  <UserAction /> }/>
+            <Route exact path="useractionadduser" element={  <UserActionAddUser /> }/>
+            <Route exact path="adminproductpage" element={  <AdminProductPage /> }/>
             <Route exact path="addproduct" element={  <AddProduct /> }/>
+            <Route exact path="adminuserpage" element={  <AdminUserPage /> }/>
+            <Route exact path="adduser" element={  <AddUser/> }/>
           </Route>
 
         </Routes>
