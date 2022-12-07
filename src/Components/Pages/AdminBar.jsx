@@ -39,11 +39,11 @@ const AdminBar = () => {
     <AppBar  position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Container maxWidth="3xl">
         <Toolbar disableGutters>          
-          <Typography className='ml-2'
-            variant="h4"
+          <Typography className='ml-6'
+            variant="h3"
             noWrap
             component="a"
-            href="/Admin"
+            href="/"
             sx={{
               mr: 0,
               display: { xs: 'none', md: 'flex' },
