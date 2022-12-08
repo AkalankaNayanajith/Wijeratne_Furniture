@@ -14,11 +14,35 @@ export default function CustomizedOrders() {
     }
   }
 
+  //converting image to base 64
+  
+  // const fileInput = document.getElementById("fileInput");
+  // fileInput.addEventListener("change" , e => {
+  //   const file = fileInput.files[0];
+  //   const reader = new FileReader();
+
+  //   reader.addEventListener("load" , () => {
+  //     console.log(reader.result);
+  //   })
+  //   reader.readAsDataURL(file);
+
+  // });
+
+
+
+  //converting image to base 64 k.c.
+  // const handleImages =  async (event) => {
+  //   const file = event.target.files[0];
+
+  //   const base64 = await convertToBase64 (file);
+  //   setProduct({});
+  // }
+
+
   return (
     <>
       <div className="text-4xl text-center bold w-full mt-[4rem]">
-        {" "}
-        Custom Orders{" "}
+        Custom Orders
       </div>
 
       <div className="h-full w-full text-center mt-9">
@@ -47,6 +71,11 @@ export default function CustomizedOrders() {
             console.log(event.target.value);
           }}
         />
+      </div>
+
+
+      <div>
+        <input type="file"   id="fileInput" />
       </div>
 
       <div className="m-10  w-full justify-center items-center flex">

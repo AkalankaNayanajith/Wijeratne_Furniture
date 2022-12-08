@@ -18,9 +18,9 @@ const OneProductView = () => {
     setImgpath(localStorage.getItem('Image'));
     setProdId(localStorage.getItem('ID'));
     setReview(localStorage.getItem('Review'));
-    setDescription(localStorage.getItem('Description'));  }, []);
+    setDescription(localStorage.getItem('Description')); 
   
-      
+  }, []);
   
     return (
     <>
@@ -75,16 +75,14 @@ const OneProductView = () => {
 
       <div className="AddtoCartButton mt-8 ">
         <a href="/myshoppingcart">
-          <button  className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base text-white bg-black hover:text-white  hover:border-[#2c2c2c] hover:bg-[#2c2c2c]">
-            {" "}
-            <p> ADD TO CART</p>{" "}
+          <button  className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base text-white bg-black hover:text-white  hover:border-[#2c2c2c] hover:bg-[#2c2c2c]" 
+        >
+            <p> ADD TO CART</p>
           </button>
         </a> 
-
-        
-
-
         </div>
+
+
         <div className="FavBtn mt-4 ">
           <button className="border-2 border-black rounded-none  w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:border-[#f63f3f] hover:bg-[#f63f3f]">
             {" "}

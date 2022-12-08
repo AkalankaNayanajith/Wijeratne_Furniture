@@ -61,6 +61,8 @@ const CartProdComponent = () => {
         </td>
         <td>
           <p className="text-[#34383b] font-sans text-right text-xl pr-52">
+          Rs  {price}
+          {/* //change the above line to calculate total value later on  */}
      
           </p>
         </td>

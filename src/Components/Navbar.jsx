@@ -37,10 +37,10 @@ const Navbar = () => {                             //Arrow function
       <div>
         <ul className='hidden md:flex'>
           <li className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faSearch} className='fill-white' > </FontAwesomeIcon> </li>
-          <Link to='/login' className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faUser} className='fill-white ' > </FontAwesomeIcon> </Link>  
-          <StyledBadge className="cart" badgeContent={78} color="error"> <button className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></button>  </StyledBadge>
+          <Link to='/logintest' className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faUser} className='fill-white ' > </FontAwesomeIcon> </Link>  
+          <StyledBadge className="cart" badgeContent={0} color="error"> <button className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></button>  </StyledBadge>
           {/* <li className='p-4 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></li> */}
-          <StyledBadge className="cart" color="error" badgeContent={10}>
+          <StyledBadge className="cart" color="error" badgeContent={0}>
              <button className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faCartShopping} className='fill-white ' > </FontAwesomeIcon></button>
              </StyledBadge>
         </ul>
