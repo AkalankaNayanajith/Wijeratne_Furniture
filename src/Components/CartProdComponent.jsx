@@ -3,11 +3,18 @@ import React, { useEffect, useState } from "react";
 const CartProdComponent = () => {
   
         const [newprodname, setNewprodname] = useState("");
-        const [price, setPrice] = useState("");
+        const [price, setPrice] = useState(0);
         const [imgpath, setImgpath] = useState("");
         const [prodid, setProdId] = useState("");
         const [review, setReview] = useState("");
         const [description, setDescription] = useState("");
+        const [itemCount, setItemCount] = useState(1);
+        const [ itemTotal, setItemTotal ] = useState(0);
+
+        const HandleOnChange = (count) => {
+            setItemTotal(count* price);
+        }
+      
 
     useEffect(() => {
 
@@ -18,9 +25,13 @@ const CartProdComponent = () => {
         setReview(localStorage.getItem('Review'));
         setDescription(localStorage.getItem('Description'));  }, []);
       
+
+        // var Pr = {price};
+        // // var Icount = count;
+        
   return (
     <>
-    
+     
       <tr className="border-b-2 mb-6 w-full border-[#DBD9D9]">
         <td>
           <div className="h-28 flex mt-4 mb-4 items-center">
@@ -48,20 +59,21 @@ const CartProdComponent = () => {
         </td>
         <td>
           <p className="text-[#34383b] text-right font-sans text-xl ">
-          Rs  {price}
+           Rs  {price}
           </p>
         </td>
         <td className="items-end text-right">
           <input
-            className="h-12 text-xl  border-[#A6A6A6] w-16 text-center border-2 rounded-md mr-20 "
+            className="count h-12 text-xl  border-[#A6A6A6] w-16 text-center border-2 rounded-md mr-20 "
             type="number"
-            min="1"
+            min="1"        
+            onChange={(event) => {HandleOnChange(event.target.value)}}
            
           />
         </td>
         <td>
           <p className="text-[#34383b] font-sans text-right text-xl pr-52">
-          Rs  {price}
+          {itemTotal} 
           {/* //change the above line to calculate total value later on  */}
      
           </p>
