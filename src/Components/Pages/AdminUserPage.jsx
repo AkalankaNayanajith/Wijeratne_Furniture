@@ -15,7 +15,7 @@ const AdminUserPage = () => {
             <div className="m-10 mt-10 ">
                 <div className="w-[20rem]  bg-[#6ead96] rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl ease-in-out hover:scale-105 duration-300" onClick={1}>
                     <h1 className='text-center text-2xl font-bold pt-5'> Add Staff</h1>
-                    {/* <img className="w-full h-72 p-8 rounded-t-lg" src="../Images/normal.jpg" /> */}
+                    <img className="w-full h-80 p-8 rounded-t-lg" src="../Images/addstaff.png" />
 
                     <div className="flex justify-between items-center mt-3">
                         <a
@@ -29,7 +29,7 @@ const AdminUserPage = () => {
             <div className="m-10 mt-10 ">
                 <div className="w-[20rem]  bg-[#f1ab8d] rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 hover:shadow-2xl ease-in-out hover:scale-105 duration-300" onClick={1}>
                     <h1 className='text-center text-2xl font-bold pt-5'> View staff</h1>
-                    {/* <img className="w-full h-72 p-8 rounded-t-lg" src="../Images/deals.svg" /> */}
+                    <img className="w-full h-80 p-8 rounded-t-lg" src="../Images/viewstaff.png" />
 
                     <div className="flex justify-between items-center mt-3">
                         <a
