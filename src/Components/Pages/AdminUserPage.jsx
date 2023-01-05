@@ -1,5 +1,5 @@
 import React from 'react'
-import UserAction from './UserAction'
+import UserAction from '../SideBar/UserAction'
 
 const AdminUserPage = () => {
   return (

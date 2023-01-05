@@ -9,7 +9,8 @@ import CustomTextField from "../CustomTextField/CustomTextField";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
 import { Result } from "postcss";
-import ProductAction from './ProductAction';
+import { Link } from "react-router-dom";
+import ProductAction from "../SideBar/ProductAction";
 
 
 const ProductSchema = Yup.object().shape({
@@ -280,13 +281,13 @@ export default function AddProduct() {
                 />
               </label>
             </form>
-          </div>
+          </div> 
 
           <div className="m-10  w-auto justify-between px-56 items-center flex">
-        <button
+        <Link to='/adminpanel/adminproductpage'
           type="submit"
           className="px-24 py-3 rounded-lg text-lg bg-red-500 hover:bg-red-600 text-white shadow-lg  hover:shadow-2xl "         
-        > Cancel  </button>
+        > Cancel  </Link>
 
         <button
           type="submit"
