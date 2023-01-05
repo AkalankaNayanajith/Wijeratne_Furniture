@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
 import { Result } from "postcss";
-import UserAction from './UserAction';
+import UserAction from '../SideBar/UserAction';
 
 
 const ProductSchema = Yup.object().shape({
@@ -64,25 +64,32 @@ const ProductSchema = Yup.object().shape({
         <UserAction/>
         </div>      
 
-        <div className='ml-72 w-[1200px] container'>
+        <div className='ml-[19rem] w-[1220px] container flex '>
+          <div className='formData '>
             <div className=" text-3xl mt-24 mx-auto text-center text-zinc-900">
             Add Staff
             </div>
 
-          <div className="">
-            <div className="h-20 mt-10  mx-60 bg-white justify-between gap-7 flex  items-center">
-             
+          <div className="w-[1215px]">
+            <div className="h-14 mt-10  mx-60 bg-white justify-between gap-7 flex  items-end ">
+
+            <label className="relative p-2">
             <input
                   type="text"
-                  className=" h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  className=" h-12 w-[23rem] px-4 text-base bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="First Name"
+                  label="feuhfe"
                   onChange={(ev) => {
                     setFirstName(ev.target.value);
                     console.log(ev.target.value);
                   }}
-                />     
+                />   <span className="text-sm text-black text-opacity-50  absolute left-3 -top-3 mr-4 ml-2 px-1  peer-focus:text-blue-500 ">
+                First Name
+               </span>  
+               </label>
 
+            
             <input
                   type="text"
                   className=" h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
@@ -283,7 +290,8 @@ const ProductSchema = Yup.object().shape({
 
 
      </div>
-    
+     
+     </div>
 
     </div>
     </>

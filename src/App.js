@@ -27,11 +27,18 @@ import CustomerLayout from "./Components/CustomerLayout";
 import AdminLayout from "./Components/AdminLayout";
 import Dashboard from "./Components/Pages/Dashboard";
 import AddUser from "./Components/Pages/AddUser";
-import UserAction from "./Components/Pages/UserAction";
-import ProductAction from "./Components/Pages/ProductAction";
 import UserActionAddUser from "./Components/Pages/AddUser";
 import AdminProductPage from "./Components/Pages/AdminProductPage";
 import AdminUserPage from "./Components/Pages/AdminUserPage";
+import ViewProducts from "./Components/Pages/ViewProducts";
+import AdminOrders from "./Components/Pages/AdminOrders";
+import ProductAction from "./Components/SideBar/ProductAction";
+import UserAction from "./Components/SideBar/UserAction";
+import AdminCustomOrders from "./Components/Pages/AdminCustomOrders";
+import AdminReviews from "./Components/Pages/AdminReviews";
+import AdminReports from "./Components/Pages/AdminReports";
+import AdminCategories from "./Components/Pages/AdminCategories";
+import AdminSuppliers from "./Components/Pages/AdminSuppliers";
 
 function App() {
   return (
@@ -42,6 +49,8 @@ function App() {
    
         {/* </div> */}
         <Routes>
+          <Route exact path="login" element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"><Login /></div> }/>
+          
           <Route exact path="/" element={<CustomerLayout/>}>
             <Route index={true} element={<div className="HomePage flex w-[100%] h-[100%] p-0 bg-slate-900 justify-between flex-wrap m-0 relative"> <Slider /> <MainContent /></div> }/>
 
@@ -96,9 +105,11 @@ function App() {
             <Route exact path="myordersmodal" 
             element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"><MyOrdersModal /></div> }/>
 
-            <Route exact path="login" element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"><Login /></div> }/>
             
             <Route exact path="logintest" element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"> <Logintest />  </div> }/>
+
+
+            <Route exact path="loginauth" element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"> <Login />  </div> }/>
 
           </Route>
 
@@ -110,12 +121,19 @@ function App() {
 
           <Route exact path="/adminpanel" element={<AdminLayout/>}>
             <Route index={true} element={ <Dashboard />  }/>
-            <Route exact path="useraction" element={  <UserAction /> }/>
-            <Route exact path="useractionadduser" element={  <UserActionAddUser /> }/>
+            <Route exact path="adminorders" element={  <AdminOrders /> }/>
+            <Route exact path="admincustomorders" element={  <AdminCustomOrders /> }/>
             <Route exact path="adminproductpage" element={  <AdminProductPage /> }/>
-            <Route exact path="addproduct" element={  <AddProduct /> }/>
+            <Route exact path="adminproductpage/addproduct" element={  <AddProduct /> }/>
+            <Route exact path="adminproductpage/viewproducts" element={  <ViewProducts /> }/>
+            <Route exact path="admincategories" element={  <AdminCategories /> }/>
             <Route exact path="adminuserpage" element={  <AdminUserPage /> }/>
             <Route exact path="adduser" element={  <AddUser/> }/>
+            {/* <Route exact path="useraction" element={  <UserAction /> }/>
+            <Route exact path="useractionadduser" element={  <UserActionAddUser /> }/> */}
+            <Route exact path="adminsuppliers" element={  <AdminSuppliers /> }/>
+            <Route exact path="adminreports" element={  <AdminReports /> }/>
+            <Route exact path="adminreviews" element={  <AdminReviews /> }/>
           </Route>
 
         </Routes>

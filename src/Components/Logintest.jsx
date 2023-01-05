@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useAuth0 } from '@auth0/auth0-react'
 
 const Logintest = () => {
   const [checkemail, setCheckemail] = useState("");
   const [checkpw, setCheckpw] = useState("");
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <>
@@ -44,7 +46,7 @@ const Logintest = () => {
               <button
                 type="submit"
                 className="px-12 py-3 font-poppins font-semibold rounded-full text-xl shadow-2xl bg-gradient-to-b from-cyan-500 to-blue-500  text-white hover:scale-105 duration-300"
-                onClick={4} >
+                onClick={loginWithRedirect}>  
                 Log in
               </button>
             </div>

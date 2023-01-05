@@ -49,6 +49,7 @@ const MyShoppingCart = () => {
                   <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
                     luxury Double Bed
                   </h3>
+                 
                   <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
               
                     Teak Wood ,Ultra comfort Soft mattress
