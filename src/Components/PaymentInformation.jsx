@@ -60,7 +60,6 @@ const PaymentInformation = () => {
 
 
         <h2 className="text-base font-sans font-semibold  mt-11">
-          {" "}
           Contact Information
         </h2>
         

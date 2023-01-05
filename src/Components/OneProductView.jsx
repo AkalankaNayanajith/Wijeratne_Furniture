@@ -59,7 +59,7 @@ const OneProductView = () => {
        </div>
         <div className="ratings flex text-left mt-2 ">
           <Ratings review={4}/>
-
+        
           <p className="font-Manrope font-semibold text-[#2F2D3A] items-center ml-5 mt-[0.1rem]">
             (15 Reviews)
           </p>
