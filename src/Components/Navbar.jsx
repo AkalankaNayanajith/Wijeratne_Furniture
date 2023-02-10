@@ -27,21 +27,21 @@ const Navbar = () => {                             //Arrow function
     <div className='text-white flex justify-between  bg-[#000300] max-w-full h-18 px-5 mx-0 items-center' >     
       <div> <Link to='/'> <h1 className='text-4xl font-praise hover:text-[#B05C0D] '> Wijeratne</h1></Link> </div>
       <ul className='hidden md:flex '>
-          <Link to='/hotdeals' className='p-5 cursor-pointer  text-base hover:text-cyan-500'> Hot Deals 🔥 </Link> 
-          <Link to='/Products' className='p-5 cursor-pointer text-base group hover:text-cyan-500'> Products <FontAwesomeIcon icon={faAngleDown} className='fill-white items-center text-base px-1 group-hover:rotate-180' ></FontAwesomeIcon> </Link>
-          <Link to='/myorders' className='p-5 cursor-pointer text-base hover:text-cyan-500'> My Orders</Link>
-          <Link to='/customizedorders' className='p-5 cursor-pointer text-base text-center hover:text-cyan-500'> Customized Orders </Link>
-          <Link to='/trackmyorder' className='p-5 cursor-pointer text-base hover:text-cyan-500 '> Track My Order</Link>
+          <Link to='/hotdeals' className='p-5 cursor-pointer  text-base hover:text-cyan-500 focus:text-cyan-500'> Hot Deals 🔥 </Link> 
+          <Link to='/Products' className='p-5 cursor-pointer text-base group hover:text-cyan-500 focus:text-cyan-500' > Products <FontAwesomeIcon icon={faAngleDown} className='fill-white items-center text-base px-1 group-hover:rotate-180 group-focus:rotate-180' ></FontAwesomeIcon> </Link>
+          <Link to='/myorders' className='p-5 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500'> My Orders</Link>
+          <Link to='/customizedorders' className='p-5 cursor-pointer text-base text-center hover:text-cyan-500 focus:text-cyan-500'> Customized Orders </Link>
+          <Link to='/trackmyorder' className='p-5 cursor-pointer text-base hover:text-cyan-500  focus:text-cyan-500'> Track My Order</Link>
         </ul>
 
       <div>
         <ul className='hidden md:flex'>
-          <li className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faSearch} className='fill-white' > </FontAwesomeIcon> </li>
-          <Link to='/logintest' className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faUser} className='fill-white ' > </FontAwesomeIcon> </Link>  
-          <StyledBadge className="cart" badgeContent={0} color="error"> <button className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></button>  </StyledBadge>
+          <li className='p-4 cursor-pointer text-base hover:text-cyan-500  focus:text-cyan-500'><FontAwesomeIcon icon={faSearch} className='fill-white' > </FontAwesomeIcon> </li>
+          <Link to='/logintest' className='p-4 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500'><FontAwesomeIcon icon={faUser} className='fill-white ' > </FontAwesomeIcon> </Link>  
+          <StyledBadge className="cart" badgeContent={0} color="error"> <button className='p-4 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500'><FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></button>  </StyledBadge>
           {/* <li className='p-4 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></li> */}
           <StyledBadge className="cart" color="error" badgeContent={0}>
-             <button className='p-4 cursor-pointer text-base hover:text-cyan-500'><FontAwesomeIcon icon={faCartShopping} className='fill-white ' > </FontAwesomeIcon></button>
+             <button className='p-4 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500'><FontAwesomeIcon icon={faCartShopping} className='fill-white ' > </FontAwesomeIcon></button>
              </StyledBadge>
         </ul>
       </div>
@@ -58,8 +58,8 @@ const Navbar = () => {                             //Arrow function
 
           <ul className='pt-0 uppercase p-4 flex flex-col md:hidden'>
             <li className='p-4 border-b cursor-pointer border-gray-600'>Hot Deals !</li>
-            <li className='p-4 border-b cursor-pointer border-gray-600'> <Link to='/hotdeals' className=' cursor-pointer'> Hot Deals !
-            </Link></li>
+            <li className='p-4 border-b cursor-pointer border-gray-600'> <Link to='/hotdeals' className=' cursor-pointer'> 
+            Hot Deals !</Link></li>
             <Link to='/hotdeals' className=' cursor-pointer p-4 border-b  border-gray-600 h-full w-full'> Hot Deals !
             </Link>
             <li className='p-4 border-b cursor-pointer border-gray-600'>Products</li>
