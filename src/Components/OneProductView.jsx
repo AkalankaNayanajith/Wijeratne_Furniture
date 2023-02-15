@@ -11,7 +11,7 @@ const OneProductView = () => {
   const [review, setReview] = useState("");
   const [description, setDescription] = useState("");
 
-  useEffect(() => {
+  useEffect(() => { 
 
     setNewprodname(localStorage.getItem('Name'));
     setPrice(localStorage.getItem('Price'));
