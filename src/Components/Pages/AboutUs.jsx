@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function AboutUs() {
+  useEffect(() => { 
+
+    window.scrollTo(0, 0)})
+
   return (
    <>
     <div className='text-4xl text-center bold w-full mt-[4rem]'>About Us</div>

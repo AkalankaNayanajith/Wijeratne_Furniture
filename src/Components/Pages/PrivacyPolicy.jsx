@@ -1,6 +1,12 @@
 import React from 'react'
+import { useEffect } from 'react'
 
 export default function PrivacyPolicy() {
+
+  useEffect(() => { 
+
+    window.scrollTo(0, 0)})
+
   return (
     <>
     <div className='text-5xl text-center  w-full mt-[4rem] font-Pragati-Narrow'>Privacy Policy </div>
