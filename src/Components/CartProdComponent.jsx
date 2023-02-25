@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const CartProdComponent = () => {
   
@@ -10,9 +11,27 @@ const CartProdComponent = () => {
         const [description, setDescription] = useState("");
         const [itemCount, setItemCount] = useState(1);
         const [ itemTotal, setItemTotal ] = useState(0);
+        const [qt, setQt] = useState(1)
 
         const HandleOnChange = (count) => {
             setItemTotal(count* price);
+            localStorage.setItem("total", count* price );
+            localStorage.setItem("count", count)
+        }
+
+        const removeButtonOnClick = async () => {
+            let data = await axios.delete(`http://localhost:8080/product/delete/${prodid}`)
+            .then(function (response) {
+              // handle success
+              console.log(response);
+            })
+            .catch(function (error) {
+              // handle error
+              console.log(error);
+            })
+            .finally(function () {
+              // always executed
+            });
         }
       
 
@@ -49,7 +68,7 @@ const CartProdComponent = () => {
               <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
                              {/* {selectedcolor}  {selectedmaterial} */}
               </p>
-              <button>
+              <button onClick={removeButtonOnClick}>
                 <p className="text-[#CB6202] mt-[0.1rem] underline underline-offset-2 ">
                   Remove
                 </p>
@@ -67,7 +86,11 @@ const CartProdComponent = () => {
             className="count h-12 text-xl  border-[#A6A6A6] w-16 text-center border-2 rounded-md mr-20 "
             type="number"
             min="1"        
-            onChange={(event) => {HandleOnChange(event.target.value)}}
+            value={qt}
+            onChange={(event) => {
+              setQt(event.target.value);
+              HandleOnChange(event.target.value)
+            }}
            
           />
         </td>

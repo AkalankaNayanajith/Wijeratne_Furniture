@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function FAQ() {
+
+  useEffect(() => { 
+
+    window.scrollTo(0, 0)})
+
   return (
     <>
     <div className='text-4xl text-center  w-full mt-[4rem] font-Pragati-Narrow'>FAQs </div>

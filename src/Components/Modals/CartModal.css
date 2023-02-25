@@ -1,0 +1,11 @@
+.cart-modal {
+    transition: all .2s cubic-bezier(0, 1.05, 0.59, 1.25);
+}
+
+.open {
+    transform: translateX(0);
+}
+
+.close {
+    transform: translateX(100%);
+}
