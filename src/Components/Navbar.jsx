@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CartModal from './Modals/CartModal'
+import FavouritesModal from './Modals/FavouritesModal'
 
 const Navbar = () => {                             //Arrow function
     const [nav, setNav]= useState(false)          //useState default value is false
@@ -25,6 +26,7 @@ const Navbar = () => {                             //Arrow function
 
     
   const [openCartModal, setOpenCartModal] = React.useState(false);
+  const [openFavouritesModal, setOpenFavouritesModal] = React.useState(false);
 
   return (    
     <div className='text-white flex justify-between  bg-[#000300] max-w-full h-18 px-5 mx-0 items-center' >     
@@ -41,7 +43,9 @@ const Navbar = () => {                             //Arrow function
         <ul className='hidden md:flex'>
           <li className='p-4 cursor-pointer text-base hover:text-cyan-500  focus:text-cyan-500'><FontAwesomeIcon icon={faSearch} className='fill-white' > </FontAwesomeIcon> </li>
           <Link to='/logintest' className='p-4 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500'><FontAwesomeIcon icon={faUser} className='fill-white ' > </FontAwesomeIcon> </Link>  
-          <StyledBadge className="cart" badgeContent={0} color="error"> <button className='p-4 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500' ><FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></button>  </StyledBadge>
+          <StyledBadge className="cart" badgeContent={0} color="error"> 
+            <button className='p-4 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500' onClick={()=> setOpenFavouritesModal(true)} >
+              <FontAwesomeIcon icon={faHeart} className='fill-white' > </FontAwesomeIcon></button>  </StyledBadge>
           {/* <li className='p-4 cursor-pointer'><FontAwesomeIcon icon={faCartShopping} className='fill-white' > </FontAwesomeIcon></li> */}
           <StyledBadge className="cart" color="error" badgeContent={0}>
              <button className='p-4 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500' onClick={()=> setOpenCartModal(true)}><FontAwesomeIcon icon={faCartShopping} className='fill-white ' > </FontAwesomeIcon></button>
@@ -52,6 +56,7 @@ const Navbar = () => {                             //Arrow function
 
       
       <CartModal open={openCartModal} closeCartHandler={()=> setOpenCartModal(false)}/>
+      <FavouritesModal openFav={openFavouritesModal} closeFavHandler={()=> setOpenFavouritesModal(false)}/>
       
 
         <div onClick = {handleNav} className='block md:hidden'>
