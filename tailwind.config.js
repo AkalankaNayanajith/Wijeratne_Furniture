@@ -17,6 +17,7 @@ module.exports = {
       'praise': ['Praise'],
       'Manrope': ['Manrope','sans-serif'],
       'Pragati-Narrow':[ 'Pragati Narrow', 'sans-serif'],
+      'Poppins':[ 'Poppins', 'sans-serif'],
     }
   },
   plugins: [require('tw-elements/dist/plugin')],
