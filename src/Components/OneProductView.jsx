@@ -1,41 +1,40 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Ratings from "./Ratings";
 
 
 const OneProductView = () => {
   
-  const [newprodname, setNewprodname] = useState("");
-  const [price, setPrice] = useState("");
-  const [imgpath, setImgpath] = useState("");
-  const [prodid, setProdId] = useState("");
-  const [review, setReview] = useState("");
-  const [description, setDescription] = useState("");
+  let {productID}=useParams()
+
+  const [product, setProduct] = useState({});
 
   useEffect(() => { 
 
-    setNewprodname(localStorage.getItem('Name'));
-    setPrice(localStorage.getItem('Price'));
-    setImgpath(localStorage.getItem('Image'));
-    setProdId(localStorage.getItem('ID'));
-    setReview(localStorage.getItem('Review'));
-    setDescription(localStorage.getItem('Description')); 
+    window.scrollTo(0, 0)//scroll to top when the page laods
+
+    fetch(`http://localhost:8080/product/${productID}`)
+    .then((response) => response.json())
+    .then((result) => {
+      setProduct(result)
+    });
   
   }, []);
   
     return (
     <>
       <div className="Imagessection w-[50%]">
-        <div className="LargeImage items-center h-[600px] ">
+        <div className="MainImage items-center h-[600px] ">
           <img
             className="bg-center bg-cover mt-20 mx-auto"
-            src={imgpath}
+            src={product.image64}
             alt=""
           />
         </div>
         <div className="smallImagesSLider mx-auto w-[50%] flex">
           <img
             className="bg-center bg-contain border-2 border-black"
-            // src="../Images/prod3.png"
+            src={product.images64}
             alt=""
           />
           <img
@@ -51,11 +50,11 @@ const OneProductView = () => {
         </div>
       </div>
 
-      <div className="information h-full w-[50%] " key={prodid}>
+      <div className="information h-full w-[50%]">
         <div className="text-black text-left  text-4xl font-poppins font-semibold  mt-20">
        
      
-       {newprodname}
+       {product.newprodname}
        </div>
         <div className="ratings flex text-left mt-2 ">
           <Ratings review={4}/>
@@ -65,13 +64,13 @@ const OneProductView = () => {
           </p>
         </div>
 
-        <div className="price text-xl font-medium text-[#ff0000]">Rs {price} </div>
+        <div className="price text-xl font-medium text-[#ff0000]">Rs {product.price} </div>
 
       <div className="mr-14">
           <p className="text-justify font-Manrope font-normal text-base ">
-          {description}
+          {product.description}
           </p>
-                  </div>
+      </div>
 
       <div className="AddtoCartButton mt-8 ">
         <a href="/myshoppingcart">

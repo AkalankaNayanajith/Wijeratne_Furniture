@@ -39,6 +39,7 @@ import AdminReviews from "./Components/Pages/AdminReviews";
 import AdminReports from "./Components/Pages/AdminReports";
 import AdminCategories from "./Components/Pages/AdminCategories";
 import AdminSuppliers from "./Components/Pages/AdminSuppliers";
+import CategoryAdmin from "./Components/Pages/CategoryAdmin";
 
 function App() {
   return (
@@ -87,7 +88,7 @@ function App() {
             <Route exact path="products" 
             element={  <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative">  <Products /></div>  }/>
 
-            <Route exact path="oneproductview" 
+            <Route  path="products/:productID" 
             element={  <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"> <OneProductView /> </div> }/>
 
             <Route exact path="myshoppingcart" 
@@ -98,7 +99,7 @@ function App() {
             
             <Route exact path="shipping" 
             element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"> <Shipping /> </div> }/>
-
+ 
             <Route exact path="payment" 
             element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"><Payment /></div> }/>
 
@@ -127,12 +128,14 @@ function App() {
             <Route exact path="adminproductpage/addproduct" element={  <AddProduct /> }/>
             <Route exact path="adminproductpage/viewproducts" element={  <ViewProducts /> }/>
             <Route exact path="admincategories" element={  <AdminCategories /> }/>
+            <Route exact path="categoryadmin" element={  <CategoryAdmin /> }/>
             <Route exact path="adminuserpage" element={  <AdminUserPage /> }/>
             <Route exact path="adduser" element={  <AddUser/> }/>
             {/* <Route exact path="useraction" element={  <UserAction /> }/>
             <Route exact path="useractionadduser" element={  <UserActionAddUser /> }/> */}
             <Route exact path="adminsuppliers" element={  <AdminSuppliers /> }/>
             <Route exact path="adminreports" element={  <AdminReports /> }/>
+            <Route exact path="adminreports/generatedreport" element={  <AdminReports /> }/>
             <Route exact path="adminreviews" element={  <AdminReviews /> }/>
           </Route>
 

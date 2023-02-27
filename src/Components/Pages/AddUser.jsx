@@ -78,8 +78,7 @@ const ProductSchema = Yup.object().shape({
                   type="text"
                   className=" h-12 w-[23rem] px-4 text-base bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
-                  placeholder="First Name"
-                  label="feuhfe"
+                  placeholder="First Name"                  
                   onChange={(ev) => {
                     setFirstName(ev.target.value);
                     console.log(ev.target.value);
@@ -89,10 +88,10 @@ const ProductSchema = Yup.object().shape({
                </span>  
                </label>
 
-            
+            <label className="relative p-2">
             <input
                   type="text"
-                  className=" h-14 w-[25rem] px-6 text-xl bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+                  className=" h-12 w-[23rem] px-4 text-base bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Last Name"
                   onChange={(ev) => {
@@ -100,6 +99,10 @@ const ProductSchema = Yup.object().shape({
                     console.log(ev.target.value);
                   }}
                 />  
+                <span className="text-sm text-black text-opacity-50  absolute left-3 -top-3 mr-4 ml-2 px-1  peer-focus:text-blue-500 ">
+                Last Name
+               </span>
+               </label> 
 
                
             </div>
@@ -107,15 +110,20 @@ const ProductSchema = Yup.object().shape({
             
 
 
-            <div className="h-20  mx-60 bg-white justify-between gap-7 flex  items-center">
-              <div className='flex text-xl px-5 text-center items-center' onChange={(ev) => {
+            <div className="h-16  mx-60 bg-white justify-between gap-7 flex  items-center">
+            <label className="relative p-2 ">
+              <div className='flex text-base px-5 text-center items-center' onChange={(ev) => {
                     setGender(ev.target.value);
                     console.log(ev.target.value);
                   }}>
+              <span className="text-sm mb-10  text-black text-opacity-50  absolute left-3 -top-3 mr-4 ml-2 px-1  peer-focus:text-blue-500 ">
+                Gender
+               </span>
                   <input type="radio" value="MALE" name="gender" className='mr-3 h-5 w-5'/> Male
-                                    <div className='w-24'></div>
+                                    <div className='w-16'></div>
                   <input type="radio" value="FEMALE" name="gender" className='mr-3 h-5 w-5'/> Female
               </div>
+            </label>
 
             {/* <select id="gender" name="gender" className="px-6 text-xl border-2 rounded-lg border-black border-opacity-50 h-14 w-[25rem] " 
                   onChange={(ev) => {

@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 //still not working //not showing the carousel even after routed
 
 const featuredProducts = [ 
-"../Images/Hero_1.jpg","../Images/Hero_2.jpg", "../Images/Hero_3.jpg","../Images/Hero_4.jpg"];
+"../Images/Hero_1.jpg","../Images/living room1.jpg.jpg", "../Images/Hero_3.jpg","../Images/Hero_4.jpg"];
 
 let count = 0;
    
