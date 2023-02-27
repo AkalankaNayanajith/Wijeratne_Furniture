@@ -1,4 +1,5 @@
 import { CheckBox } from "@mui/icons-material";
+import { FormControl, InputAdornment, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import React, { useEffect, useState } from "react";
@@ -30,15 +31,33 @@ const PaymentInformation = () => {
   const [prodid, setProdId] = useState("");
   const [review, setReview] = useState("");
   const [description, setDescription] = useState("");
+  const [itemCount, setItemCount] = useState("");
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [apartment, setApartment] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [phone, setPhone] = useState("");
+  
+
+  const handleProvinceChange = (event) => {
+    setProvince(event.target.value);
+    console.log(event.target.value);
+  };
 
   useEffect(() => {
 
     setNewprodname(localStorage.getItem('Name'));
-    setPrice(localStorage.getItem('Price'));
+    setPrice(localStorage.getItem('total'));
     setImgpath(localStorage.getItem('Image'));
     setProdId(localStorage.getItem('ID'));
     setReview(localStorage.getItem('Review'));
+    setItemCount(localStorage.getItem('count'));
     setDescription(localStorage.getItem('Description'));  }, []); 
+   
 
   return (
     <div className="flex container w-full">
@@ -62,9 +81,20 @@ const PaymentInformation = () => {
         <h2 className="text-base font-sans font-semibold  mt-11">
           Contact Information
         </h2>
+
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='Email' required variant="outlined" color="secondary"  className="mt-4  w-full "
+                 onChange={(ev) => {
+                   setEmail(ev.target.value);
+                   console.log(ev.target.value);}}
+                 error = {!email}/> 
+              </Stack>          
+        </Stack>
         
        
-      <input type="text" name="" id="" placeholder="Email" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+      {/* <input type="text" name="" id="" placeholder="Email" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/> */}
   
         <CheckBoxTick Labelinput="Email me with news and exclusive offers" />
 
@@ -72,18 +102,101 @@ const PaymentInformation = () => {
           Shipping Address
         </h2>
         <div className="flex justify-between gap-4 ">
-        <input type="text" name="" id="" placeholder="First Name" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
-        <input type="text" name="" id="" placeholder="Last Name" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
-         
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='First Name' required variant="outlined" color="secondary"  className="mt-4 w-[20rem] "                 
+                 onChange={(ev) => {
+                   setEmail(ev.target.value);
+                   console.log(ev.target.value);}}
+                 error = {!email}/> 
+              </Stack>          
+        </Stack>
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='Last Name' required variant="outlined" color="secondary"  className="mt-4 w-[20rem] "
+                 onChange={(ev) => {
+                   setLastName(ev.target.value);
+                   console.log(ev.target.value);}}
+                 error = {!lastName}/> 
+              </Stack>          
+        </Stack>
+        {/* <input type="text" name="" id="" placeholder="First Name" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        <input type="text" name="" id="" placeholder="Last Name" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/> */}               
         </div>
-        <input type="text" name="" id="" placeholder="Address" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='Address' required variant="outlined" color="secondary"  className="mt-4  w-full "
+                 onChange={(ev) => {
+                   setAddress(ev.target.value);
+                   console.log(ev.target.value);}}
+                 error = {!address}/> 
+              </Stack>          
+        </Stack>
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='Apartment, suite, etc (optional)'  variant="outlined" color="secondary"  className="mt-4  w-full "
+                 onChange={(ev) => {
+                  setApartment(ev.target.value);
+                   console.log(ev.target.value);}}/> 
+              </Stack>          
+        </Stack>
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='City' required variant="outlined" color="secondary"  className="mt-4  w-full "
+                 onChange={(ev) => {
+                   setCity(ev.target.value);
+                   console.log(ev.target.value);}}
+                 error = {!city}/> 
+              </Stack>          
+        </Stack>
+
+
+        {/* <input type="text" name="" id="" placeholder="Address" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
         <input type="text" name="" id="" placeholder="Apartment, suite, etc (optional)" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
-        <input type="text" name="" id="" placeholder="City" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        <input type="text" name="" id="" placeholder="City" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/> */}
         
         
         <div className="flex justify-between gap-4">
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>               
+               <FormControl fullWidth className=" w-[20rem] mt-4">
+               <InputLabel id="demo-simple-select-label" >Select Your Province</InputLabel>
+                <Select required color="secondary"
+
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={province}
+                    label="province"
+                    onChange={handleProvinceChange}                    
+                    error = {!province}  >
+                    <MenuItem value={"Western"}>Western</MenuItem>
+                    <MenuItem value={"Southern"}>Southern</MenuItem>
+                    <MenuItem value={"North Western"}>North Western</MenuItem>
+                    <MenuItem value={"Central"}>Central</MenuItem>
+                    <MenuItem value={"North Central"}>North Central</MenuItem>
+                    <MenuItem value={"Uva"}>Uva</MenuItem>
+                    <MenuItem value={"Northern"}>Northern</MenuItem>
+                    <MenuItem value={"Eastern"}>Eastern</MenuItem>
+                    <MenuItem value={"Sabaragamuwa"}>Sabaragamuwa</MenuItem>
+                 </Select>
+               </FormControl>
+              </Stack>          
+            </Stack>
         
-        <select id="Province" name="Province" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500  ">
+        {/* <select id="Province" name="Province" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500" labelId="demo-simple-select-label"
+                    
+                    value={province}
+                    label="subCategory"
+                    onChange={handleProvinceChange}                    
+                    error = {!province}>
+                    <option value="" disabled selected>Select Your Province</option>
                     <option value="Western">Western</option>
                     <option value="Northern">Northern</option>
                     <option value="North Western">North Western</option>
@@ -93,13 +206,34 @@ const PaymentInformation = () => {
                     <option value="Uva">Uva</option>
                     <option value="Sabaragamuwa">Sabaragamuwa</option>
                     <option value="Southern">Southern</option>
-        </select>
+        </select> */}
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='Postal Code' required variant="outlined" color="secondary"  className="mt-4 w-[20rem] "
+                 onChange={(ev) => {
+                   setPostalCode(ev.target.value);
+                   console.log(ev.target.value);}}
+                 error = {!postalCode}/> 
+              </Stack>          
+        </Stack>
           
-        <input type="text" name="" id="" placeholder="Postal Code" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+        {/* <input type="text" name="" id="" placeholder="Postal Code" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/> */}
         
         
         </div>
-        <input type="text" name="" id="" placeholder="Phone" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/>
+
+        <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='Phone' required variant="outlined" color="secondary"  className="mt-4  w-full "
+                 onChange={(ev) => {
+                   setPhone(ev.target.value);
+                   console.log(ev.target.value);}}
+                 error = {!phone}/> 
+              </Stack>          
+        </Stack>
+
+        {/* <input type="text" name="" id="" placeholder="Phone" className="text-base mt-4 h-14 w-full p-4 rounded-lg outline-none border-[#DBD9D9] border-2 focus:border-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"/> */}
         <div className="mt-8 mb-28 flex justify-between ">
           <Link
             to="/myshoppingcart"
@@ -159,7 +293,7 @@ const PaymentInformation = () => {
         {/* make a component including image and bottom line from here to */}
         <div className="h-28 flex items-center justify-between">
           <div className="h-24 w-24 rounded-lg border-2 border-[#A6A6A6]">
-            <StyledBadge className="cart" color="primary" badgeContent={1}>
+            <StyledBadge className="cart" color="primary" badgeContent={itemCount}>
               <img
                 className="h-[90%] w-[90%] m-auto mt-1"
                 src={imgpath}

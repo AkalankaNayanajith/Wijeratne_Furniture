@@ -48,10 +48,13 @@ const MyShoppingCart = () => {
             <p> CONTINUE SHOPPING</p>
           </Link>
 
+          {/* <button className="border-2 border-black bg-black text-white rounded-none  px-16 py-[0.75rem] font-sans font-normal text-lg hover:border-[#2c2c2c] hover:bg-[#2c2c2c]" onClick={handleCheck}>
+           PROCEED TO CHECKOUT
+          </button> */}
+
           <Link
             to="/paymentinformation"
-            className="border-2 border-black bg-black text-white rounded-none  px-16 py-[0.75rem] font-sans font-normal text-lg hover:border-[#2c2c2c] hover:bg-[#2c2c2c]"
-          >
+            className="border-2 border-black bg-black text-white rounded-none  px-16 py-[0.75rem] font-sans font-normal text-lg hover:border-[#2c2c2c] hover:bg-[#2c2c2c]">
             <p> PROCEED TO CHECKOUT</p>
           </Link>
         </div>

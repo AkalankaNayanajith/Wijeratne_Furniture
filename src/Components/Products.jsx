@@ -9,9 +9,11 @@ import SortListDropdown from "./SortListDropdown";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Ratings from "./Ratings";
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
-export default function Products({review,newprodname,prodid, category,description, quantity,dicount,price,color,material,country,imgpath,}) {
+export default function Products({review,newprodname,prodid, category,description, quantity,dicount,price,color,material,country,image64,}) {
   const [productcardss, setProductcardss] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:8080/product/getAll")
@@ -21,14 +23,14 @@ export default function Products({review,newprodname,prodid, category,descriptio
       });
   }, []);
 
-function OneViewData (newprodname,price,imgpath,prodid,review,description ){
-    localStorage.setItem('Name', newprodname);
-    localStorage.setItem('Price', price);
-    localStorage.setItem('Image', imgpath);
-    localStorage.setItem('ID', prodid);
-    localStorage.setItem('Review', review);
-    localStorage.setItem('Description', description);  
-}
+// function OneViewData (newprodname,price,image64,images64,prodid,review,description ){
+//     localStorage.setItem('Name', newprodname);
+//     localStorage.setItem('Price', price);
+//     localStorage.setItem('Image', image64);
+//     localStorage.setItem('ID', prodid);
+//     localStorage.setItem('Review', review);
+//     localStorage.setItem('Description', description);  
+// }
 
   return (
     <div className="h-full w-full ">
@@ -56,7 +58,7 @@ function OneViewData (newprodname,price,imgpath,prodid,review,description ){
       <div className="h-full w-[25%]  ">
 
         <div className="flex">
-        <p className="pt-14 pl-8 text-xl font-semibold ">Room <FontAwesomeIcon icon={faAngleDown} className='pl-44 fill-white items-center text-base px-1  group-hover:rotate-180 ' ></FontAwesomeIcon> </p>
+        <p className="pt-14 pl-8 text-xl font-semibold ">Area <FontAwesomeIcon icon={faAngleDown} className='pl-44 fill-white items-center text-base px-1  group-hover:rotate-180 ' ></FontAwesomeIcon> </p>
         </div>
 
       
@@ -80,6 +82,14 @@ function OneViewData (newprodname,price,imgpath,prodid,review,description ){
      <label className="RoomFilters pl-8 pt-1 flex cursor-pointer">
      <CheckBoxLarge/>
      <span className='font-Manrope text-base tracking-wide pl-4  text-[#2F2D3A]'>BathRoom</span>
+     </label>
+     <label className="RoomFilters pl-8 pt-1 flex cursor-pointer">
+     <CheckBoxLarge/>
+     <span className='font-Manrope text-base tracking-wide pl-4  text-[#2F2D3A]'>Patio</span>
+     </label>
+     <label className="RoomFilters pl-8 pt-1 flex cursor-pointer">
+     <CheckBoxLarge/>
+     <span className='font-Manrope text-base tracking-wide pl-4  text-[#2F2D3A]'>Other...</span>
      </label>
 
     
@@ -174,10 +184,10 @@ function OneViewData (newprodname,price,imgpath,prodid,review,description ){
             return <ProductCard
                       newprodname={product.newprodname}
                       price={product.price}
-                      imgpath={product.imgpath}
+                      imgpath={product.image64}
                       key={product.prodid}
                       review={review}
-                      onClickHandle={() => {OneViewData(product.newprodname,product.price,product.imgpath,product.prodid,review,product.description)}}
+                      onClickHandler={() => {navigate(`${product.id}`)}}
                     />
           })
         }

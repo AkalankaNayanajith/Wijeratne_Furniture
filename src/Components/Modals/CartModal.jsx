@@ -98,7 +98,9 @@ const CartModal = ({ open, closeCartHandler }) => {
 
  <div className="w-full flex justify-center">
      <p className="text-lg font-semibold text-black font-sans mt-1 mb-2 ">
-       Total Rs:471500 
+       Total Rs:
+       &nbsp; 
+       471500 
      </p>
    </div>
 
