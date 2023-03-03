@@ -134,7 +134,7 @@ googleTransliterate(request, text, inputLanguage, maxResult)
           Registered successfully
       </button>
 
-      {/* <FirstModal open={openModal} onClose={()=> setOpenModal(false)}/> */}
+      {/* <FirstModal open={openModal} onClose={()=> setOpenModal(false)}/> */} 
       {/* <OrderSeeMore open={openModal} onClose={()=> setOpenModal(false)}/> */}
       <ProductAddedSuccessfully open={openModal} onClose={()=> setOpenModal(false)}/>
       <CartModal open={openCartModal} closeCartHandler={()=> setOpenCartModal(false)}/>
@@ -170,6 +170,7 @@ googleTransliterate(request, text, inputLanguage, maxResult)
           <p>{translatedText}</p>
          </div>
 
+         
          
 
          <HomeSlider/>

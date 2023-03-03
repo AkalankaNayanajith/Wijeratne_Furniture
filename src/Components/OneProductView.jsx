@@ -26,7 +26,7 @@ const OneProductView = () => {
       <div className="Imagessection w-[50%]">
         <div className="MainImage items-center h-[600px] ">
           <img
-            className="bg-center bg-cover mt-20 mx-auto"
+            className="bg-center h-[600px] bg-cover mt-20 mx-auto"
             src={product.image64}
             alt=""
           />

@@ -296,17 +296,17 @@ const PaymentInformation = () => {
             <StyledBadge className="cart" color="primary" badgeContent={itemCount}>
               <img
                 className="h-[90%] w-[90%] m-auto mt-1"
-                src={imgpath}
+                src= {imgpath}
                 alt=""
               />
             </StyledBadge>
           </div>
           <div className="pl-[2rem] ">
             <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
-            {newprodname} 
+            {description}
             </h3>
             <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
-          {/* {selectedcolor}  {selectedmaterial} */} fgherghehg
+          {/* {selectedcolor}  {selectedmaterial} */} ultra comfort
             </p>
           </div>
           <div className="pl-[9rem] ">
