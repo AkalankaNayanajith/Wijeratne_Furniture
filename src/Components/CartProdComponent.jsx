@@ -87,6 +87,7 @@ const CartProdComponent = () => {
             type="number"
             min="1"        
             value={qt}
+            //qt means quantity here
             onChange={(event) => {
               setQt(event.target.value);
               HandleOnChange(event.target.value)
