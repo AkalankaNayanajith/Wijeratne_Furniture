@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Ratings from "./Ratings";
+import ReactImageMagnify from "react-image-magnify";
 
 
 const OneProductView = () => {
@@ -25,11 +26,30 @@ const OneProductView = () => {
     <>
       <div className="Imagessection w-[50%]">
         <div className="MainImage items-center h-[600px] ">
-          <img
+        <ReactImageMagnify className="z-50 bg-center h-[600px] bg-cover mt-2 mx-auto" {...{ // add z-50 to show modal over anything else
+          smallImage: {
+            alt: 'Wristwatch by Ted Baker London',
+            // isFluidWidth: true,        
+            width: 400,
+            height: 500,
+            src:product.image64
+             },
+          largeImage: {
+              src: product.image64,
+              width: 1200,
+              height: 800
+              },
+              enlargedImageContainerDimensions: {
+                width: '200%',
+                height: '100%'
+            }
+          }} />
+         
+          {/* <img
             className="bg-center h-[600px] bg-cover mt-20 mx-auto"
             src={product.image64}
             alt=""
-          />
+          /> */}
         </div>
         <div className="smallImagesSLider mx-auto w-[50%] flex">
           <img
