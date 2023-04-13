@@ -5,16 +5,17 @@ function DrawingArea() {
   const [brushColor, setBrushColor] = useState('#000000');
   const [brushSize, setBrushSize] = useState(5);
   const [isDrawing, setIsDrawing] = useState(false);
+  const [isErasing, setIsErasing] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
 
-    context.strokeStyle = brushColor;
+    context.strokeStyle = isErasing ? '#FFFFFF' : brushColor;
     context.lineWidth = brushSize;
     context.lineJoin = 'round';
     context.lineCap = 'round';
-  }, [brushColor, brushSize]);
+  }, [brushColor, brushSize, isErasing]);
 
   const handleColorChange = (e) => {
     setBrushColor(e.target.value);
@@ -47,6 +48,10 @@ function DrawingArea() {
 
   const handleMouseUp = (e) => {
     setIsDrawing(false);
+  };
+
+  const handleEraseChange = (e) => {
+    setIsErasing(e.target.checked);
   };
 
   return (
@@ -82,10 +87,18 @@ function DrawingArea() {
           onChange={handleSizeChange}
         />
         <span className="ml-2">{brushSize}px</span>
+        <label htmlFor="erase-checkbox" className="ml-4">
+          Erase:
+        </label>
+        <input
+          type="checkbox"
+          id="erase-checkbox"
+          checked={isErasing}
+          onChange={handleEraseChange}
+        />
       </div>
     </div>
   );
 }
 
 export default DrawingArea;
-
