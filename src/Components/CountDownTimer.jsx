@@ -21,7 +21,7 @@ function CountDownTimer() {
           const hoursString = hoursRemaining < 10 ? `0${hoursRemaining}` : `${hoursRemaining}`;
           const minutesString = minutesRemaining < 10 ? `0${minutesRemaining}` : `${minutesRemaining}`;
           const secondsString = secondsRemaining < 10 ? `0${secondsRemaining}` : `${secondsRemaining}`;
-          setCountdown(`${hoursString}:${minutesString}:${secondsString}`);
+          setCountdown(`${hoursString}    :    ${minutesString}   :   ${secondsString}`);
         }
       }, 1000);
     }
@@ -45,11 +45,10 @@ function CountDownTimer() {
         min="0"
         className="border rounded px-3 py-2 mb-4"
         value={hours}
-        onChange={handleInputChange}
-      />
+        onChange={handleInputChange} />
       {countdown !== '' && (
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4">{countdown}</h2>
+          <h2 className="text-3xl font-bold font-sans mb-4">{countdown}</h2>
         </div>
       )}
     </div>
