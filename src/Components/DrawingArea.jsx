@@ -6,6 +6,7 @@ function DrawingArea() {
   const [brushSize, setBrushSize] = useState(5);
   const [isDrawing, setIsDrawing] = useState(false);
   const [isErasing, setIsErasing] = useState(false);
+  const [drawing, setDrawing] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,6 +20,7 @@ function DrawingArea() {
 
   const handleColorChange = (e) => {
     setBrushColor(e.target.value);
+
   };
 
   const handleSizeChange = (e) => {
@@ -48,11 +50,36 @@ function DrawingArea() {
 
   const handleMouseUp = (e) => {
     setIsDrawing(false);
+    const canvas = canvasRef.current;
+    // console.log(canvas.toDataURL());
   };
 
   const handleEraseChange = (e) => {
     setIsErasing(e.target.checked);
   };
+
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+  const handleMainImage = async (event)=> {
+    const file = event.target.files[0];
+    const base64 = await convertToBase64(file);
+    setDrawing(base64);
+  };
+
+
+  useEffect (()=> {    
+    console.log(drawing);
+   },[drawing])
 
   return (
     <div className="flex flex-col items-center">
@@ -96,6 +123,11 @@ function DrawingArea() {
           checked={isErasing}
           onChange={handleEraseChange}
         />
+      </div>
+      <div>
+        <button onChange={handleMainImage}>
+          Submit
+        </button>
       </div>
     </div>
   );
