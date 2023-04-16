@@ -13,6 +13,12 @@ function NumberInputButton() {
     setValue(value + 1);
   };
 
+//   const HandleOnChange = (value) => {
+//     setItemTotal(count* price);
+//     localStorage.setItem("total", value* price );
+//     localStorage.setItem("count", value)
+// }
+
   return (
     <div className="flex items-center justify-center">
       <button
@@ -26,7 +32,10 @@ function NumberInputButton() {
         type="number"
         value={value}
         min="1"    
-        onChange={(e) => setValue(Number(e.target.value))}
+        onChange={(event) => {
+          setValue(event.target.value);
+          // HandleOnChange(event.target.value)
+        }}
       />
       <button
         className="rounded-r-md h-8 px-3 py-auto border  bg-gray-500 text-white hover:bg-slate-700 focus:outline-none "

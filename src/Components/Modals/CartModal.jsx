@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import CheckBoxLarge from "../CheckBoxLarge";
 import "./CartModal.css";
+import NumberInputButton from "../Buttons/NumberInput";
 
 const CartModal = ({ open, closeCartHandler }) => {
   // const  [selectedCount, setSelectedCount] = useState(0);
@@ -49,7 +50,10 @@ const CartModal = ({ open, closeCartHandler }) => {
             <p className="text-[#34383b] font-sans text-base mt-4">Single Leather Sofa   </p>
             <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">  {/* {selectedcolor}  {selectedmaterial} */} Size;xL meroon Fabric </p>
             <p className="text-[#34383b] font-sans font-semibold text-base mt-8">  Rs 78,500 </p>          
-        </div>              
+        </div> 
+        <div className="absolute mt-[5.5rem] ml-64">
+        <NumberInputButton/>
+        </div>             
       
 
        <button className=" px-[0.45rem] py-[0.125rem] absolute -top-2 -right-2 text-white rounded-full  text-sm font-medium border-slate-500 bg-slate-500 bg-opacity-50 hover:bg-slate-700">
@@ -68,7 +72,10 @@ const CartModal = ({ open, closeCartHandler }) => {
             <p className="text-[#34383b] font-sans text-base mt-4">Single Leather Sofa   </p>
             <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">  {/* {selectedcolor}  {selectedmaterial} */} Size;xL meroon Fabric </p>
             <p className="text-[#34383b] font-sans font-semibold text-base mt-8">  Rs 56,500 </p>          
-        </div>  
+        </div>
+        <div className="absolute mt-[5.5rem] ml-64">
+        <NumberInputButton/>
+        </div>    
 
        <button className=" px-[0.45rem] py-[0.125rem] absolute -top-2 -right-2 text-white rounded-full  text-sm font-medium border-slate-500 bg-slate-500 bg-opacity-50 hover:bg-slate-700">
          <FontAwesomeIcon icon={faXmark} className="fill-white">
