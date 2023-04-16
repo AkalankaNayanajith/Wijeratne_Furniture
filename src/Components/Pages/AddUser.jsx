@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from 'yup';
 import { Result } from "postcss";
 import UserAction from '../SideBar/UserAction';
+import { InputAdornment, Stack, TextField } from '@mui/material';
 
 
 const ProductSchema = Yup.object().shape({
@@ -64,11 +65,40 @@ const ProductSchema = Yup.object().shape({
         <UserAction/>
         </div>      
 
-        <div className='ml-[19rem] w-[1220px] container flex '>
-          <div className='formData '>
+        
+          <div className='ml-72 w-[1200px] container'>
             <div className=" text-3xl mt-24 mx-auto text-center text-zinc-900">
             Add Staff
             </div>
+
+            <div className="">
+
+            <div className=" flex items-center  mt-10 ">              
+            <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='First Name' required variant="outlined" color="secondary"  className=" w-[25.5rem] ml-52"
+                 type= 'text' onChange={(ev) => {
+                  setFirstName(ev.target.value);
+                  console.log(ev.target.value);
+                }} /> 
+              </Stack>          
+            </Stack>
+
+
+            <Stack className="h-20" spacing={1}>
+              <Stack direction="row" spacing={1}>
+               <TextField label='Last Name' required variant="outlined" color="secondary"  className=" w-[25.5rem] ml-4"
+                //  inputProps={{
+                  // startAdornment: <InputAdornment position='start'> Rs </InputAdornment>,}}
+                  onChange={(ev) => {
+                    setLastName(ev.target.value);
+                    console.log(ev.target.value);
+                  }}/> 
+              </Stack>          
+            </Stack>
+
+          </div>
+
 
           <div className="w-[1215px]">
             <div className="h-14 mt-10  mx-60 bg-white justify-between gap-7 flex  items-end ">
@@ -90,7 +120,7 @@ const ProductSchema = Yup.object().shape({
 
             <label className="relative p-2">
             <input
-                  type="text"
+                  type="text" 
                   className=" h-12 w-[23rem] px-4 text-base bg-white border-2 rounded-lg border-black border-opacity-50 outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
                   autocomplete="off"
                   placeholder="Last Name"
@@ -299,8 +329,9 @@ const ProductSchema = Yup.object().shape({
 
      </div>
      
-     </div>
+     
 
+    </div>
     </div>
     </>
   )

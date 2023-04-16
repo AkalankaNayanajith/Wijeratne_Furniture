@@ -20,18 +20,18 @@ const CartProdComponent = () => {
         }
 
         const removeButtonOnClick = async () => {
-            let data = await axios.delete(`http://localhost:8080/product/delete/${prodid}`)
-            .then(function (response) {
-              // handle success
-              console.log(response);
-            })
-            .catch(function (error) {
-              // handle error
-              console.log(error);
-            })
-            .finally(function () {
-              // always executed
-            });
+            // let data = await axios.delete(`http://localhost:8080/product/delete/${prodid}`)
+            // .then(function (response) {
+            //   // handle success
+            //   console.log(response);
+            // })
+            // .catch(function (error) {
+            //   // handle error
+            //   console.log(error);
+            // })
+            // .finally(function () {
+            //   // always executed
+            // });
         }
       
 
@@ -87,6 +87,7 @@ const CartProdComponent = () => {
             type="number"
             min="1"        
             value={qt}
+            //qt means quantity here
             onChange={(event) => {
               setQt(event.target.value);
               HandleOnChange(event.target.value)

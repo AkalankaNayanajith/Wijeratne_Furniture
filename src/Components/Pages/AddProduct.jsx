@@ -54,6 +54,7 @@ export default function AddProduct() {
   })
   }
 
+
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
   };
@@ -113,9 +114,9 @@ export default function AddProduct() {
   };
 
 
-  useEffect (()=> {
-    console.log(image64);
-   },[image64])
+  // useEffect (()=> {
+  //   console.log(image64);
+  //  },[image64])
 
   useEffect (()=> {    
     console.log(images64);
