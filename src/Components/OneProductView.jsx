@@ -17,10 +17,15 @@ const OneProductView = () => {
     fetch(`http://localhost:8080/product/${productID}`)
     .then((response) => response.json())
     .then((result) => {
+      console.log(result) ; 
       setProduct(result)
     });
   
   }, []);
+  
+  useEffect(() => {
+    console.log(product.images64) ; 
+  }, [product])
   
     return (
     <>
@@ -52,21 +57,22 @@ const OneProductView = () => {
           /> */}
         </div>
         <div className="smallImagesSLider mx-auto w-[50%] flex">
+        
+          
+{/*                   
           <img
             className="bg-center bg-contain border-2 border-black"
+            src={product.images64.data}
+            alt=""
+          /> */}
+
+
+
+          {/* <img
+            className="bg-center bg-contain border-2 border-black "
             src={product.images64}
             alt=""
-          />
-          <img
-            className="bg-center bg-contain border-2 border-black"
-            // src="../Images/prod3.png"
-            alt=""
-          />
-          <img
-            className="bg-center bg-contain border-2 border-black "
-            // src="../Images/prod3.png"
-            alt=""
-          />
+          /> */}
         </div>
       </div>
 

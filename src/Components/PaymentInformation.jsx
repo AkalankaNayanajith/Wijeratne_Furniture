@@ -318,7 +318,7 @@ const PaymentInformation = () => {
         <div className="h-[0.1rem] mt-4 mb-4  w-full bg-[#BBBBBB]"></div>
 
         {/* here   */}
-        <div className="pt-4 flex justify-between">
+        {/* <div className="pt-4 flex justify-between">
           <input
             className="border-2 border-[#BBBBBB] outline-none  rounded-lg px-4 text-base  h-12 w-96 focus:border-2 focus:border-[#9D9D9D] focus:ring-2 focus:ring-[#9D9D9D]"
             type="text"
@@ -328,8 +328,10 @@ const PaymentInformation = () => {
           <button className="rounded-lg text-base  h-12 w-28 bg-[#9D9D9D] hover:bg-[#555454] text-white ">
             Apply
           </button>
-        </div>
-        <div className="h-[0.1rem] mt-8 mb-4  w-full bg-[#BBBBBB]"></div>
+        </div> */}
+        {/* <div className="h-[0.1rem] mt-8 mb-4  w-full bg-[#BBBBBB]"></div> */}
+
+        
         <div className="flex justify-between">
           <h1 className="text-[#555454] font-sans text-base mt-2"> Subtotal</h1>
           <h3 className=" mt-2 text-[#34383b] font-sans text-lg">

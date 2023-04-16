@@ -29,7 +29,7 @@ const MyShoppingCart = () => {
             </th>
           </tr>
 
-   
+   {/* loop */}
           <CartProdComponent/>
 
 

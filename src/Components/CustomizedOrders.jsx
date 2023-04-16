@@ -108,7 +108,7 @@ export default function CustomizedOrders() {
 
           <Stack className="h-20 mt-6" spacing={2}>
             <Stack direction="row" spacing={4}>
-            <TextField label='Order Name (e.g:- 20 school chairs)' required  variant="outlined" color="secondary"  className="newordername  w-[52rem] ml-52"
+            <TextField label='Order Name (e.g:- 20 Office chairs)' required  variant="outlined" color="secondary"  className="newordername  w-[52rem] ml-52"
                // newordername = {newordername}
                // onChange={(ev) => {
                // setNewordername(ev.target.value);
@@ -383,7 +383,9 @@ export default function CustomizedOrders() {
 }} /> */}
 
 
-<ReactImageMagnify className="" {...{ // add z-50 to show modal over anything else
+{/* react image magnify code below  */}
+
+{/* <ReactImageMagnify className="" {...{ // add z-50 to show modal over anything else
     smallImage: {
         alt: 'Wristwatch by Ted Baker London',
         // isFluidWidth: true,        
@@ -396,7 +398,7 @@ export default function CustomizedOrders() {
         width: 1200,
         height: 900
     }
-}} />
+}} /> */}
          
 
 
