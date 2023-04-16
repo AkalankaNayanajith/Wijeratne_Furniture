@@ -20,18 +20,18 @@ const CartProdComponent = () => {
         }
 
         const removeButtonOnClick = async () => {
-            let data = await axios.delete(`http://localhost:8080/product/delete/${prodid}`)
-            .then(function (response) {
-              // handle success
-              console.log(response);
-            })
-            .catch(function (error) {
-              // handle error
-              console.log(error);
-            })
-            .finally(function () {
-              // always executed
-            });
+            // let data = await axios.delete(`http://localhost:8080/product/delete/${prodid}`)
+            // .then(function (response) {
+            //   // handle success
+            //   console.log(response);
+            // })
+            // .catch(function (error) {
+            //   // handle error
+            //   console.log(error);
+            // })
+            // .finally(function () {
+            //   // always executed
+            // });
         }
       
 
