@@ -78,7 +78,7 @@ function TableLegSelection() {
       </div>
     </form>    
     <button 
-      className='mt-6 px-6 py-3 rounded-lg text-sm border-2 border-white bg-cyan-500 text-white'
+      className='mt-6 px-6 py-3 rounded-lg text-sm border-2 border-white bg-cyan-500  hover:bg-cyan-800 text-white'
       type="submit" 
       onClick={handleSubmit}> Save Style </button>
         </div>
