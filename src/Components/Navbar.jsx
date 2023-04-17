@@ -3,13 +3,25 @@ import { faAngleDown, faBars, faCartShopping, faSearch, faXmark } from '@fortawe
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Badge from '@mui/material/Badge'
 import { styled } from '@mui/material/styles'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import CartModal from './Modals/CartModal'
 import FavouritesModal from './Modals/FavouritesModal'
+import LoginModal from "./Modals/LoginModal";
 
 const Navbar = () => {                             //Arrow function
     const [nav, setNav]= useState(false)          //useState default value is false
+    const [productcardss, setProductcardss]= useState([])          
+    const [searchProdName, setSearchProdName]= useState()       
+    const [openLogin, setOpenLogin] = React.useState(false);  
+
+    useEffect(() => {
+      console.log(productcardss);
+    }, [productcardss])
+    
+    
+    const navigate = useNavigate;
+
 
     const handleNav = () => {                   //when we click on our menu, handleNav function should be executed
       setNav(!nav)                             //setNav to its opposite value of current value---that means when we click the value must be changed
@@ -18,8 +30,7 @@ const Navbar = () => {                             //Arrow function
     const StyledBadge = styled(Badge)(({ theme }) => ({
       '& .MuiBadge-badge': {
         right: 12,
-        top: 16,
-        
+        top: 16,        
         padding: '0 4px',
       },
     }));
@@ -27,6 +38,15 @@ const Navbar = () => {                             //Arrow function
     
   const [openCartModal, setOpenCartModal] = React.useState(false);
   const [openFavouritesModal, setOpenFavouritesModal] = React.useState(false);
+  
+  const handleOnChangeSearchStr = (event) => {
+    setSearchProdName(event.target.value)
+   }
+
+  function searchCLick(searchProdName){    
+   navigate(`/SearchPage?query=${searchProdName}`)
+  }
+  
 
 
   return (    
@@ -37,7 +57,7 @@ const Navbar = () => {                             //Arrow function
           <Link to='/Products' className='p-5 cursor-pointer text-base group hover:text-cyan-500 focus:text-cyan-500' > Products <FontAwesomeIcon icon={faAngleDown} className='fill-white items-center text-base px-1 group-hover:rotate-180 group-focus:rotate-180' ></FontAwesomeIcon> </Link>
           <Link to='/myorders' className='p-5 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500'> My Orders</Link>
           <Link to='/customizedorders' className='p-5 cursor-pointer text-base text-center hover:text-cyan-500 focus:text-cyan-500'> Customized Orders </Link>
-          <Link to='/trackmyorder' className='p-5 cursor-pointer text-base hover:text-cyan-500  focus:text-cyan-500'> Track My Order</Link>
+          {/* <Link to='/trackmyorder' className='p-5 cursor-pointer text-base hover:text-cyan-500  focus:text-cyan-500'> Track My Order</Link> */}
         </ul>
 
 
@@ -45,9 +65,14 @@ const Navbar = () => {                             //Arrow function
           <input
             type='text'
             placeholder='Search...'
-            className='px-4 py-2 rounded-md border-2 text-black border-gray-200 focus:outline-none focus:border-gray-400 pl-4' />
-          <button className='absolute inset-y-0 right-0 px-4 cursor-pointer text-base text-black hover:text-cyan-500 focus:text-cyan-500'>
-            <FontAwesomeIcon icon={faSearch} className='fill-current' />
+            className='px-4 py-2 rounded-md border-2 text-black border-gray-200 focus:outline-none focus:border-gray-400 pl-4' onChange={handleOnChangeSearchStr} />
+          <button className='absolute inset-y-0 right-0 px-4 cursor-pointer text-base text-black hover:text-cyan-500 focus:text-cyan-500'onClick={() => {
+              searchCLick(searchProdName);
+              }}>
+            <FontAwesomeIcon onClick={() => {
+              searchCLick(searchProdName);
+              console.log("lol"); 
+              }} icon={faSearch} className='fill-current' />
           </button>
         </div>
 
@@ -57,7 +82,7 @@ const Navbar = () => {                             //Arrow function
 
         <li className='relative'>
             <button
-              className='p-4 cursor-pointer text-base rounded-lg bg-orange-500 hover:bg-cyan-600 focus:bg-cyan-600' > Log in
+              className='p-4 cursor-pointer text-base rounded-lg bg-orange-500 hover:bg-cyan-600 focus:bg-cyan-600' onClick={()=> setOpenLogin(true)}> Log in
             </button>
          </li>          
           {/* <Link to='/logintest' className='p-4 cursor-pointer text-base hover:text-cyan-500 focus:text-cyan-500'><FontAwesomeIcon icon={faUser} className='fill-white ' > </FontAwesomeIcon> </Link>   */}
@@ -104,7 +129,14 @@ const Navbar = () => {                             //Arrow function
           </ul> 
         </div>
 
+      
+      <LoginModal openLoginM={openLogin} closeLoginM={()=> setOpenLogin(false)}/>
+
+
+
     </div>
+
+    
    
        
   )
