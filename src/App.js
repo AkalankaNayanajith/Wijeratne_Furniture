@@ -16,6 +16,7 @@ import ContactUs from "./Components/Pages/ContactUs";
 import FAQ from "./Components/Pages/FAQ";
 import PrivacyPolicy from "./Components/Pages/PrivacyPolicy";
 import RefundPolicy from "./Components/Pages/RefundPolicy";
+import SearchPage from "./Components/Pages/SearchPage";
 import TermsOfUse from "./Components/Pages/TermsOfUse";
 import PaymentInformation from "./Components/PaymentInformation";
 import Products from "./Components/Products";
@@ -105,6 +106,9 @@ function App() {
 
             <Route exact path="myordersmodal" 
             element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"><MyOrdersModal /></div> }/>
+
+            <Route exact path="SearchPage" 
+            element={  <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"><SearchPage/></div> }/>
 
             
             <Route exact path="logintest" element={ <div className=" flex w-[100%] h-[100%] p-0 bg-white text-black justify-between flex-wrap m-0 relative"> <Logintest />  </div> }/>
