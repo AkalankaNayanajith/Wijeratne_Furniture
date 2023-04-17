@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-function ChairLegSelection() {
+function CupboardS2Selection() {
   const [showBox, setShowBox] = useState(false);
   const [selectedDivs, setSelectedDivs] = useState([]);
 
@@ -30,7 +30,7 @@ function ChairLegSelection() {
       <button
         className="flex items-center justify-center gap-2 py-2 px-4 bg-gray-200 rounded-lg text-gray-700 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
         onClick={handleButtonClick}  >
-        Legs <FontAwesomeIcon icon={faCaretDown} className={`transition-transform duration-300 transform ${showBox ? 'rotate-180' : ''}`} />
+        Tall <FontAwesomeIcon icon={faCaretDown} className={`transition-transform duration-300 transform ${showBox ? 'rotate-180' : ''}`} />
       </button>
       
       {showBox && (
@@ -38,35 +38,28 @@ function ChairLegSelection() {
        <form onSubmit={handleSubmit}>
    <div className="flex flex-wrap container w-1200px">
      <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black  overflow-hidden ${selectedDivs.includes(0) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(0)}>
-       <img className="bg-center bg-contain " src="../Images/Chairs/leg1.jpg" alt="Placeholder" />
+       <img className="bg-center bg-contain " src="../Images/Cupboards/2.jpg" alt="Placeholder" />
      </div>
      <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(1) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(1)}>
-       <img className=" bg-center bg-contain"  src="../Images/Chairs/leg2.jpg" alt="Placeholder" />
+       <img className=" bg-center bg-contain"  src="../Images/Cupboards/4.jpg" alt="Placeholder" />
      </div>
      <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(2) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(2)}>
-       <img className="bg-center bg-contain "  src="../Images/Chairs/leg3.jpg" alt="Placeholder" />
+       <img className="bg-center bg-contain "  src="../Images/Cupboards/14.jpg" alt="Placeholder" />
      </div>
      <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden items-center flex ${selectedDivs.includes(3) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(3)}>
-       <img className="bg-center bg-contain"   src="../Images/Chairs/leg4.jpg" alt="Placeholder" />
+       <img className="bg-center bg-contain"  src="../Images/Cupboards/11.jpg" alt="Placeholder" />
      </div>
      <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(4) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(4)}>
-       <img className="bg-center bg-contain" src="../Images/Chairs/leg5.jpg" alt="Placeholder" />
+       <img className="bg-center bg-contain" src="../Images/Cupboards/7.jpg" alt="Placeholder" />
      </div>
      <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(5) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(5)}>
-       <img className="bg-center bg-contain" src="../Images/Chairs/leg6.jpg" alt="Placeholder" />
+       <img className="bg-center bg-contain" src="../Images/Cupboards/8.jpg" alt="Placeholder" />
      </div>
      <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(6) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(6)}>
-       <img className="bg-center bg-contain" src="../Images/Chairs/leg7.jpg" alt="Placeholder" />
+       <img className="bg-center bg-contain" src="../Images/Cupboards/9.jpg" alt="Placeholder" />
      </div>
-     <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(7) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(7)}>
-       <img className="bg-center bg-contain" src="../Images/Chairs/leg8.png" alt="Placeholder" />
-     </div>
-     <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(8) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(8)}>
-       <img className="bg-center bg-contain" src="../Images/Chairs/leg9.jpg" alt="Placeholder" />
-     </div>
-     {/* <div className={`w-1/6 h-auto rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(9) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(9)}>
-       <img className="bg-center bg-contain" src="../Images/Chairs/leg10.jpg" alt="Placeholder" />
-     </div> */}
+     
+    
      
         
         {/* <div className={`w-1/6 h-56 rounded-lg m-1 border-2 border-black overflow-hidden ${selectedDivs.includes(7) ? "border-4 border-blue-500" : ""}`} onClick={() => handleDivClick(7)}>
@@ -84,4 +77,4 @@ function ChairLegSelection() {
   );
 }
 
-export default ChairLegSelection;
+export default CupboardS2Selection;
