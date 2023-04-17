@@ -1,16 +1,11 @@
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CheckBox } from '@mui/icons-material';
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import CheckBoxLarge from './CheckBoxLarge';
-import CheckBoxTick from './CheckBoxTick';
 import ProductCard from './ProductCard';
 import SortListDropdown from "./SortListDropdown";
-import { yupResolver } from "@hookform/resolvers/yup";
-import Ratings from "./Ratings";
-import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-
+ 
 export default function Products({review,newprodname,prodid, category,description, quantity,dicount,price,color,material,country,image64,}) {
   const [productcardss, setProductcardss] = useState([]);
   const navigate = useNavigate();
@@ -23,14 +18,14 @@ export default function Products({review,newprodname,prodid, category,descriptio
       });
   }, []);
 
-// function OneViewData (newprodname,price,image64,images64,prodid,review,description ){
-//     localStorage.setItem('Name', newprodname);
-//     localStorage.setItem('Price', price);
-//     localStorage.setItem('Image', image64);
-//     localStorage.setItem('ID', prodid);
-//     localStorage.setItem('Review', review);
-//     localStorage.setItem('Description', description);  
-// }
+function OneViewData (newprodname,price,image64,images64,prodid,review,description ){
+    localStorage.setItem('Name', newprodname);
+    localStorage.setItem('Price', price);
+    localStorage.setItem('Image', image64);
+    localStorage.setItem('ID', prodid);
+    localStorage.setItem('Review', review);
+    localStorage.setItem('Description', description);  
+}
 
   return (
     <div className="h-full w-full ">
@@ -175,12 +170,12 @@ export default function Products({review,newprodname,prodid, category,descriptio
      </div>
 
 
- 
+  
 
      <div className='productDisplay container flex border-l-[3px] border-[#DFDFDF]'>
      <div className=" container flex flex-wrap">
         {
-          productcardss.map((product) => {
+         productcardss.map((product) => {
             return <ProductCard
                       newprodname={product.newprodname}
                       price={product.price}
@@ -189,7 +184,8 @@ export default function Products({review,newprodname,prodid, category,descriptio
                       review={review}
                       onClickHandler={() => {navigate(`${product.id}`)}}
                     />
-          })
+          } ) 
+          
         }
       </div>
      </div>
