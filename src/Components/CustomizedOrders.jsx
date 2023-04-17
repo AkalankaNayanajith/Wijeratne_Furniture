@@ -1,4 +1,4 @@
-import React, { useState,useRef  } from "react";
+import React, { useState,useRef, useEffect  } from "react";
 import BarChart from "./Charts/BarCharts"; 
 import CartModal from "./Modals/CartModal";
 import FirstModal from "./Modals/FirstModal";
@@ -13,14 +13,22 @@ import RegisterModal from "./Modals/RegisterModal";
 import RegisteredSuccessfully from "./Modals/RegisteredSuccessfully";
 import ReactImageMagnify from "react-image-magnify";
 import UploadAndViewOtherImages from "./UploadAndViewOtherImages";
-import ImageSelectionForm from "./ImageSelectionForm";
+import ImageSelectionForm from "./ImageSelection/ImageSelectionForm";
 import ShowBox from "./ShowBox";
 import CountDownTimer from "./CountDownTimer";
 import NumberInputButton from "./Buttons/NumberInput";
 import { FormControl, InputAdornment, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import DrawingArea from "./DrawingArea";
-import TableEdgeSelection from "./TableEdgeSelection";
+import TableEdgeSelection from "./ImageSelection/TableEdgeSelection";
 import Stepper from "./Stepper";
+import TableTopSelection from "./ImageSelection/TableTopSelection";
+import TableLegSelection from "./ImageSelection/TableLegSelection";
+import ChairArmSelection from "./ImageSelection/ChairArmSelection";
+import ChairSplatSelection from "./ImageSelection/ChairSplatSelection";
+import ChairLegSelection from "./ImageSelection/ChairLegSelection";
+import ChairToprailSelection from "./ImageSelection/ChairToprailSelection";
+import CupboardS1Selection from "./ImageSelection/CupboardS1Selection";
+import CupboardS2Selection from "./ImageSelection/CupboardS2Selection";
 
 export default function CustomizedOrders() {
 
@@ -34,15 +42,105 @@ export default function CustomizedOrders() {
   const [openModal, setOpenModal] = React.useState(false);
   const [openCartModal, setOpenCartModal] = React.useState(false);
   const [openLoginAlert, setOpenLoginAlert] = React.useState(false);
-  const [openLogin, setOpenLogin] = React.useState(false);
   const [openRegisteredSuccessfully, setOpenRegisteredSuccessfully] = React.useState(false);
   const [openRegister, setOpenRegister] = React.useState(false);
+  const [openLogin, setOpenLogin] = React.useState(false);
   const [translatedText, setTranslatedText] = React.useState("");
   const [inputLanguage, setInputLanguage] = useState("si-t-i0-und");
   const [activeTab, setActiveTab] = useState("Tab 1");
+  const [orderName, setOrderName] = useState('')
+  const [quantity, setQuantity] = useState('')
+  const [price, setPrice] = useState('')
+  const [description, SetDescription] = useState('')
+  const [category, setCategory] = useState('')
+  const [material, setMaterial] = useState('')
+  const [subMaterial, setSubMaterial] = useState('')
+  const [image, setImage] = useState('')
+  const [drawing, setDrawing] = useState('')
+  const canvasRef = useRef(null);
+  const [brushColor, setBrushColor] = useState('#000000');
+  const [brushSize, setBrushSize] = useState(5);
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [isErasing, setIsErasing] = useState(false);
+  // const [drawing, setDrawing] = useState(false);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+
+    context.strokeStyle = isErasing ? '#FFFFFF' : brushColor;
+    context.lineWidth = brushSize;
+    context.lineJoin = 'round';
+    context.lineCap = 'round';
+  }, [brushColor, brushSize, isErasing]);
+
+  const handleColorChange = (e) => {
+    setBrushColor(e.target.value);
+
+  };
+
+  const handleSizeChange = (e) => {
+    setBrushSize(parseInt(e.target.value));
+  };
+
+  const handleMouseDown = (e) => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    const { offsetX, offsetY } = e.nativeEvent;
+
+    context.beginPath();
+    context.moveTo(offsetX, offsetY);
+    setIsDrawing(true);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDrawing) return;
+
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    const { offsetX, offsetY } = e.nativeEvent;
+
+    context.lineTo(offsetX, offsetY);
+    context.stroke();
+  };
+
+  const handleMouseUp = (e) => {
+    setIsDrawing(false);
+    const canvas = canvasRef.current;
+    setDrawing(canvas.toDataURL());
+  };
+
+  const handleEraseChange = (e) => {
+    setIsErasing(e.target.checked);
+  };
+
+  const drawingconvertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+        
+      };
+    });
+  };
+
+
+
+  useEffect (()=> {    
+    console.log('DRAWING ', drawing);
+   },[drawing])
+
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+  };
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
   };
 
   function login() {
@@ -51,7 +149,47 @@ export default function CustomizedOrders() {
     }
   }
 
+  //image converting to -- base 64
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
 
+  const handleImage = async (event)=> {
+    let optionalImages = Array.prototype.slice.call(event.target.files)
+    const uploaded = [...image]
+    optionalImages.some((file) => {uploaded.push(file);})
+    // setImages64(uploaded);
+    uploaded.map(async (image) =>{
+      const bases64 = await convertToBase64(image);
+      image.push(bases64);
+    })
+    const file = event.target.files[0];
+    const base64 = await convertToBase64(file);
+    setImage(base64);
+  };
+
+  const handleClick = (ev) =>  {
+    ev.preventDefault()
+    const newCustomOrder = {orderName, category, description, material, subMaterial , quantity, image, drawing}
+    console.log(newCustomOrder)
+    fetch("http://localhost:8080/customorder/add",{
+    method:"POST",
+    headers:{"Content-Type" : "application/json"},
+    body:JSON.stringify(newCustomOrder) 
+  }).then(() => {
+    console.log("Order Placed Successfully")
+    alert("Order Placed Successfully")
+  })
+  }
 
   function translateX(text) {
     const maxResult = 8;
@@ -109,11 +247,11 @@ export default function CustomizedOrders() {
           <Stack className="h-20 mt-6" spacing={2}>
             <Stack direction="row" spacing={4}>
             <TextField label='Order Name (e.g:- 20 Office chairs)' required  variant="outlined" color="secondary"  className="newordername  w-[52rem] ml-52"
-               // newordername = {newordername}
-               // onChange={(ev) => {
-               // setNewordername(ev.target.value);
-               // console.log(ev.target.value);}}
-               // error = {! newordername}
+               ordername = {orderName}
+               onChange={(ev) => {
+               setOrderName(ev.target.value);
+               console.log(ev.target.value);}}
+               error = {! orderName}
                /> 
             </Stack>          
           </Stack>
@@ -122,10 +260,10 @@ export default function CustomizedOrders() {
             <Stack className="h-20" spacing={1}>
               <Stack direction="row" spacing={1}>
                <TextField label='Material' required variant="outlined" color="secondary"  className="material  w-[25.5rem] ml-52"
-                  // onChange={(ev) => {
-                  //   setMaterial(ev.target.value);
-                  //   console.log(ev.target.value); }}
-                  // error = {!material}
+                  onChange={(ev) => {
+                    setMaterial(ev.target.value);
+                    console.log(ev.target.value); }}
+                  error = {!material}
                   /> 
               </Stack>          
             </Stack>
@@ -133,9 +271,9 @@ export default function CustomizedOrders() {
             <Stack className="h-20" spacing={1}>
               <Stack direction="row" spacing={1}>
                <TextField label='Sub Material' variant="outlined" color="secondary"  className="submaterial  w-[25.5rem] ml-4"
-                  // onChange={(ev) => {
-                  //   setSubMaterial(ev.target.value);
-                  //   console.log(ev.target.value); }}                  
+                  onChange={(ev) => {
+                    setSubMaterial(ev.target.value);
+                    console.log(ev.target.value); }}                  
                   /> 
               </Stack>          
             </Stack>
@@ -150,10 +288,10 @@ export default function CustomizedOrders() {
                <TextField label='Required Quantity' required variant="outlined" color="secondary"  className="newprodname  w-[25.5rem] ml-52"
                  type= 'number' 
                  InputProps={{ inputProps: { min: 1} }}
-                //  onChange={(ev) => {
-                //   setQuantity(ev.target.value);
-                //   console.log(ev.target.value); }}
-                //   error = {!quantity}
+                 onChange={(ev) => {
+                  setQuantity(ev.target.value);
+                  console.log(ev.target.value); }}
+                  error = {!quantity}
                   /> 
               </Stack>          
             </Stack>
@@ -167,10 +305,10 @@ export default function CustomizedOrders() {
                 
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    // value={category}
-                    // label="category"
-                    // onChange={handleCategoryChange}
-                    // error = {!category} 
+                    value={category}
+                    label="category"
+                    onChange={handleCategoryChange}
+                    error = {!category} 
                      >
                         <MenuItem value={"Living Room"}>Living Room</MenuItem>
                         <MenuItem value={"Dining Room"}>Dining Room</MenuItem>
@@ -185,13 +323,148 @@ export default function CustomizedOrders() {
             </Stack>
 
           </div>
+
+          <div className="ml-[12.5rem] w-[53rem]">
+            <h2 className="px-4"> Table styles</h2>
+            
+             <div className="flex">
+               <TableTopSelection/>
+               <TableEdgeSelection/>
+               <TableLegSelection/>
+             </div>
           </div>
 
-          <h2 className="text-lg font-semibold">Tab 1 content goes here</h2>
-          <p className="mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
-            tellus et massa fringilla eleifend.
-          </p>
+
+          <div className="ml-[12.5rem] w-[53rem]">
+            <h2 className="px-4 "> Chair styles</h2>
+            
+             <div className="flex">
+               <ChairArmSelection/>
+               <ChairLegSelection/>
+               <ChairSplatSelection/>
+               <ChairToprailSelection/>
+             </div>
+          </div>
+
+          <div className="ml-[12.5rem] w-[53rem]">
+            <h2 className="px-4"> Cupboard styles</h2>
+            
+             <div className="flex">
+               <CupboardS1Selection/>
+               <CupboardS2Selection/>
+             </div>
+          </div>  
+
+          <div className="h-52 mt-8 mb-40 ml-[12.5rem] justify-between w-[52rem] bg-white items-center">
+            <textarea
+             className="border-2 border-black rounded-lg border-opacity-50 resize-none h-52 w-full px-6 text-xl bg-white 
+             peer  outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
+             placeholder="Order Description"
+             name="OrderDescription"
+             id=""
+             cols="30"
+              rows="8"
+             onChange={handleInputChange}>
+            </textarea>
+
+            <p className="p-3 text-base rounded-md my-2">{translatedText}</p>
+
+             <div className="flex items-center mb-5">
+              <button
+                className="px-4 py-2 bg-blue-500 text-white rounded-md mr-4 focus:bg-cyan-800"
+                onClick={() => setInputLanguage("en")}>     
+                English
+              </button>
+              <button
+                className="px-4 py-2 bg-blue-500 text-white rounded-md focus:bg-cyan-800"
+                onClick={() => setInputLanguage("si-t-i0-und")} >
+                සිංහල
+              </button>
+             </div>
+
+          </div>
+
+          <div className="ml-2">
+            {/* <DrawingArea/> */}
+            <div className="flex flex-col items-center">
+      <canvas
+        className="border border-gray-400 rounded-lg"
+        width="830"
+        height="400"
+        ref={canvasRef}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      />
+      <div className="flex items-center mt-4">
+        <label htmlFor="color-picker" className="mr-2">
+          Brush color:
+        </label>
+        <input
+          type="color"
+          id="color-picker"
+          value={brushColor}
+          onChange={handleColorChange}
+        />
+        <label htmlFor="size-slider" className="ml-4 mr-2">
+          Brush size:
+        </label>
+        <input
+          type="range"
+          id="size-slider"
+          min="1"
+          max="20"
+          value={brushSize}
+          onChange={handleSizeChange}
+        />
+        <span className="ml-2">{brushSize}px</span>
+        <label htmlFor="erase-checkbox" className="ml-4">
+          Erase:
+        </label>
+        <input
+          type="checkbox"
+          id="erase-checkbox"
+          checked={isErasing}
+          onChange={handleEraseChange}
+        />
+      </div>
+
+
+    </div>
+          </div>
+
+          <div className="imageupload mt-12 mx-60 mb-24 flex items-center gap-5 ">
+            
+            <form class="flex items-center space-x-6">
+              <div class="shrink-0">
+                <img
+                  className="h-52 w-52 object-cover mr-11 border-2 border-[#f3f3f3] "
+                  alt=""
+                  src={image}
+                />
+              </div>
+
+              <label class="block">
+                <span class="sr-only">Choose photo</span>
+                <input
+                  multiple
+                  type="file"
+                  id="fileInput"                  
+                  onChange={handleImage}
+                  class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0   file:text-sm file:font-semibold  file:bg-red-100 file:text-violet-700 hover:file:bg-green-200 "
+                />
+              </label>
+            </form>
+          </div> 
+
+          <div className="w-full flex justify-center">
+              <button className='mt-6 px-6 py-4 bg-green-600 text-white text-2xl rounded-lg hover:bg-green-700' onClick={handleClick}>
+                Place Order
+              </button>
+          </div>
+
+          </div>
+
         </div>
       )}
 
@@ -240,7 +513,11 @@ export default function CustomizedOrders() {
       </div> */}
       
 
-      <div className="h-full w-full text-center mt-9">
+
+{/* tetsing files commented from here  */}
+
+
+      {/* <div className="h-full w-full text-center mt-9">
         <input
           type="text"
           name=""
@@ -266,13 +543,13 @@ export default function CustomizedOrders() {
             console.log(event.target.value);
           }}
         />
-      </div>
+      </div> */}
 
 {/* 
       <div>
         <input type="file"   id="fileInput" />
       </div> */}
-
+{/* 
       <div className="m-10  w-full justify-center items-center flex">
         <button
           type="submit"
@@ -282,11 +559,11 @@ export default function CustomizedOrders() {
           SUBMIT
         </button>
        
-      </div>
+      </div> */}
 
 
       {/* modal open code below */}
-
+{/* 
       <button  onClick={()=> setOpenModal(true)} className="border-2 border-black rounded-xl ml-10 p-4 bg-blue-500 text-white"> 
           product added Successfully
       </button>
@@ -309,16 +586,16 @@ export default function CustomizedOrders() {
 
       <button  onClick={()=> setOpenRegisteredSuccessfully(true)} className="border-2 border-black rounded-xl ml-20 p-4 bg-black text-white"> 
           Registered successfully
-      </button>
+      </button> */}
 
       {/* <FirstModal open={openModal} onClose={()=> setOpenModal(false)}/> */} 
       {/* <OrderSeeMore open={openModal} onClose={()=> setOpenModal(false)}/> */}
       <ProductAddedSuccessfully open={openModal} onClose={()=> setOpenModal(false)}/>
       <CartModal open={openCartModal} closeCartHandler={()=> setOpenCartModal(false)}/>
       <LoggedInSuccessfullModal openLoginAlert={openLoginAlert} closeLoginAlert={()=> setOpenLoginAlert(false)}/>
-      <LoginModal openLoginM={openLogin} closeLoginM={()=> setOpenLogin(false)}/>
       <RegisteredSuccessfully openRegisteredAlert={openRegisteredSuccessfully} closeRegisteredAlert={()=> setOpenRegisteredSuccessfully(false)}/>
       <RegisterModal openRegisterM={openRegister} closeRegisterM={()=> setOpenRegister(false)}/>
+      <LoginModal openLoginM={openLogin} closeLoginM={()=> setOpenLogin(false)}/>
 
 
 
@@ -328,43 +605,16 @@ export default function CustomizedOrders() {
       {/* uncomment above */}
 
 
-      <div className="h-60 mt-52 mb-52 w-auto justify-between mx-60 bg-white items-center">
-        <textarea
-         className="border-2 border-black rounded-lg border-opacity-50 resize-none h-52 w-full px-6 text-xl bg-white 
-         peer  outline-none focus:border-blue-500  transition duration-200 peer focus:border-2  focus:ring-2 focus:ring-blue-500"
-         placeholder="Product Description"
-         name="ProductDescription"
-         id=""
-         cols="30"
-          rows="8"
-         onChange={handleInputChange}>
-        </textarea>
-        
-        <p className="p-3 text-base rounded-md my-2">{translatedText}</p>
-
-        <div className="flex items-center">
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-md mr-4 focus:bg-cyan-800"
-            onClick={() => setInputLanguage("en")}>     
-            English
-          </button>
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-md focus:bg-cyan-800"
-            onClick={() => setInputLanguage("si-t-i0-und")} >
-            සිංහල
-          </button>
-        </div>
-
-    </div>
+      
 
 
        <div className="mt-52">
            {/* <UploadAndViewOtherImages/> */}
-           <ImageSelectionForm/>
-           <TableEdgeSelection/>
-           <CountDownTimer/>
-           <DrawingArea/>
-           <Stepper/>
+           {/* <ImageSelectionForm/> */}
+           {/* <TableEdgeSelection/> */}
+           {/* <CountDownTimer/> */}
+           {/* <DrawingArea/> */}
+           {/* <Stepper/> */}
       </div>
 
 {/* <ReactImageMagnify {...{
@@ -401,8 +651,11 @@ export default function CustomizedOrders() {
 }} /> */}
          
 
+          {/* slider component */}
+         {/* <HomeSlider/> */}
 
-         <HomeSlider/>
+
+
       {/* <section className="pb-20 relative block bg-gray-900">
     <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
