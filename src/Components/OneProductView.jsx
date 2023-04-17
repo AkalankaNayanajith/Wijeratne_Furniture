@@ -8,7 +8,8 @@ const OneProductView = () => {
   
   let {productID}=useParams()
 
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState({});  
+  const [activeTab, setActiveTab] = useState("Tab 1");
 
   useEffect(() => { 
 
@@ -17,6 +18,7 @@ const OneProductView = () => {
     fetch(`http://localhost:8080/product/${productID}`)
     .then((response) => response.json())
     .then((result) => {
+      localStorage.setItem('product', JSON.stringify(result));
       console.log(result) ; 
       setProduct(result)
     });
@@ -26,6 +28,10 @@ const OneProductView = () => {
   useEffect(() => {
     console.log(product.images64) ; 
   }, [product])
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
   
     return (
     <>
@@ -57,6 +63,49 @@ const OneProductView = () => {
           /> */}
         </div>
         <div className="smallImagesSLider mx-auto w-[50%] flex">
+
+        </div>
+
+    <div className="w-full border mt-10 mb-6 mx-36 border-gray-300 rounded-md">
+
+      <div className="flex">
+        <button
+          className={`py-2 px-4 ${
+            activeTab === "Tab 1" ? "bg-gray-600 text-white rounded-sm" : "bg-gray-100 text-black"  }`}
+          onClick={() => handleTabClick("Tab 1")} >
+          <p>Description</p>
+        </button>
+
+        <button 
+          className={`py-2 px-4 ${
+            activeTab === "Tab 2" ? "bg-gray-600 text-white rounded-sm" : "bg-gray-100 text-black"}`}
+          onClick={() => handleTabClick("Tab 2")}>
+          Feedback
+        </button>
+      </div>
+
+      {activeTab === "Tab 1" && (
+        <div className="py-4 px-2">
+
+          <div className="">
+            <h1 className="mt-8 ml-52 text-base">Please explain your requirements in your own words</h1>
+          </div>
+
+        </div>
+        )}
+
+      {activeTab === "Tab 2" && (
+
+      <div className="">
+        <div className=" border mt-10 mx-8 border-gray-400 rounded-md">
+          <h2 className="text-lg pl-4 pt-2 font-semibold">Shipping</h2>
+          <p className="mt-2 pl-4">
+                Morbi vel nisl sit amet arcu facilisis interdum at vel mauris.</p>
+        </div>
+      
+      </div>
+      )}
+      </div>
         
           
 {/*                   
@@ -73,7 +122,7 @@ const OneProductView = () => {
             src={product.images64}
             alt=""
           /> */}
-        </div>
+        
       </div>
 
       <div className="information h-full w-[50%]">

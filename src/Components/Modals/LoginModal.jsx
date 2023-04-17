@@ -8,7 +8,7 @@ const LoginModal = ({openLoginM,closeLoginM}) => {
 
   return (
 
-    <div className='w-full h-auto right-0 left-0 top-16 bottom-0 fixed bg-gradient-to-r from-green-400 to-blue-500 bg-opacity-100 overflow-auto '>
+    <div className='w-full h-auto right-0 left-0 top-16 bottom-0 fixed bg-gradient-to-r from-green-400 to-blue-500 bg-opacity-100 overflow-auto z-50 '>
         <div className='mt-6 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed w-[500px] h-[600px] backdrop-blur-md items-center justify-center rounded-lg  bg-white'>
 
         <button className=' px-[0.5rem] py-[0.125rem] left-[29.6rem] top-6 transform -translate-x-1/2 -translate-y-1/2 b fixed border-2 text-white rounded-lg text-sm font-medium border-red-500 bg-red-500  ext-white hover:border-red-700 hover:bg-red-700 '   onClick={closeLoginM}>
@@ -52,7 +52,7 @@ const LoginModal = ({openLoginM,closeLoginM}) => {
           </div>
 
           
-          <p className='text-sm flex justify-center mt-4 font-Poppins'>Don't have an account?  
+          <p className='text-sm flex justify-center mt-4 font-Poppins text-black'>Don't have an account?  
           {/* code for a space */}
           &nbsp;
           <a href="/Contactus"  className='underline underline-offset-4 text-[#B05C0D]'> Create one </a>

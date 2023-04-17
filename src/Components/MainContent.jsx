@@ -1,28 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import product_card from "./ProductCardHomePage";
-
+ 
 const MainContent = () => {
+
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/product/getAll")
+      .then((response) => response.json())
+      .then((result) => {
+        setProductData(result);
+      });
+
+  },[]);
   
-  console.log(product_card);
-  const listItems = product_card.map((item) => (
+  const listItems = productData.map((product) => (
     <div
       className="card border-solid w-full cursor-pointer group flex-col relative transition h-[60vh] rounded-xl ease-in-out hover:scale-105 duration-300 mb-8  hover:bg-slate-700"
-      key={item.id}
+      key={product.id}
     >
       <div className="flex-1 relative h-1/2">
         <div className="absolute left-1/2 transform transition duration-500 -translate-x-1/2 w-full h-full flex items-center justify-center group-hover:scale-125 group-hover:-translate-y-9">
-          <img className="w-4/5 h-auto" src={item.thumb} />
+          <img className="w-4/5 h-auto" src={product.image64} />
         </div>
       </div>
 
       <div className="card_header m-4 flex-1 h-1/2 flex flex-col space-y-3 items-center">
-        <h2 className="text-white text-3xl"> {item.productName} </h2>
-        <p className="text-white text-[14px]"> {item.description} </p>
+        <h2 className="text-white text-3xl"> {product.newprodname} </h2>
+        <p className="text-white text-[14px]"> {truncate(product.description, {length: 10, omission: "..."})} </p>
         <p className="price text-[#fe8033] text-[25px] inline-block align-bottom relative">
           <span className="absolute -left-4 bottom-[0.37rem] text-xs">
-            {item.Currency}
+            Rs.
           </span>
-          {item.price}
+          {product.price}
         </p>
         <div className="btn text-white">
           <button className="w-[175px] h-[35px] bg-slate-800 overflow-hidden transition duration-300 group-hover:bg-[#fe8033]  rounded-full relative cursor-pointer ">

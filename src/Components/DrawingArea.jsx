@@ -51,14 +51,14 @@ function DrawingArea() {
   const handleMouseUp = (e) => {
     setIsDrawing(false);
     const canvas = canvasRef.current;
-    // console.log(canvas.toDataURL());
+    console.log(canvas.toDataURL());
   };
 
   const handleEraseChange = (e) => {
     setIsErasing(e.target.checked);
   };
 
-  const convertToBase64 = (file) => {
+  const drawingconvertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
@@ -72,7 +72,7 @@ function DrawingArea() {
   };
   const handleMainImage = async (event)=> {
     const file = event.target.files[0];
-    const base64 = await convertToBase64(file);
+    const base64 = await drawingconvertToBase64(file);
     setDrawing(base64);
   };
 
@@ -84,9 +84,9 @@ function DrawingArea() {
   return (
     <div className="flex flex-col items-center">
       <canvas
-        className="border border-gray-400"
-        width="800"
-        height="600"
+        className="border border-gray-400 rounded-lg"
+        width="830"
+        height="400"
         ref={canvasRef}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
@@ -125,8 +125,8 @@ function DrawingArea() {
         />
       </div>
       <div>
-        <button onChange={handleMainImage}>
-          Submit
+        <button className=' mt-6 p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700' onChange={handleMainImage}>
+          Submit Drawing
         </button>
       </div>
     </div>

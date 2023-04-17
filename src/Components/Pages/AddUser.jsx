@@ -73,7 +73,7 @@ const ProductSchema = Yup.object().shape({
 
             <div className="">
 
-            <div className=" flex items-center  mt-10 ">              
+            {/* <div className=" flex items-center  mt-10 ">              
             <Stack className="h-20" spacing={1}>
               <Stack direction="row" spacing={1}>
                <TextField label='First Name' required variant="outlined" color="secondary"  className=" w-[25.5rem] ml-52"
@@ -97,7 +97,7 @@ const ProductSchema = Yup.object().shape({
               </Stack>          
             </Stack>
 
-          </div>
+          </div> */}
 
 
           <div className="w-[1215px]">

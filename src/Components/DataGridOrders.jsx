@@ -14,12 +14,14 @@ import AdminOrderDetails from "./Modals/AdminOrderDetails";
 
 export default function DataGridOrders() {
 
-  const handleOnCellClick = (params) => {
+  const handleOnCellClick = (id) => {
+    setSelectedId(id)
     setOpenModal(true);
   };
 
   
   const [openModal, setOpenModal] = React.useState(false);
+  const [selectedId, setSelectedId] = React.useState("");
   const [openOrderDetailsModal, setOpenOrderDetailsModal] = React.useState(false);
 
   <OrderSeeMore open={openModal} onClose={()=> setOpenModal(false)}/>
@@ -28,7 +30,7 @@ export default function DataGridOrders() {
 //   const [productData, setProductData] = useState({});
 
 //   useEffect(() => {
-//     fetch("http://localhost:8080/product/getAll")
+//     fetch("http://localhost:8080/customorder/add")
 //       .then((response) => response.json())
 //       .then((result) => {
 //         setProductData(result);
@@ -41,19 +43,19 @@ export default function DataGridOrders() {
 
 
 const columns = [
-  { field: 'OrderID', headerName: 'OrderID', width: 90 },
+  { field: 'id', headerName: 'OrderID', width: 90 },
   {
-    field: 'prodname',
-    headerName: 'Product name',
+    field: 'orderName',
+    headerName: 'Order name',
     width: 220,
     editable: true,
   },  
-  {
-    field: 'dueDate',
-    headerName: 'Order Due Date ',
-    width: 110,
-    editable: true,
-  },
+  // {
+  //   field: 'dueDate',
+  //   headerName: 'Order Due Date ',
+  //   width: 110,
+  //   editable: true,
+  // },
     {
     field: 'quantity',
     headerName: 'Quantity',
@@ -62,16 +64,14 @@ const columns = [
     editable: true,
   },
   {
-    field: 'customerTel',
-    headerName: 'customer Tel ',
-    type: 'telephone',
+    field: 'material',
+    headerName: 'material',
     width: 125,
     editable: true,
   },
   {
-    field: 'price',
-    headerName: 'Price ',
-    type: 'number',
+    field: 'subMaterial',
+    headerName: 'sub material',
     width: 125,
     editable: true,
   },
@@ -93,7 +93,7 @@ const columns = [
 ];
 
 const rows = [
-  { OrderID: 1, prodName: 'sofa', dueDate: '2022/12/1' ,  quantity: 2 , customerTel: 774567892, price: 18000},
+  { OrderID: 1, prodName: 'Brooks Chair', dueDate: '2023/04/17' ,  quantity: 1 , customerTel: 774567892, price: 33000},
   { OrderID: 2, prodName: 'bed',  dueDate: '2022/12/8' ,  quantity: 1 , customerTel: 778956324, price: 78000},
   { OrderID: 10, prodName: 'chair',dueDate: '2022/12/8' ,  quantity: 8 ,customerTel: 714567894, price: 78500 },
   { OrderID: 9, prodName: 'chair',dueDate: '2022/12/3' ,  quantity: 6 ,customerTel: 714567894, price: 89600 },
@@ -105,28 +105,35 @@ const rows = [
   { OrderID: 4, prodName: 'chair',dueDate: '2022/12/9' ,  quantity: 36 ,customerTel: 714567894, price: 87500 },
   { OrderID: 3, prodName: 'chair',dueDate: '2022/12/8' ,  quantity: 20 ,customerTel: 714567894, price: 55500 },
 ];
+
+const [productData, setProductData] = useState({});
+
+  useEffect(() => {
+    fetch("http://localhost:8080/customorder/getAll")
+      .then((response) => response.json())
+      .then((result) => {
+        setProductData(result);
+      });
+
+  },[]);
+
   return (
     <>
     <Box sx={{ height: 527, width: '99.5%' }}>
       <DataGrid
-        getRowId={(row) => row.OrderID}
-        rows={rows}
+        rows={productData}
         columns={columns}
         pageSize={8}
         rowsPerPageOptions={[8]}
         checkboxSelection
         disableSelectionOnClick
         experimentalFeatures={{ newEditingApi: true }}
-        // onCellEditCommit={(params, event, details)=> {
-        //   console.log(params);
-        //   console.log(event);
-        //   console.log(details);
-        // }}
-        onCellClick={handleOnCellClick}
-        />
+        onCellClick={(row) => setSelectedId(row.id)}
+      />
     </Box>
+  
 
-    <AdminOrderDetails openOrderDetails={openOrderDetailsModal} closeOrderDetails={()=> setOpenOrderDetailsModal(false)}/>
+    <AdminOrderDetails customId={selectedId} openOrderDetails={openOrderDetailsModal} closeOrderDetails={()=> setOpenOrderDetailsModal(false)}/>
 
     </>
   );

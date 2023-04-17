@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import ImageSelectionForm from './ImageSelectionForm';
+import ImageSelectionForm from './ImageSelection/ImageSelectionForm';
 
 function ShowBox() {
   const [showBox, setShowBox] = useState(false);

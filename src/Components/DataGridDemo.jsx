@@ -7,14 +7,22 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import IconButton from '@mui/material/IconButton';
 import { useEffect, useState } from 'react';
+import { Image } from '@mui/icons-material';
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 90 },
+  
   {
-    field: 'mainImage',
-    headerName: 'Main Image',
+    field: 'image64',
+    headerName: 'Image',
     width: 130,
-    editable: true,
+    renderCell: (params) => (
+      <Image
+        src={params.value}
+        alt={`Image of ID ${params.row.id}`}
+        style={{ width: '100%', height: 'auto' }}
+      />
+    ),
   },
   {
     field: 'newprodname',

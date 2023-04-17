@@ -11,16 +11,33 @@ const CartProdComponent = () => {
         const [description, setDescription] = useState("");
         const [itemCount, setItemCount] = useState(1);
         const [ itemTotal, setItemTotal ] = useState(0);
+
         const [qt, setQt] = useState(1)
 
+        const [ product, setProduct ] = useState({
+          id:'',
+          prodid : '',
+          category : '',
+          color : '',
+          country  : '',
+          description  : '',
+          dicount  : '',
+          image64  : '',
+          images64 : '',
+          material : '', 
+          newprodname : '', 
+          price  : '',
+          quantity : '', 
+          
+        });
         const HandleOnChange = (count) => {
-            setItemTotal(count* price);
-            localStorage.setItem("total", count* price );
+            setItemTotal(count* product.price);
+            localStorage.setItem("total", count* product.price );
             localStorage.setItem("count", count)
         }
 
         const removeButtonOnClick = async () => {
-            // let data = await axios.delete(`http://localhost:8080/product/delete/${prodid}`)
+            // let data = await axios.delete(`http://localhost:8080/product/delete/${prodid})
             // .then(function (response) {
             //   // handle success
             //   console.log(response);
@@ -36,13 +53,18 @@ const CartProdComponent = () => {
       
 
     useEffect(() => {
-
-        setNewprodname(localStorage.getItem('Name'));
-        setPrice(localStorage.getItem('Price'));
-        setImgpath(localStorage.getItem('Image'));
-        setProdId(localStorage.getItem('ID'));
-        setReview(localStorage.getItem('Review'));
-        setDescription(localStorage.getItem('Description'));  }, []);
+      const myObjectString = localStorage.getItem('product');
+      const myObject = JSON.parse(myObjectString);
+        // const prod = localStorage.getItem('product'); 
+        setProduct(myObject);
+        console.log(myObject)
+        // setNewprodname(localStorage.getItem('Name'));
+        // setPrice(localStorage.getItem('Price'));
+        // setImgpath(localStorage.getItem('Image'));
+        // setProdId(localStorage.getItem('ID'));
+        // setReview(localStorage.getItem('Review'));
+        // setDescription(localStorage.getItem('Description'));  
+      }, []);
       
 
         // var Pr = {price};
@@ -57,13 +79,17 @@ const CartProdComponent = () => {
             <div className="h-24 w-24 ml-[13.5rem] rounded-lg border-2 border-[#A6A6A6]">
               <img
                 className="h-[90%] w-[90%] m-auto mt-1"
-                src={imgpath}
+                src={product.image64}
+                // src='../Images/brooks.jpg'
                 alt=""
               />
             </div>
             <div className="pl-[3rem] ">
               <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
-              <a href="oneproductview">  {newprodname} </a>
+              <a href="oneproductview"> 
+               {product.newprodname}
+               {/* Brooks Chair */}
+                </a>
               </h3>
               <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
                              {/* {selectedcolor}  {selectedmaterial} */}
@@ -78,7 +104,7 @@ const CartProdComponent = () => {
         </td>
         <td>
           <p className="text-[#34383b] text-right font-sans text-xl ">
-           Rs  {price}
+           Rs  {product.price}
           </p>
         </td>
         <td className="items-end text-right">
