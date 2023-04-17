@@ -1,11 +1,27 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { StackedLineChartOutlined } from '@mui/icons-material';
 import { Stack, TextField } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const AdminOrderDetails = ({openOrderDetails,closeOrderDetails}) => {    
+const AdminOrderDetails = ({openOrderDetails,closeOrderDetails,customId}) => {    
+  
+    const [orderData, setOrderData] = useState({});
+    const [isApproved, setIsApproved] = useState(false)
+
+    useEffect(() => {
+      if(customId) {
+        fetch(`http://localhost:8080/customorder/${customId}`)
+        .then((response) => response.json())
+        .then((result) => {
+          setOrderData(result);
+        });
+      }
+  
+    },[customId]);
+  
+  
     if(!openOrderDetails) return null
-
   return (
 
     <div className='w-full h-auto right-0 left-0 top-16 bottom-0 fixed bg-gradient-to-r bg-slate-800 bg-opacity-80 overflow-auto'>
@@ -15,30 +31,22 @@ const AdminOrderDetails = ({openOrderDetails,closeOrderDetails}) => {
         onClick={closeOrderDetails}>
                 <FontAwesomeIcon icon={faXmark} className='fill-white' > </FontAwesomeIcon>
         </button>
-
+ 
         
-      <div className="Imagessection w-[50%]">
-        <div className="MainImage items-center h-[600px] ">
+      <div className="Imagessection w-[25%] ">
+        <div className="MainImage items-center h-[40px] ">
           <img
-            className="bg-center h-[400px] bg-cover mt-20 mx-auto"
-            src="../Images/prod7.jpg"
+            className="bg-center h-[200px] bg-cover border-2 border-black mt-6 mx-auto"
+            // src="../Images/prod7.jpg"
+                // src={orderData.image}
+                src={orderData.drawing}
             alt=""
           />
         </div>
-        <div className="smallImagesSLider mx-auto w-[50%] flex">
+        <div className="drawingg p-5 mx-auto w-[35%] flex">          
           <img
             className="bg-center bg-contain border-2 border-black"
-            src=""
-            alt=""
-          />
-          <img
-            className="bg-center bg-contain border-2 border-black"
-            src="../Images/prod3.png"
-            alt=""
-          />
-          <img
-            className="bg-center bg-contain border-2 border-black "
-            // src="../Images/prod3.png"
+            src={orderData.image}
             alt=""
           />
         </div>
@@ -46,46 +54,61 @@ const AdminOrderDetails = ({openOrderDetails,closeOrderDetails}) => {
 
       <div className="information h-full w-[50%]">
         <div className="text-black text-left  text-4xl font-poppins font-semibold  mt-20">
-       
-     fcfyucy
-       {/* {product.newprodname} */}
+       {orderData.orderName}
        </div>
         <div className="ratings flex text-left mt-2 ">
           {/* <Ratings review={4} */}
           {/* /> */}
         
-          <p className="font-Manrope font-semibold text-[#2F2D3A] items-center ml-5 mt-[0.1rem]">
+          {/* <p className="font-Manrope font-semibold text-[#2F2D3A] items-center ml-5 mt-[0.1rem]">
             (15 Reviews)
-          </p>
+          </p> */}
         </div>
 
-        <div className="price text-xl font-medium text-[#ff0000]">78520
-          {/* Rs {product.price} */}
-         </div>
+        {/* <div className="price text-xl font-medium text-[#ff0000]">78520
+          Rs {product.price}
+         </div> */}
 
       <div className="mr-14">
           <p className="text-justify font-Manrope font-normal text-base ">
-          {/* {product.description} */}
+          {orderData.description}
           </p>
       </div>
 
-      <div className="AddtoCartButton mt-8 ">
-        <a href="/myshoppingcart">
-          <button  className="border-2  border-black rounded-none w-[92%] h-[50px] font-sans font-normal text-base text-white bg-black hover:text-white  hover:border-[#2c2c2c] hover:bg-[#2c2c2c]" 
+      {isApproved && (
+        <Stack className="h-20 mt-10" spacing={2}>
+              <Stack direction="row" spacing={4}>
+               <TextField label='Enter Quotation'required  variant="outlined" color="secondary"  className="newprodname  w-[52rem] ml-52"
+                  // newprodname = {newprodname}
+                  // onChange={(ev) => {
+                  // setNewprodname(ev.target.value);
+                  // console.log(ev.target.value);}}
+                  // error = {! newprodname}
+                  /> 
+              </Stack>          
+            </Stack> 
+      )}
+
+      
+
+      <div className=" mt-8 ">
+          <button  className="border-2  border-green-600 rounded-none w-[92%] h-[50px] font-sans font-normal text-base text-white bg-green-600 hover:text-white  hover:border-green-800 hover:bg-green-800" 
+          onClick={() => setIsApproved(true)}
         >
-            <p> ADD TO CART</p>
+            <p> {isApproved ? "Send Quaotaion" : "Accept Order"}</p>
           </button>
-        </a> 
         </div>
 
 
-        <div className="FavBtn mt-4 ">
+        <div className=" mt-4 ">
           <button className="border-2 border-black rounded-none  w-[92%] h-[50px] font-sans font-normal text-base hover:text-white hover:border-[#f63f3f] hover:bg-[#f63f3f]">
             {" "}
-            <p> ADD TO FAVORITES</p>{" "}
+            <p> Reject Order</p>{" "}
           </button>
         </div>
       </div>
+
+          
     
           <h1 className='text-[27px] font-bold text-black font-Pragati-Narrow flex justify-center mt-16'> L O G I N</h1>
           <p className='text-sm flex justify-center mt-16 font-Poppins'>Please enter your e-mail and password</p>

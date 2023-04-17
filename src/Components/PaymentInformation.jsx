@@ -48,6 +48,23 @@ const PaymentInformation = () => {
     console.log(event.target.value);
   };
 
+  const [ product, setProduct ] = useState({
+    id:'',
+    prodid : '',
+    category : '',
+    color : '',
+    country  : '',
+    description  : '',
+    dicount  : '',
+    image64  : '',
+    images64 : '',
+    material : '', 
+    newprodname : '', 
+    price  : '',
+    quantity : '', 
+    
+  });
+
   useEffect(() => {
 
     setNewprodname(localStorage.getItem('Name'));
@@ -293,10 +310,13 @@ const PaymentInformation = () => {
         {/* make a component including image and bottom line from here to */}
         <div className="h-28 flex items-center justify-between">
           <div className="h-24 w-24 rounded-lg border-2 border-[#A6A6A6]">
-            <StyledBadge className="cart" color="primary" badgeContent={itemCount}>
+            <StyledBadge className="cart" color="primary" badgeContent={1}
+            // {itemCount}
+            >
               <img
                 className="h-[90%] w-[90%] m-auto mt-1"
-                src= {imgpath}
+                src= {product.image64}                
+                // src='../Images/brooks.jpg'
                 alt=""
               />
             </StyledBadge>
@@ -304,6 +324,7 @@ const PaymentInformation = () => {
           <div className="pl-[2rem] ">
             <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
             {description}
+            Brooks Chair
             </h3>
             <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
           {/* {selectedcolor}  {selectedmaterial} */} ultra comfort
@@ -311,7 +332,8 @@ const PaymentInformation = () => {
           </div>
           <div className="pl-[9rem] ">
             <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-lg  ">
-            Rs  {price}
+            Rs  33,000
+            {/* {price} */}
             </h3>
           </div>
         </div>
@@ -335,7 +357,7 @@ const PaymentInformation = () => {
         <div className="flex justify-between">
           <h1 className="text-[#555454] font-sans text-base mt-2"> Subtotal</h1>
           <h3 className=" mt-2 text-[#34383b] font-sans text-lg">
-            Rs 134,999
+            Rs 33,000
           </h3>
         </div>
         <div className="flex justify-between">
@@ -350,7 +372,7 @@ const PaymentInformation = () => {
           <h3 className="text-[#555454] font-sans text-2xl mt-2 font-bold">
             <span className="font-normal text-base">Rs</span> &nbsp;
            
-             134,999
+             33,000
           </h3>
         </div>
 
