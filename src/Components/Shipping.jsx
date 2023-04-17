@@ -133,29 +133,31 @@ const Shipping = () => {
                   <StyledBadge className="cart" color="primary" badgeContent={1}>
                     <img
                       className="h-[90%] w-[90%] m-auto mt-1"
-                      src="../Images/prod4.jpg"
+                      // src="../Images/prod4.jpg"
+                      
+                      src='../Images/brooks.jpg'
                       alt=""
                     />
                   </StyledBadge>
                 </div>
                 <div className="pl-[2rem] ">
                   <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-xl ">
-                    luxury Bed
+                    Brooks Chair
                   </h3>
                   <p className="font-light mt-[0.1rem] text-[#585d61] font-sans text-sm italic">
-                    Black, Metal & Leather
+                    Ultra COmfort
                   </p>
                 </div>
                 <div className="pl-[9rem] ">
                   <h3 className="text-[#34383b] max-w-sm min-w-sm font-sans text-lg  ">
-                    Rs 134,999
+                    Rs 33,000
                   </h3>
                 </div>
               </div>
               <div className="h-[0.1rem] mt-4 mb-4  w-full bg-[#BBBBBB]"></div>
       
               {/* here   */}
-              <div className="pt-4 flex justify-between">
+              {/* <div className="pt-4 flex justify-between">
                 <input
                   className="border-2 border-[#BBBBBB] outline-none  rounded-lg px-4 text-base  h-12 w-96 focus:border-2 focus:border-[#9D9D9D] focus:ring-2 focus:ring-[#9D9D9D]"
                   type="text"
@@ -165,18 +167,18 @@ const Shipping = () => {
                 <button className="rounded-lg text-base  h-12 w-28 bg-[#9D9D9D] hover:bg-[#555454] text-white ">
                   Apply
                 </button>
-              </div>
-              <div className="h-[0.1rem] mt-8 mb-4  w-full bg-[#BBBBBB]"></div>
+              </div> */}
+              {/* <div className="h-[0.1rem] mt-8 mb-4  w-full bg-[#BBBBBB]"></div> */}
               <div className="flex justify-between">
                 <h1 className="text-[#555454] font-sans text-base mt-2"> Subtotal</h1>
                 <h3 className=" mt-2 text-[#34383b] font-sans text-lg">
-                  Rs 134,999
+                Rs 33,000
                 </h3>
               </div>
               <div className="flex justify-between">
                 <h1 className="text-[#555454] font-sans text-base mt-2"> Shipping</h1>
                 <h3 className="text-[#555454] font-sans text-xs mt-4 ">
-                  Calculated At Next Step
+                  Distance*300
                 </h3>
               </div>
               <div className="h-[0.1rem] mt-8 mb-4  w-full bg-[#BBBBBB]"></div>
@@ -185,7 +187,7 @@ const Shipping = () => {
                 <h3 className="text-[#555454] font-sans text-2xl mt-2 font-bold">
                   <span className="font-normal text-base">Rs</span> &nbsp;
                  
-                   134,999
+                   33,000
                 </h3>
               </div>
       

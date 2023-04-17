@@ -46,11 +46,11 @@ const FavouritesModal = ({ openFav, closeFavHandler }) => {
     {/* one fav item component */}   
      <div className="ml-6 mt-4 mb-3 bg-green-300 bg-opacity-30 w-[25rem] h-28 rounded-lg relative">
         <div className="ml-4 absolute mt-2 h-24 w-24 rounded-lg  bg-white flex justify-between items-center">
-          <img className="h-[90%] w-[90%] m-auto "src='../Images/prod8.jpg'alt=""/> 
+          <img className="h-[90%] w-[90%] m-auto "src='../Images/brooks.jpg'alt=""/> 
         </div>              
         <div className="ml-[8.5rem] w-[16rem] h-28 absolute">
-            <p className="text-[#34383b] font-sans text-base mt-2">Single Leather Sofa   </p>
-            <p className="text-[#34383b] font-sans font-semibold text-base mt-2">  Rs 78,500 </p>          
+            <p className="text-[#34383b] font-sans text-base mt-2">Brooks Chair  </p>
+            <p className="text-[#34383b] font-sans font-semibold text-base mt-2">  Rs 33,000 </p>          
         </div>  
   
        <button className=" px-[0.45rem] py-[0.125rem] absolute -top-2 -right-2 text-white rounded-full text-sm font-medium border-slate-500 bg-slate-500 bg-opacity-50 hover:bg-slate-700">

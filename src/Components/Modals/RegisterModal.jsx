@@ -8,7 +8,7 @@ const LoginModal = ({openRegisterM,closeRegisterM}) => {
 
   return (
 
-    <div className='w-full h-auto right-0 left-0 top-16 bottom-0 fixed bg-gradient-to-r from-green-400 to-blue-500 bg-opacity-100 overflow-auto '>
+    <div className='w-full h-auto right-0 left-0 top-16 bottom-0 fixed bg-gradient-to-r from-green-400 to-blue-500 bg-opacity-100 overflow-auto z-50'>
         <div className='mt-7 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed w-[500px] h-[620px] backdrop-blur-md items-center justify-center rounded-lg  bg-white'>
 
         <button className=' px-[0.5rem] py-[0.125rem] left-[29.6rem] top-6 transform -translate-x-1/2 -translate-y-1/2 b fixed border-2 text-white rounded-lg text-sm font-medium border-red-500 bg-red-500  ext-white hover:border-red-700 hover:bg-red-700 '   onClick={closeRegisterM}>
@@ -17,7 +17,7 @@ const LoginModal = ({openRegisterM,closeRegisterM}) => {
 
           
           <h1 className='text-[27px] font-bold text-black font-Pragati-Narrow flex justify-center mt-10'>R E G I S T E R</h1>
-          <p className='text-sm flex justify-center mt-7 font-Poppins'>please fill in the information below:</p>
+          <p className='text-sm flex justify-center mt-7 font-Poppins z-50'>please fill in the information below:</p>
 
 
           <Stack className="h-16 w-[85%] mt-8 mx-auto" spacing={2}>
@@ -89,7 +89,7 @@ const LoginModal = ({openRegisterM,closeRegisterM}) => {
           </div>
 
           
-          <p className='text-sm flex justify-center mt-2 font-Poppins'>already have an account?  
+          <p className='text-sm flex text-black justify-center mt-2 font-Poppins z-50'>already have an account?  
           &nbsp;
           <a href="/Contactus"  className='underline underline-offset-4 text-[#B05C0D]'>Login</a>
           </p>

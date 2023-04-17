@@ -75,7 +75,7 @@ export default function AddProduct() {
   };
 
   const handleChange = (event) => {
-    setCategory(event.target.value);    
+    setCategory(event.target.value);     
     console.log(event.target.value);
   };
 
